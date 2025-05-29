@@ -4,7 +4,7 @@ import UnoCSS from '@unocss/astro';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://yourusername.github.io',
-  base: '/bar_joni',
+  site: 'https://albin-mema.github.io',
+  base: '/beach-bar-joni-golem/',
   integrations: [UnoCSS()],
 });

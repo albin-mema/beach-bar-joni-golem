@@ -11,11 +11,11 @@ import '../styles/global.css'
 		<meta name="description" content="Beach Bar Joni menu gallery and location in Golem, Albania. View our food and cocktail menus and find us on Instagram." />
 
 		<!-- Favicons -->
-		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-		<link rel="manifest" href="/site.webmanifest" />
+		<link rel="icon" type="image/x-icon" href={`${import.meta.env.BASE_URL}favicon.ico`} />
+		<link rel="icon" type="image/png" sizes="16x16" href={`${import.meta.env.BASE_URL}favicon-16x16.png`} />
+		<link rel="icon" type="image/png" sizes="32x32" href={`${import.meta.env.BASE_URL}favicon-32x32.png`} />
+		<link rel="apple-touch-icon" sizes="180x180" href={`${import.meta.env.BASE_URL}apple-touch-icon.png`} />
+		<link rel="manifest" href={`${import.meta.env.BASE_URL}site.webmanifest`} />
 
 		<!-- Theme color for mobile browsers -->
 		<meta name="theme-color" content="#f5f5f5" />
@@ -25,7 +25,7 @@ import '../styles/global.css'
 		<div class="gallery-container">
 			<div class="header">
 				<img
-					src="/bar-joni-logo.jpg"
+					src={`${import.meta.env.BASE_URL}bar-joni-logo.jpg`}
 					alt="Bar Joni Logo"
 					class="logo"
 					loading="eager"
@@ -36,7 +36,7 @@ import '../styles/global.css'
 			<div class="gallery-grid">
 				<div class="image-wrapper">
 					<img
-						src="/Beach_Bar_Joni_Menu.png"
+						src={`${import.meta.env.BASE_URL}Beach_Bar_Joni_Menu.png`}
 						alt="Beach Bar Joni Menu"
 						class="menu-image"
 						loading="lazy"
@@ -44,7 +44,7 @@ import '../styles/global.css'
 				</div>
 				<div class="image-wrapper">
 					<img
-						src="/Beach_Bar_Joni_Menu_Cocktails.png"
+						src={`${import.meta.env.BASE_URL}Beach_Bar_Joni_Menu_Cocktails.png`}
 						alt="Beach Bar Joni Cocktails Menu"
 						class="menu-image"
 						loading="lazy"
