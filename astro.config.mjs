@@ -4,5 +4,7 @@ import UnoCSS from '@unocss/astro';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://yourusername.github.io',
+  base: '/bar_joni',
   integrations: [UnoCSS()],
 });
