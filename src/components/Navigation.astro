@@ -1,0 +1,169 @@
+---
+interface Props {
+  currentPage?: string;
+}
+
+const { currentPage = 'home' } = Astro.props;
+---
+
+<nav class="top-0 right-0 left-0 z-50 fixed transition-all duration-300 nav-bar">
+  <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <a href={`${import.meta.env.BASE_URL}#home`} class="group flex items-center space-x-3">
+        <img
+          src={`${import.meta.env.BASE_URL}bar-joni-logo.jpg`}
+          alt="Bar Joni Logo"
+          class="rounded-full w-10 h-10 object-cover group-hover:scale-105 transition-transform"
+        />
+        <span class="font-bold text-white nav-scrolled:text-gray-900 text-xl transition-colors">
+          Beach Bar Joni
+        </span>
+      </a>
+
+      <!-- Menu Button with Hover Menu -->
+      <div class="group relative menu-container">
+        <button
+          type="button"
+          aria-label="Toggle menu"
+          class="flex flex-col space-y-1 mobile-menu-toggle"
+        >
+          <span class="bg-white nav-scrolled:bg-gray-900 w-6 h-0.5 transition-colors"></span>
+          <span class="bg-white nav-scrolled:bg-gray-900 w-6 h-0.5 transition-colors"></span>
+          <span class="bg-white nav-scrolled:bg-gray-900 w-6 h-0.5 transition-colors"></span>
+        </button>
+
+        <!-- Hover Menu -->
+        <div class="invisible group-hover:visible top-full right-0 absolute opacity-0 group-hover:opacity-100 mt-2 w-48 transition-all translate-y-2 group-hover:translate-y-0 duration-300 transform mobile-menu">
+          <div class="space-y-1 bg-white/95 shadow-lg backdrop-blur-md px-2 pt-2 pb-3 rounded-lg">
+            <a href={`${import.meta.env.BASE_URL}#home`} class="block hover:bg-gray-50 px-3 py-2 rounded-md text-gray-700 hover:text-blue-600 transition-colors mobile-nav-link">Home</a>
+            <a href={`${import.meta.env.BASE_URL}#about`} class="block hover:bg-gray-50 px-3 py-2 rounded-md text-gray-700 hover:text-blue-600 transition-colors mobile-nav-link">About</a>
+            <a href={`${import.meta.env.BASE_URL}menu`} class="block hover:bg-gray-50 px-3 py-2 rounded-md text-gray-700 hover:text-blue-600 transition-colors mobile-nav-link">Menu</a>
+            <a href={`${import.meta.env.BASE_URL}#gallery`} class="block hover:bg-gray-50 px-3 py-2 rounded-md text-gray-700 hover:text-blue-600 transition-colors mobile-nav-link">Gallery</a>
+            <a href={`${import.meta.env.BASE_URL}#location`} class="block hover:bg-gray-50 px-3 py-2 rounded-md text-gray-700 hover:text-blue-600 transition-colors mobile-nav-link">Location</a>
+            <a href={`${import.meta.env.BASE_URL}#contact`} class="block hover:bg-gray-50 px-3 py-2 rounded-md text-gray-700 hover:text-blue-600 transition-colors mobile-nav-link">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .nav-bar {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-bar.nav-scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-bar.nav-hidden {
+    transform: translateY(-100%);
+  }
+
+  .nav-link {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+  }
+
+  .nav-scrolled .nav-link {
+    color: rgb(55 65 81); /* text-gray-700 */
+    text-shadow: none;
+  }
+
+  .nav-scrolled .nav-link:hover {
+    color: rgb(37 99 235); /* text-blue-600 */
+  }
+
+  .nav-scrolled .nav-link.active {
+    color: rgb(37 99 235); /* text-blue-600 */
+    font-weight: 600; /* font-semibold */
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const nav = document.querySelector('.nav-bar');
+    const navToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    // Navigation scroll effects
+    function updateNavigation() {
+      const currentScrollY = window.scrollY;
+      
+      // Add scrolled class when scrolled down
+      if (currentScrollY > 50) {
+        nav?.classList.add('nav-scrolled');
+      } else {
+        nav?.classList.remove('nav-scrolled');
+      }
+
+      // Hide/show navigation based on scroll direction
+      if (currentScrollY > 100) {
+        if (currentScrollY > lastScrollY && currentScrollY > 200) {
+          nav?.classList.add('nav-hidden');
+        } else {
+          nav?.classList.remove('nav-hidden');
+        }
+      } else {
+        nav?.classList.remove('nav-hidden');
+      }
+
+      lastScrollY = currentScrollY;
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(updateNavigation);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Mobile navigation hover (no click functionality needed for hover menu)
+
+    // Smooth scrolling for navigation links
+    const links = document.querySelectorAll('a[href^="#"]');
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          const navHeight = nav?.offsetHeight || 0;
+          const targetPosition = targetElement.offsetTop - navHeight;
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  });
+</script>

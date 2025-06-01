@@ -1,0 +1,78 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  backgroundImage: string;
+  showButtons?: boolean;
+}
+
+const { title, subtitle, backgroundImage, showButtons = false } = Astro.props;
+---
+
+<section id="home" class="relative flex justify-center items-center min-h-screen overflow-hidden">
+  <!-- Background Image -->
+  <div 
+    class="absolute inset-0 bg-cover bg-center bg-fixed"
+    style={`background-image: url('${backgroundImage}')`}
+  >
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="z-10 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
+    <h1 class="mb-6 font-black text-white text-5xl md:text-6xl lg:text-7xl tracking-tight">
+      {title}
+    </h1>
+    <p class="mx-auto mb-8 max-w-3xl font-light text-white/95 text-xl md:text-2xl lg:text-3xl leading-relaxed">
+      {subtitle}
+    </p>
+    
+    {showButtons && (
+      <div class="flex sm:flex-row flex-col justify-center items-center gap-4">
+        <a
+          href={`${import.meta.env.BASE_URL}menu`}
+          class="inline-flex justify-center items-center bg-blue-600 hover:bg-blue-700 hover:shadow-xl px-8 py-4 rounded-lg min-w-[160px] font-semibold text-white text-lg hover:scale-105 transition-all duration-300"
+        >
+          View Menu
+        </a>
+        <a
+          href="#location"
+          class="inline-flex justify-center items-center bg-white/10 hover:bg-white hover:shadow-xl backdrop-blur-sm px-8 py-4 border-2 border-white rounded-lg min-w-[160px] font-semibold text-white hover:text-gray-900 text-lg hover:scale-105 transition-all duration-300"
+        >
+          Find Us
+        </a>
+      </div>
+    )}
+  </div>
+
+
+</section>
+
+<style>
+  /* Custom animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  section h1 {
+    animation: fadeInUp 0.8s ease-out;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+  }
+
+  section p {
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  }
+
+  section div:last-child {
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+  }
+</style>

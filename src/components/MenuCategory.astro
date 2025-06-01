@@ -1,0 +1,25 @@
+---
+export interface Props {
+  title: string;
+  items: Array<{
+    name: string;
+    price: string;
+  }>;
+}
+
+const { title, items } = Astro.props;
+---
+
+<article>
+  <h3>{title}</h3>
+  <ul>
+    {items.map((item) => (
+      <li>
+        <div>
+          <h4>{item.name}</h4>
+        </div>
+        <span>{item.price}</span>
+      </li>
+    ))}
+  </ul>
+</article>
