@@ -6,6 +6,11 @@ import Section from '../components/Section.astro'
 import Gallery from '../components/Gallery.astro'
 import Button from '../components/Button.astro'
 import Footer from '../components/Footer.astro'
+import { getTranslations, useTranslations } from '../i18n/utils.js'
+
+const lang = 'en'
+const translations = await getTranslations(lang)
+const t = useTranslations(translations)
 
 // Gallery images data
 const galleryImages = [
@@ -28,13 +33,13 @@ const galleryImages = [
 ];
 ---
 
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Beach Bar Joni - Golem, Albania</title>
-		<meta name="description" content="Beach Bar Joni in Golem. Enjoy cocktails, beers, and beautiful beach views. Visit us for an unforgettable bar experience by the sea." />
+		<title>{t('meta.title')}</title>
+		<meta name="description" content={t('meta.description')} />
 
 		<!-- Favicons -->
 		<link rel="icon" type="image/x-icon" href={`${import.meta.env.BASE_URL}favicon.ico`} />
@@ -48,14 +53,16 @@ const galleryImages = [
 	</head>
 	<body class="bg-white">
 		<!-- Navigation -->
-		<Navigation currentPage="home" />
+		<Navigation currentPage="home" lang={lang} translations={translations} />
 
 		<!-- Hero Section -->
 		<Hero
-			title="Beach Bar Joni"
-			subtitle="Experience the perfect blend of refreshing drinks and stunning beach views"
+			title={t('hero.title')}
+			subtitle={t('hero.subtitle')}
 			backgroundImage={`${import.meta.env.BASE_URL}beach_bar.jpeg`}
 			showButtons={true}
+			lang={lang}
+			translations={translations}
 		/>
 
 		<!-- Gallery Section -->
@@ -69,36 +76,21 @@ const galleryImages = [
 		<!-- Location Section -->
 		<Section
 			id="location"
-			title="Visit Us"
-			subtitle="Find us on the beautiful shores of Golem"
+			title={t('location.title')}
+			subtitle={t('location.subtitle')}
 		>
 			<div class="items-start gap-12 grid grid-cols-1 lg:grid-cols-2">
 				<!-- Info Cards -->
 				<div class="space-y-8">
 					<div class="bg-white shadow-md hover:shadow-lg p-6 rounded-xl transition-shadow">
-						<h3 class="mb-3 font-semibold text-gray-900 text-xl">Address</h3>
-						<p class="text-gray-600 leading-relaxed">
-							Shetitorja plazhit Golem<br>
-							Golem, Tiranë, Albania
-						</p>
+						<h3 class="mb-3 font-semibold text-gray-900 text-xl">{t('location.address')}</h3>
+						<p class="text-gray-600 leading-relaxed" set:html={t('location.addressText').replace(/\n/g, '<br>')}></p>
 					</div>
 					<div class="bg-white shadow-md hover:shadow-lg p-6 rounded-xl transition-shadow">
-						<h3 class="mb-3 font-semibold text-gray-900 text-xl">Hours</h3>
-						<p class="text-gray-600 leading-relaxed">
-							<strong>Daily:</strong> 7:00 AM - 12:00 PM<br>
-							<em>Hours may vary seasonally</em>
-						</p>
+						<h3 class="mb-3 font-semibold text-gray-900 text-xl">{t('location.hours')}</h3>
+						<p class="text-gray-600 leading-relaxed" set:html={t('location.hoursText').replace(/\n/g, '<br>')}></p>
 					</div>
-					<div class="bg-white shadow-md hover:shadow-lg p-6 rounded-xl transition-shadow">
-						<h3 class="mb-3 font-semibold text-gray-900 text-xl">Contact</h3>
-						<p class="text-gray-600 leading-relaxed">
-							<strong>Instagram:</strong>
-							<a href="https://www.instagram.com/beach_bar_joni/" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 transition-colors">
-								@beach_bar_joni
-							</a><br>
-							<strong>Location:</strong> Beachfront bar with sea views
-						</p>
-					</div>
+
 				</div>
 
 				<!-- Map -->
@@ -133,7 +125,7 @@ const galleryImages = [
 						size="lg"
 					>
 						<span class="mr-2">📱</span>
-						Follow us on Instagram
+						{t('contact.followInstagram')}
 					</Button>
 					<Button
 						href="https://www.google.com/maps/place/Bar+Joni/@41.2524711,19.5200636,430m/data=!3m1!1e3!4m6!3m5!1s0x134fdfe5c479096b:0x14f9543b2e829c61!8m2!3d41.2524711!4d19.5200636!16s%2Fg%2F11y3k8qx8q"
@@ -143,14 +135,14 @@ const galleryImages = [
 						size="lg"
 					>
 						<span class="mr-2">📍</span>
-						Get Directions
+						{t('contact.getDirections')}
 					</Button>
 				</div>
 			</div>
 		</Section>
 
 		<!-- Footer -->
-		<Footer />
+		<Footer lang={lang} translations={translations} />
 
 		<!-- Instagram Embed Script -->
 		<script is:inline async src="https://www.instagram.com/embed.js"></script>

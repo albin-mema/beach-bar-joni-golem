@@ -1,0 +1,161 @@
+---
+import '../../styles/global.css'
+import Navigation from '../../components/Navigation.astro'
+import Hero from '../../components/Hero.astro'
+import Section from '../../components/Section.astro'
+import Gallery from '../../components/Gallery.astro'
+import Button from '../../components/Button.astro'
+import Footer from '../../components/Footer.astro'
+import { getTranslations, useTranslations } from '../../i18n/utils.js'
+
+const lang = 'de'
+const translations = await getTranslations(lang)
+const t = useTranslations(translations)
+
+// Gallery images data
+const galleryImages = [
+  {
+    src: `${import.meta.env.BASE_URL}beach_bar.jpeg`,
+    alt: "Beach Bar Joni - Vista sulla Spiaggia"
+  },
+  {
+    src: `${import.meta.env.BASE_URL}beach_bar_1.jpeg`,
+    alt: "Beach Bar Joni - Posti a Sedere all'Aperto"
+  },
+  {
+    src: `${import.meta.env.BASE_URL}beach_bar_2.jpeg`,
+    alt: "Beach Bar Joni - Interno del Bar"
+  },
+  {
+    src: `${import.meta.env.BASE_URL}drinks.jpeg`,
+    alt: "Beach Bar Joni - Cocktail e Bevande"
+  }
+];
+---
+
+<html lang={lang}>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{t('meta.title')}</title>
+		<meta name="description" content={t('meta.description')} />
+		
+		<!-- Favicon -->
+		<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+		<link rel="icon" type="image/png" href={`${import.meta.env.BASE_URL}favicon.png`} />
+		<link rel="apple-touch-icon" href={`${import.meta.env.BASE_URL}apple-touch-icon.png`} />
+		
+		<!-- Visitor tracking -->
+		<script>
+			// Send visitor data to Google Sheets
+			fetch('https://script.google.com/macros/s/AKfycbxvZNXq1f3CU8pEg-pgsij9VICglp62bLKH1l0YRPe4k4GdOFvvLaA0rmNQ2XzqrPRz0Q/exec', {
+				method: 'POST',
+				mode: 'no-cors',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					timestamp: new Date().toISOString(),
+					page: window.location.href,
+					userAgent: navigator.userAgent,
+					language: navigator.language
+				})
+			}).catch(err => console.log('Tracking request failed:', err));
+		</script>
+	</head>
+
+	<body>
+		<!-- Navigation -->
+		<Navigation currentPage="home" lang={lang} translations={translations} />
+
+		<main>
+			<!-- Hero Section -->
+			<Hero
+				title={t('hero.title')}
+				subtitle={t('hero.subtitle')}
+				backgroundImage={`${import.meta.env.BASE_URL}beach_bar.jpeg`}
+				showButtons={true}
+				lang={lang}
+				translations={translations}
+			/>
+
+			<!-- Gallery Section -->
+			<Section
+				id="gallery"
+				background="gray"
+			>
+				<Gallery images={galleryImages} />
+			</Section>
+
+			<!-- Location Section -->
+			<Section
+				id="location"
+				title={t('location.title')}
+				subtitle={t('location.subtitle')}
+			>
+				<div class="items-start gap-12 grid grid-cols-1 lg:grid-cols-2">
+					<!-- Info Cards -->
+					<div class="space-y-8">
+						<div class="bg-white shadow-md hover:shadow-lg p-6 rounded-xl transition-shadow">
+							<h3 class="mb-3 font-semibold text-gray-900 text-xl">{t('location.address')}</h3>
+							<p class="text-gray-600 leading-relaxed" set:html={t('location.addressText').replace(/\n/g, '<br>')}></p>
+						</div>
+						<div class="bg-white shadow-md hover:shadow-lg p-6 rounded-xl transition-shadow">
+							<h3 class="mb-3 font-semibold text-gray-900 text-xl">{t('location.hours')}</h3>
+							<p class="text-gray-600 leading-relaxed" set:html={t('location.hoursText').replace(/\n/g, '<br>')}></p>
+						</div>
+					</div>
+					
+					<!-- Google Maps -->
+					<div class="bg-white shadow-md hover:shadow-lg rounded-xl overflow-hidden transition-shadow">
+						<iframe
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.8234567890123!2d19.52006358162717!3d41.25247109878686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134fdfe5c479096b%3A0x14f9543b2e829c61!2sBar%20Joni!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s"
+							width="100%"
+							height="300"
+							style="border:0;"
+							allowfullscreen=""
+							loading="lazy"
+							referrerpolicy="no-referrer-when-downgrade"
+							title="Bar Joni Location">
+						</iframe>
+					</div>
+				</div>
+			</Section>
+
+			<!-- Contact Section -->
+			<Section
+				id="contact"
+				background="gray"
+			>
+				<div class="space-y-8 mx-auto max-w-4xl text-center">
+					<div class="flex sm:flex-row flex-col justify-center gap-4">
+						<Button
+							href="https://www.instagram.com/beach_bar_joni/"
+							target="_blank"
+							rel="noopener"
+							variant="primary"
+							size="lg"
+						>
+							<span class="mr-2">📱</span>
+							{t('contact.followInstagram')}
+						</Button>
+						<Button
+							href="https://www.google.com/maps/place/Bar+Joni/@41.2524711,19.5200636,430m/data=!3m1!1e3!4m6!3m5!1s0x134fdfe5c479096b:0x14f9543b2e829c61!8m2!3d41.2524711!4d19.5200636!16s%2Fg%2F11y3k8qx8q"
+							target="_blank"
+							rel="noopener"
+							variant="outline"
+							size="lg"
+						>
+							<span class="mr-2">📍</span>
+							{t('contact.getDirections')}
+						</Button>
+					</div>
+				</div>
+			</Section>
+		</main>
+
+		<!-- Footer -->
+		<Footer lang={lang} translations={translations} />
+	</body>
+</html>

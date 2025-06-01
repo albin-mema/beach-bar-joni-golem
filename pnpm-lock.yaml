@@ -11,6 +11,9 @@ dependencies:
   astro:
     specifier: ^5.8.1
     version: 5.8.1(typescript@5.8.3)
+  lucide-astro:
+    specifier: ^0.511.0
+    version: 0.511.0(astro@5.8.1)
 
 devDependencies:
   '@tailwindcss/typography':
@@ -1945,6 +1948,14 @@ packages:
 
   /lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
+    dev: false
+
+  /lucide-astro@0.511.0(astro@5.8.1):
+    resolution: {integrity: sha512-Apf3qFMiHmZM/9qVmQ7Tm6svhCvOtyLxnZ9ES3JIcfsPhgkrLTAytTAfYIg81m1sr4vPBg2i9F3DCUN5Hz68VQ==}
+    peerDependencies:
+      astro: '>=2.7.1'
+    dependencies:
+      astro: 5.8.1(typescript@5.8.3)
     dev: false
 
   /magic-string@0.30.17:

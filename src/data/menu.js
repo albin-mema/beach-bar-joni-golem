@@ -18,6 +18,13 @@ export const menuData = {
         featured: true
       },
       {
+        name: "Margarita",
+        price: "600 L",
+        description: "Premium tequila, fresh lime juice, triple sec, salt rim",
+        image: "https://images.unsplash.com/photo-1517620430776-0ec904756579?fm=jpg&q=80&w=600&h=400&fit=crop&ixlib=rb-4.0.3",
+        featured: true
+      },
+      {
         name: "Caipiroska",
         price: "600 L"
       },
@@ -25,21 +32,7 @@ export const menuData = {
         name: "Sex On The Beach",
         price: "600 L"
       },
-      {
-        name: "Caipirinha",
-        price: "600 L"
-      },
-      {
-        name: "Daiquiri",
-        price: "600 L"
-      },
-      {
-        name: "Margarita",
-        price: "600 L",
-        description: "Premium tequila, fresh lime juice, triple sec, salt rim",
-        image: "https://images.unsplash.com/photo-1517620430776-0ec904756579?fm=jpg&q=80&w=600&h=400&fit=crop&ixlib=rb-4.0.3",
-        featured: true
-      }
+
     ]
   },
   "Birra": {

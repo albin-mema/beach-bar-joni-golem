@@ -1,48 +1,129 @@
 ---
+import { getLocalizedUrl, getLanguageUrls } from '../i18n/utils.js';
+import { Martini } from 'lucide-astro';
+
 interface Props {
   currentPage?: string;
+  lang?: string;
+  translations?: any;
 }
 
-const { currentPage = 'home' } = Astro.props;
+const { currentPage = 'home', lang = 'en', translations } = Astro.props;
+
+// Get translation function
+function t(key) {
+  if (!translations) return key;
+  const keys = key.split('.');
+  let value = translations;
+  for (const k of keys) {
+    if (value && typeof value === 'object' && k in value) {
+      value = value[k];
+    } else {
+      return key;
+    }
+  }
+  return value;
+}
+
+// Get language URLs for current path
+// Remove base path and language prefix to get the clean path
+let currentPath = Astro.url.pathname;
+
+// Remove base path if present
+if (import.meta.env.BASE_URL && currentPath.startsWith(import.meta.env.BASE_URL)) {
+  currentPath = currentPath.slice(import.meta.env.BASE_URL.length - 1); // Keep leading slash
+}
+
+// Remove language prefix (e.g., /sq/, /it/, etc.) but keep the rest
+currentPath = currentPath.replace(/^\/[a-z]{2}\//, '/');
+
+// Ensure we have a clean path
+if (!currentPath || currentPath === '/') {
+  currentPath = '/';
+} else if (!currentPath.startsWith('/')) {
+  currentPath = '/' + currentPath;
+}
+const languageUrls = getLanguageUrls(currentPath, lang);
+
+// Language configuration with flag emojis
+const languageConfig = {
+  en: { label: 'English', flag: '🇬🇧' },
+  sq: { label: 'Shqip', flag: '🇦🇱' },
+  it: { label: 'Italiano', flag: '🇮🇹' },
+  pl: { label: 'Polski', flag: '🇵🇱' },
+  de: { label: 'Deutsch', flag: '🇩🇪' }
+};
 ---
 
 <nav class="top-0 right-0 left-0 z-50 fixed transition-all duration-300 nav-bar">
   <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
     <div class="flex justify-between items-center h-16">
       <!-- Logo -->
-      <a href={`${import.meta.env.BASE_URL}#home`} class="group flex items-center space-x-3">
+      <a href={getLocalizedUrl('/', lang)} class="group flex items-center space-x-3">
         <img
           src={`${import.meta.env.BASE_URL}bar-joni-logo.jpg`}
           alt="Bar Joni Logo"
           class="rounded-full w-10 h-10 object-cover group-hover:scale-105 transition-transform"
         />
         <span class="font-bold text-white nav-scrolled:text-gray-900 text-xl transition-colors">
-          Beach Bar Joni
+          {t('navigation.brand')}
         </span>
       </a>
 
-      <!-- Menu Button with Hover Menu -->
-      <div class="group relative menu-container">
-        <button
-          type="button"
-          aria-label="Toggle menu"
-          class="flex flex-col justify-center items-center space-y-1 p-4 min-w-[48px] min-h-[48px] mobile-menu-toggle"
-        >
-          <span class="bg-white nav-scrolled:bg-gray-900 w-6 h-0.5 transition-colors"></span>
-          <span class="bg-white nav-scrolled:bg-gray-900 w-6 h-0.5 transition-colors"></span>
-          <span class="bg-white nav-scrolled:bg-gray-900 w-6 h-0.5 transition-colors"></span>
-        </button>
+      <!-- Right side menus -->
+      <div class="flex items-center space-x-4">
+        <!-- Language Selector -->
+        <div class="group relative language-menu-container">
+          <button class="flex items-center space-x-2 bg-white/10 hover:bg-white/20 nav-scrolled:bg-gray-100 nav-scrolled:hover:bg-gray-200 px-3 py-2 rounded-lg transition-colors language-menu-toggle">
+            <span class="text-xl">{languageConfig[lang]?.flag}</span>
+            <span class="hidden sm:block font-medium text-white nav-scrolled:text-gray-900 text-sm">{languageConfig[lang]?.label}</span>
+            <svg class="w-4 h-4 text-white nav-scrolled:text-gray-900 group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
 
-        <!-- Mobile Menu -->
-        <div class="invisible group-hover:visible top-full right-0 absolute opacity-0 group-hover:opacity-100 mt-2 w-48 transition-all translate-y-2 group-hover:translate-y-0 duration-300 transform mobile-menu">
-          <div class="space-y-1 bg-white/95 shadow-lg backdrop-blur-md px-2 pt-2 pb-3 rounded-lg">
-            <a href={`${import.meta.env.BASE_URL}#home`} class="block hover:bg-gray-50 px-3 py-2 rounded-md text-gray-700 hover:text-blue-600 transition-colors mobile-nav-link">Home</a>
-            <a href={`${import.meta.env.BASE_URL}#about`} class="block hover:bg-gray-50 px-3 py-2 rounded-md text-gray-700 hover:text-blue-600 transition-colors mobile-nav-link">About</a>
-            <a href={`${import.meta.env.BASE_URL}menu`} class="block hover:bg-gray-50 px-3 py-2 rounded-md text-gray-700 hover:text-blue-600 transition-colors mobile-nav-link">Menu</a>
-            <a href={`${import.meta.env.BASE_URL}#gallery`} class="block hover:bg-gray-50 px-3 py-2 rounded-md text-gray-700 hover:text-blue-600 transition-colors mobile-nav-link">Gallery</a>
-            <a href={`${import.meta.env.BASE_URL}#location`} class="block hover:bg-gray-50 px-3 py-2 rounded-md text-gray-700 hover:text-blue-600 transition-colors mobile-nav-link">Location</a>
-            <a href={`${import.meta.env.BASE_URL}#contact`} class="block hover:bg-gray-50 px-3 py-2 rounded-md text-gray-700 hover:text-blue-600 transition-colors mobile-nav-link">Contact</a>
+          <!-- Language Dropdown -->
+          <div class="invisible group-hover:visible top-full right-0 absolute opacity-0 group-hover:opacity-100 mt-2 w-48 transition-all translate-y-2 group-hover:translate-y-0 duration-300 transform language-menu">
+            <div class="space-y-1 bg-white/95 shadow-lg backdrop-blur-md px-2 pt-2 pb-3 rounded-lg">
+              {Object.entries(languageConfig).map(([langCode, langData]) => {
+                const langUrl = languageUrls[langCode]?.url || getLocalizedUrl('/', langCode);
+                const isActive = langCode === lang;
+                return (
+                  <a
+                    href={langUrl}
+                    class={`flex items-center space-x-3 px-3 py-2 rounded-md text-sm transition-colors language-nav-link ${isActive ? 'bg-blue-50 text-blue-600 font-medium' : 'text-gray-700 hover:bg-gray-50 hover:text-blue-600'}`}
+                  >
+                    <span class="text-lg">{langData.flag}</span>
+                    <span>{langData.label}</span>
+                    {isActive && <span class="ml-auto text-blue-600">✓</span>}
+                  </a>
+                );
+              })}
+            </div>
           </div>
+        </div>
+
+        <!-- Navigation Icons -->
+        <div class="flex items-center space-x-3">
+          <!-- Home Icon -->
+          <a
+            href={getLocalizedUrl('/', lang)}
+            aria-label={t('navigation.home')}
+            class="group flex justify-center items-center bg-white/10 hover:bg-white/20 nav-scrolled:bg-gray-100 nav-scrolled:hover:bg-gray-200 p-3 rounded-lg transition-colors"
+          >
+            <svg class="w-5 h-5 text-white nav-scrolled:text-gray-900 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+            </svg>
+          </a>
+
+          <!-- Menu Icon -->
+          <a
+            href={getLocalizedUrl('/menu', lang)}
+            aria-label={t('navigation.menu')}
+            class="group flex justify-center items-center bg-white/10 hover:bg-white/20 nav-scrolled:bg-gray-100 nav-scrolled:hover:bg-gray-200 p-3 rounded-lg transition-colors"
+          >
+            <Martini class="w-5 h-5 text-white nav-scrolled:text-gray-900 group-hover:scale-110 transition-transform" />
+          </a>
         </div>
       </div>
     </div>
@@ -101,33 +182,39 @@ const { currentPage = 'home' } = Astro.props;
     font-weight: 600; /* font-semibold */
   }
 
-  /* Mobile menu improvements */
-  .mobile-menu-toggle {
+  /* Navigation icon improvements */
+  .nav-icon {
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
   }
 
-  .mobile-menu {
+  /* Language menu styles */
+  .language-menu {
     z-index: 1000;
   }
 
-  /* Ensure menu works on touch devices */
+  .language-menu-toggle {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Ensure language menu works on touch devices */
   @media (hover: none) and (pointer: coarse) {
-    .menu-container:hover .mobile-menu {
+    .language-menu-container:hover .language-menu {
       visibility: hidden;
       opacity: 0;
       transform: translateY(8px);
     }
 
-    .mobile-menu.visible {
+    .language-menu.visible {
       visibility: visible !important;
       opacity: 1 !important;
       transform: translateY(0) !important;
     }
   }
 
-  /* Improve touch targets */
-  .mobile-nav-link {
+  /* Language nav link improvements */
+  .language-nav-link {
     min-height: 44px;
     display: flex;
     align-items: center;
@@ -137,8 +224,8 @@ const { currentPage = 'home' } = Astro.props;
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const nav = document.querySelector('.nav-bar');
-    const navToggle = document.querySelector('.mobile-menu-toggle');
-    const mobileMenu = document.querySelector('.mobile-menu');
+    const languageToggle = document.querySelector('.language-menu-toggle');
+    const languageMenu = document.querySelector('.language-menu');
     let lastScrollY = window.scrollY;
     let ticking = false;
 
@@ -177,44 +264,43 @@ const { currentPage = 'home' } = Astro.props;
 
     window.addEventListener('scroll', onScroll, { passive: true });
 
-    // Mobile navigation toggle functionality
-    let isMenuOpen = false;
+    // Language navigation toggle functionality
+    let isLanguageMenuOpen = false;
 
-    function toggleMobileMenu() {
-      isMenuOpen = !isMenuOpen;
-      if (mobileMenu) {
-        if (isMenuOpen) {
-          mobileMenu.classList.remove('invisible', 'opacity-0', 'translate-y-2');
-          mobileMenu.classList.add('visible', 'opacity-100', 'translate-y-0');
+    function toggleLanguageMenu() {
+      isLanguageMenuOpen = !isLanguageMenuOpen;
+      if (languageMenu) {
+        if (isLanguageMenuOpen) {
+          languageMenu.classList.remove('invisible', 'opacity-0', 'translate-y-2');
+          languageMenu.classList.add('visible', 'opacity-100', 'translate-y-0');
         } else {
-          mobileMenu.classList.add('invisible', 'opacity-0', 'translate-y-2');
-          mobileMenu.classList.remove('visible', 'opacity-100', 'translate-y-0');
+          languageMenu.classList.add('invisible', 'opacity-0', 'translate-y-2');
+          languageMenu.classList.remove('visible', 'opacity-100', 'translate-y-0');
         }
       }
     }
 
-    // Handle mobile menu toggle click
-    if (navToggle) {
-      navToggle.addEventListener('click', function(e) {
+    // Handle language menu toggle click
+    if (languageToggle) {
+      languageToggle.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
-        toggleMobileMenu();
+        toggleLanguageMenu();
       });
     }
 
-    // Close menu when clicking outside
+    // Close language menu when clicking outside
     document.addEventListener('click', function(e) {
-      if (isMenuOpen && mobileMenu && !mobileMenu.contains(e.target) && !navToggle?.contains(e.target)) {
-        toggleMobileMenu();
+      if (isLanguageMenuOpen && languageMenu && !languageMenu.contains(e.target) && !languageToggle?.contains(e.target)) {
+        toggleLanguageMenu();
       }
     });
 
-    // Close menu when clicking on a navigation link
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-    mobileNavLinks.forEach(link => {
+    const languageNavLinks = document.querySelectorAll('.language-nav-link');
+    languageNavLinks.forEach(link => {
       link.addEventListener('click', function() {
-        if (isMenuOpen) {
-          toggleMobileMenu();
+        if (isLanguageMenuOpen) {
+          toggleLanguageMenu();
         }
       });
     });

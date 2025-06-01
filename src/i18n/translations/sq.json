@@ -1,0 +1,151 @@
+{
+  "meta": {
+    "title": "Beach Bar Joni - Golem, Shqipëri",
+    "description": "Beach Bar Joni në Golem. Shijoni kokteje, birra dhe pamje të bukura të plazhit. Na vizitoni për një përvojë të paharrueshme në bar pranë detit.",
+    "menuTitle": "Menyja - Beach Bar Joni",
+    "menuDescription": "Eksploroni menynë tonë në Beach Bar Joni - kokteje, birra, pije të ngrohta dhe freskuese."
+  },
+  "navigation": {
+    "brand": "Beach Bar Joni",
+    "home": "Kreu",
+    "menu": "Menyja",
+    "gallery": "Galeria",
+    "location": "Vendndodhja",
+    "contact": "Kontakti"
+  },
+  "hero": {
+    "title": "Beach Bar Joni",
+    "subtitle": "Përjetoni përzierjen e përsosur të pijeve freskuese dhe pamjeve mahnitëse të plazhit",
+    "viewMenu": "Shiko Menynë",
+    "findUs": "Na Gjeni"
+  },
+  "location": {
+    "title": "Na Vizitoni",
+    "subtitle": "Na gjeni në brigjet e bukura të Golemit",
+    "address": "Adresa",
+    "addressText": "Shetitorja plazhit Golem\nGolem, Tiranë, Shqipëri",
+    "hours": "Orari",
+    "hoursText": "Çdo ditë: 7:00 - 24:00\nOrari mund të ndryshojë sipas sezonit"
+  },
+  "contact": {
+    "followInstagram": "Na ndiqni në Instagram",
+    "getDirections": "Merrni Udhëzimet"
+  },
+  "footer": {
+    "description": "Përjetoni përzierjen e përsosur të pijeve freskuese dhe pamjeve mahnitëse të plazhit.",
+    "copyright": "© 2025 Beach Bar Joni. Të gjitha të drejtat e rezervuara."
+  },
+  "menu": {
+    "featuredCocktails": "Kokteje të Veçanta",
+    "featuredSubtitle": "Zbuloni koktejet tona të veçanta të përgatitura me përbërës premium",
+    "categories": {
+      "kokteil": "Kokteil",
+      "teNgrohta": "Te Ngrohta",
+      "birra": "Birra",
+      "freskuese": "Freskuese",
+      "alkoolike": "Alkoolike"
+    },
+    "items": {
+      "spritz": {
+        "name": "Spritz",
+        "description": "Aperol, Prosecco, ujë soda, feta portokalli të freskëta"
+      },
+      "mojito": {
+        "name": "Mojito",
+        "description": "Rum i bardhë, gjethe mente të freskëta, lëng limoni, sheqer, ujë soda"
+      },
+      "caipiroska": {
+        "name": "Caipiroska",
+        "description": "Vodka, limon, sheqer, akull i thërrmuar"
+      },
+      "sexOnTheBeach": {
+        "name": "Sex On The Beach",
+        "description": "Vodka, peach schnapps, lëng kumbulla, lëng ananas"
+      },
+      "margarita": {
+        "name": "Margarita",
+        "description": "Tequila, lëng limoni, triple sec, buzë me kripë"
+      },
+      "espresso": {
+        "name": "Espresso"
+      },
+      "cappuccino": {
+        "name": "Cappuccino"
+      },
+      "macchiato": {
+        "name": "Macchiato"
+      },
+      "americano": {
+        "name": "Americano"
+      },
+      "latte": {
+        "name": "Latte"
+      },
+      "hotChocolate": {
+        "name": "Çokollatë e Nxehtë"
+      },
+      "tea": {
+        "name": "Çaj"
+      },
+      "birraKorca": {
+        "name": "Birra Korça"
+      },
+      "birraTirana": {
+        "name": "Birra Tirana"
+      },
+      "heineken": {
+        "name": "Heineken"
+      },
+      "corona": {
+        "name": "Corona"
+      },
+      "stellaArtois": {
+        "name": "Stella Artois"
+      },
+      "cocaCola": {
+        "name": "Coca Cola"
+      },
+      "fanta": {
+        "name": "Fanta"
+      },
+      "sprite": {
+        "name": "Sprite"
+      },
+      "water": {
+        "name": "Ujë"
+      },
+      "freshOrangeJuice": {
+        "name": "Lëng Portokalli i Freskët"
+      },
+      "lemonade": {
+        "name": "Limonadë"
+      },
+      "raki": {
+        "name": "Raki"
+      },
+      "vodka": {
+        "name": "Vodka"
+      },
+      "whiskey": {
+        "name": "Whiskey"
+      },
+      "gin": {
+        "name": "Gin"
+      },
+      "rum": {
+        "name": "Rum"
+      },
+      "tequila": {
+        "name": "Tequila"
+      },
+      "brandy": {
+        "name": "Brandy"
+      }
+    }
+  },
+  "currency": "L",
+  "language": {
+    "current": "Shqip",
+    "switch": "Gjuha"
+  }
+}

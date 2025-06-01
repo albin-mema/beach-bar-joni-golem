@@ -1,12 +1,31 @@
 ---
+import { getLocalizedUrl } from '../i18n/utils.js';
+
 interface Props {
   title: string;
   subtitle: string;
   backgroundImage: string;
   showButtons?: boolean;
+  lang?: string;
+  translations?: any;
 }
 
-const { title, subtitle, backgroundImage, showButtons = false } = Astro.props;
+const { title, subtitle, backgroundImage, showButtons = false, lang = 'en', translations } = Astro.props;
+
+// Get translation function
+function t(key) {
+  if (!translations) return key;
+  const keys = key.split('.');
+  let value = translations;
+  for (const k of keys) {
+    if (value && typeof value === 'object' && k in value) {
+      value = value[k];
+    } else {
+      return key;
+    }
+  }
+  return value;
+}
 ---
 
 <section id="home" class="relative flex justify-center items-center min-h-screen overflow-hidden">
@@ -31,16 +50,16 @@ const { title, subtitle, backgroundImage, showButtons = false } = Astro.props;
     {showButtons && (
       <div class="flex sm:flex-row flex-col justify-center items-center gap-4">
         <a
-          href={`${import.meta.env.BASE_URL}menu`}
+          href={getLocalizedUrl('/menu', lang)}
           class="inline-flex justify-center items-center bg-blue-600 hover:bg-blue-700 hover:shadow-xl px-8 py-4 rounded-lg min-w-[160px] font-semibold text-white text-lg hover:scale-105 transition-all duration-300"
         >
-          View Menu
+          {t('hero.viewMenu')}
         </a>
         <a
           href="#location"
           class="inline-flex justify-center items-center bg-white/10 hover:bg-white hover:shadow-xl backdrop-blur-sm px-8 py-4 border-2 border-white rounded-lg min-w-[160px] font-semibold text-white hover:text-gray-900 text-lg hover:scale-105 transition-all duration-300"
         >
-          Find Us
+          {t('hero.findUs')}
         </a>
       </div>
     )}

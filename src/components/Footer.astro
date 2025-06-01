@@ -1,5 +1,26 @@
 ---
 // Footer component with Tailwind styling
+interface Props {
+  lang?: string;
+  translations?: any;
+}
+
+const { lang = 'en', translations } = Astro.props;
+
+// Get translation function
+function t(key) {
+  if (!translations) return key;
+  const keys = key.split('.');
+  let value = translations;
+  for (const k of keys) {
+    if (value && typeof value === 'object' && k in value) {
+      value = value[k];
+    } else {
+      return key;
+    }
+  }
+  return value;
+}
 ---
 
 <footer class="bg-gray-900 text-white">
@@ -12,16 +33,16 @@
           alt="Bar Joni Logo"
           class="rounded-full w-12 h-12 object-cover"
         />
-        <span class="font-bold text-xl">Beach Bar Joni</span>
+        <span class="font-bold text-xl">{t('navigation.brand')}</span>
       </div>
-      
+
       <!-- Description and Copyright -->
       <div class="space-y-2 text-center md:text-right">
         <p class="text-gray-300">
-          Experience the perfect blend of refreshing drinks and stunning beach views.
+          {t('footer.description')}
         </p>
         <p class="text-gray-400">
-          © 2025 Beach Bar Joni. All rights reserved.
+          {t('footer.copyright')}
         </p>
       </div>
     </div>

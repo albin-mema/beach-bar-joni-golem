@@ -3,16 +3,22 @@ import '../styles/global.css'
 import Navigation from '../components/Navigation.astro'
 import Hero from '../components/Hero.astro'
 import Footer from '../components/Footer.astro'
-import { menuData } from '../data/menu.js'
+import { getTranslations, useTranslations } from '../i18n/utils.js'
+import { getLocalizedMenuData } from '../data/menu-i18n.js'
+
+const lang = 'en'
+const translations = await getTranslations(lang)
+const t = useTranslations(translations)
+const menuData = getLocalizedMenuData(lang, translations)
 ---
 
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Menu - Beach Bar Joni</title>
-		<meta name="description" content="Explore our menu at Beach Bar Joni - cocktails, beers, hot drinks, and refreshments." />
+		<title>{t('meta.menuTitle')}</title>
+		<meta name="description" content={t('meta.menuDescription')} />
 		
 		<!-- Favicon -->
 		<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
@@ -25,14 +31,16 @@ import { menuData } from '../data/menu.js'
 	</head>
 	<body class="bg-white">
 		<!-- Navigation -->
-		<Navigation currentPage="menu" />
+		<Navigation currentPage="menu" lang={lang} translations={translations} />
 
 		<!-- Hero Section -->
 		<Hero
-			title="Our Menu"
-			subtitle="Fresh drinks and authentic flavors crafted with premium ingredients"
+			title={t('meta.menuTitle')}
+			subtitle={t('meta.menuDescription')}
 			backgroundImage={`${import.meta.env.BASE_URL}drinks.jpeg`}
 			showButtons={false}
+			lang={lang}
+			translations={translations}
 		/>
 
 		<!-- Menu Content -->
@@ -43,10 +51,10 @@ import { menuData } from '../data/menu.js'
 					<section class="mb-16">
 						<div class="mb-12 text-center">
 							<h2 class="mb-4 font-bold text-gray-800 text-3xl uppercase tracking-wider">
-								Featured Cocktails
+								{t('menu.featuredCocktails')}
 							</h2>
 							<p class="mx-auto max-w-2xl text-gray-600 text-lg">
-								Discover our signature cocktails crafted with premium ingredients
+								{t('menu.featuredSubtitle')}
 							</p>
 						</div>
 						<div class="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
@@ -103,7 +111,7 @@ import { menuData } from '../data/menu.js'
 	</main>
 
 	<!-- Footer -->
-	<Footer />
+	<Footer lang={lang} translations={translations} />
 
 
 

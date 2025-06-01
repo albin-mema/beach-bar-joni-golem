@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "title": "Beach Bar Joni - Golem, Albanien",
+    "description": "Beach Bar Joni in Golem. Genießen Sie Cocktails, Bier und wunderschöne Strandblicke. Besuchen Sie uns für ein unvergessliches Bar-Erlebnis am Meer.",
+    "menuTitle": "Speisekarte - Beach Bar Joni",
+    "menuDescription": "Entdecken Sie unsere Speisekarte im Beach Bar Joni - Cocktails, Bier, heiße Getränke und Erfrischungen."
+  },
+  "navigation": {
+    "brand": "Beach Bar Joni",
+    "home": "Startseite",
+    "menu": "Speisekarte",
+    "gallery": "Galerie",
+    "location": "Standort",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "title": "Beach Bar Joni",
+    "subtitle": "Erleben Sie die perfekte Mischung aus erfrischenden Getränken und atemberaubenden Strandblicken",
+    "viewMenu": "Speisekarte Ansehen",
+    "findUs": "Finden Sie Uns"
+  },
+  "location": {
+    "title": "Besuchen Sie Uns",
+    "subtitle": "Finden Sie uns an den wunderschönen Ufern von Golem",
+    "address": "Adresse",
+    "addressText": "Shetitorja plazhit Golem\nGolem, Tiranë, Albanien",
+    "hours": "Öffnungszeiten",
+    "hoursText": "Täglich: 7:00 - 24:00\nÖffnungszeiten können saisonal variieren"
+  },
+  "contact": {
+    "followInstagram": "Folgen Sie uns auf Instagram",
+    "getDirections": "Wegbeschreibung"
+  },
+  "footer": {
+    "description": "Erleben Sie die perfekte Mischung aus erfrischenden Getränken und atemberaubenden Strandblicken.",
+    "copyright": "© 2025 Beach Bar Joni. Alle Rechte vorbehalten."
+  },
+  "menu": {
+    "featuredCocktails": "Empfohlene Cocktails",
+    "featuredSubtitle": "Entdecken Sie unsere Signature-Cocktails aus hochwertigen Zutaten",
+    "categories": {
+      "kokteil": "Cocktails",
+      "teNgrohta": "Heiße Getränke",
+      "birra": "Bier",
+      "freskuese": "Alkoholfreie Getränke",
+      "alkoolike": "Alkoholische Getränke"
+    },
+    "items": {
+      "spritz": {
+        "name": "Spritz",
+        "description": "Aperol, Prosecco, Sodawasser, frische Orange"
+      },
+      "mojito": {
+        "name": "Mojito",
+        "description": "Weißer Rum, frische Minze, Limettensaft, Zucker, Sodawasser"
+      },
+      "caipiroska": {
+        "name": "Caipiroska",
+        "description": "Wodka, Limette, Zucker, zerstoßenes Eis"
+      },
+      "sexOnTheBeach": {
+        "name": "Sex On The Beach",
+        "description": "Wodka, Pfirsichschnaps, Cranberrysaft, Ananassaft"
+      },
+      "espresso": {
+        "name": "Espresso"
+      },
+      "cappuccino": {
+        "name": "Cappuccino"
+      },
+      "birraKorca": {
+        "name": "Birra Korça"
+      },
+      "cocaCola": {
+        "name": "Coca Cola"
+      },
+      "raki": {
+        "name": "Raki"
+      }
+    }
+  },
+  "currency": "€",
+  "language": {
+    "current": "Deutsch",
+    "switch": "Sprache"
+  }
+}

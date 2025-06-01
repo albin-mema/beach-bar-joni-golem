@@ -1,0 +1,131 @@
+---
+import '../../styles/global.css'
+import Navigation from '../../components/Navigation.astro'
+import Hero from '../../components/Hero.astro'
+import Footer from '../../components/Footer.astro'
+import { getTranslations, useTranslations } from '../../i18n/utils.js'
+import { getLocalizedMenuData } from '../../data/menu-i18n.js'
+
+const lang = 'de'
+const translations = await getTranslations(lang)
+const t = useTranslations(translations)
+const menuData = getLocalizedMenuData(lang, translations)
+---
+
+<html lang={lang}>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{t('meta.menuTitle')}</title>
+		<meta name="description" content={t('meta.menuDescription')} />
+		
+		<!-- Favicon -->
+		<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+		<link rel="icon" type="image/png" href={`${import.meta.env.BASE_URL}favicon.png`} />
+		<link rel="apple-touch-icon" href={`${import.meta.env.BASE_URL}apple-touch-icon.png`} />
+		
+		<!-- Visitor tracking -->
+		<script>
+			// Send visitor data to Google Sheets
+			fetch('https://script.google.com/macros/s/AKfycbxvZNXq1f3CU8pEg-pgsij9VICglp62bLKH1l0YRPe4k4GdOFvvLaA0rmNQ2XzqrPRz0Q/exec', {
+				method: 'POST',
+				mode: 'no-cors',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					timestamp: new Date().toISOString(),
+					page: window.location.href,
+					userAgent: navigator.userAgent,
+					language: navigator.language
+				})
+			}).catch(err => console.log('Tracking request failed:', err));
+		</script>
+	</head>
+
+	<body>
+		<!-- Navigation -->
+		<Navigation currentPage="menu" lang={lang} translations={translations} />
+
+		<main>
+			<!-- Hero Section -->
+			<Hero
+				title={t('meta.menuTitle')}
+				subtitle={t('meta.menuDescription')}
+				backgroundImage={`${import.meta.env.BASE_URL}drinks.jpeg`}
+				showButtons={false}
+				lang={lang}
+				translations={translations}
+			/>
+
+			<!-- Menu Content -->
+			<main class="bg-white">
+				<div class="mx-auto px-4 sm:px-6 lg:px-8 py-16 max-w-7xl">
+					{/* Featured Cocktails Section */}
+					{menuData.Kokteil && (
+						<section class="mb-16">
+							<div class="mb-12 text-center">
+								<h2 class="mb-4 font-bold text-gray-800 text-3xl uppercase tracking-wider">
+									{t('menu.featuredCocktails')}
+								</h2>
+								<p class="mx-auto max-w-2xl text-gray-600 text-lg">
+									{t('menu.featuredSubtitle')}
+								</p>
+							</div>
+							<div class="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+								{menuData.Kokteil.items.filter(item => item.featured).map((cocktail) => (
+									<div class="group bg-white shadow-lg hover:shadow-xl rounded-xl overflow-hidden transition-all hover:-translate-y-1 duration-300">
+										<div class="relative h-48 overflow-hidden">
+											<img
+												src={cocktail.image}
+												alt={cocktail.name}
+												class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+												loading="lazy"
+											/>
+											<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+											<div class="right-4 bottom-4 left-4 absolute">
+												<h3 class="drop-shadow-lg mb-1 font-bold text-white text-xl">{cocktail.name}</h3>
+												<p class="drop-shadow-md font-semibold text-amber-300 text-lg">{cocktail.price}</p>
+											</div>
+										</div>
+										<div class="p-6">
+											<p class="text-gray-600 text-sm leading-relaxed">{cocktail.description}</p>
+										</div>
+									</div>
+								))}
+							</div>
+						</section>
+					)}
+
+					{/* Regular Menu Sections */}
+					<div class="gap-12 lg:gap-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+						{Object.entries(menuData).map(([, category]) => (
+							<section class="space-y-6">
+								<h2 class="pb-2 border-gray-200 border-b-2 font-bold text-gray-800 text-xl uppercase tracking-wider">
+									{category.title}
+								</h2>
+								<div class="space-y-4">
+									{category.items.map((item) => (
+										<div class="flex justify-between items-start leading-relaxed">
+											<div class="flex-1 mr-4">
+												<h3 class="font-normal text-gray-600 text-base">{item.name}</h3>
+												{'description' in item && item.description && !('featured' in item && item.featured) && (
+													<p class="mt-1 text-gray-500 text-sm">{item.description}</p>
+												)}
+											</div>
+											<span class="font-semibold text-gray-800 text-base whitespace-nowrap">{item.price}</span>
+										</div>
+									))}
+								</div>
+							</section>
+						))}
+					</div>
+				</div>
+			</main>
+		</main>
+
+		<!-- Footer -->
+		<Footer lang={lang} translations={translations} />
+	</body>
+</html>
