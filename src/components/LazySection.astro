@@ -1,0 +1,81 @@
+---
+interface Props {
+  threshold?: number;
+  rootMargin?: string;
+  componentName?: string;
+}
+
+const { 
+  threshold = 0.1, 
+  rootMargin = '100px',
+  componentName = 'LazyContent'
+} = Astro.props;
+---
+
+<div 
+  class="lazy-section" 
+  data-lazy-section
+  data-threshold={threshold}
+  data-root-margin={rootMargin}
+  data-component={componentName}
+>
+  <!-- Loading placeholder -->
+  <div class="lazy-loading-placeholder">
+    <div class="animate-pulse bg-gray-200 rounded-lg h-32 w-full"></div>
+    <div class="text-center mt-4 text-gray-500">Loading...</div>
+  </div>
+  
+  <!-- Content will be loaded here -->
+  <div class="lazy-content hidden">
+    <slot />
+  </div>
+</div>
+
+<script>
+  // Lazy section loading
+  const lazySectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(async (entry) => {
+      if (entry.isIntersecting) {
+        const section = entry.target as HTMLElement;
+        const placeholder = section.querySelector('.lazy-loading-placeholder');
+        const content = section.querySelector('.lazy-content');
+        
+        try {
+          // Simulate dynamic import (you can replace with actual dynamic imports)
+          await new Promise(resolve => setTimeout(resolve, 500));
+          
+          // Show content, hide placeholder
+          if (placeholder && content) {
+            placeholder.classList.add('hidden');
+            content.classList.remove('hidden');
+            content.classList.add('animate-fade-in');
+          }
+          
+        } catch (error) {
+          console.error('Failed to load lazy section:', error);
+        }
+        
+        lazySectionObserver.unobserve(section);
+      }
+    });
+  }, {
+    rootMargin: '100px 0px',
+    threshold: 0.1
+  });
+
+  // Observe all lazy sections
+  document.querySelectorAll('[data-lazy-section]').forEach(section => {
+    lazySectionObserver.observe(section);
+  });
+</script>
+
+<style>
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>

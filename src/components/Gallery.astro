@@ -105,6 +105,34 @@ const { images } = Astro.props;
   </aside>
 </div>
 
+<!-- Lazy load Instagram script -->
+<script>
+  // Lazy load Instagram embed script
+  function loadInstagramEmbed() {
+    if (!document.querySelector('script[src*="instagram.com/embed.js"]')) {
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = '//www.instagram.com/embed.js';
+      document.head.appendChild(script);
+    }
+  }
+
+  // Load Instagram script when user scrolls near the embed
+  const instagramSection = document.querySelector('.instagram-media');
+  if (instagramSection) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          loadInstagramEmbed();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '100px' });
+
+    observer.observe(instagramSection);
+  }
+</script>
+
 <style>
   /* Ensure Instagram embed is properly centered on mobile */
   .instagram-media {

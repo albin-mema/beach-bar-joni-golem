@@ -1,0 +1,38 @@
+---
+// Example of a lazy-loaded component
+interface Props {
+  visible?: boolean;
+}
+
+const { visible = false } = Astro.props;
+---
+
+{visible && (
+  <div class="lazy-content">
+    <!-- Content only renders when visible is true -->
+    <slot />
+  </div>
+)}
+
+<script>
+  // Intersection Observer for lazy loading
+  const observerOptions = {
+    root: null,
+    rootMargin: '50px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('loaded');
+        // Trigger component loading here
+      }
+    });
+  }, observerOptions);
+
+  // Observe lazy elements
+  document.querySelectorAll('[data-lazy]').forEach(el => {
+    observer.observe(el);
+  });
+</script>

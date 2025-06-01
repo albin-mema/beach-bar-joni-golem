@@ -1,0 +1,131 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  class?: string;
+  placeholder?: string;
+  blurDataURL?: string;
+}
+
+const {
+  src,
+  alt,
+  width,
+  height,
+  class: className = '',
+  placeholder = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0yMCAyNkM5IDI2IDkgMTQgMjAgMTRTMzEgMjYgMjAgMjZaIiBmaWxsPSIjRTVFN0VCIi8+CjxwYXRoIGQ9Ik0yMCAyMkM5IDIyIDkgMTggMjAgMThTMzEgMjIgMjAgMjJaIiBmaWxsPSIjRDFENUREIi8+Cjwvc3ZnPgo=',
+  blurDataURL
+} = Astro.props;
+
+// Generate WebP source path
+const webpSrc = src.replace(/\.(jpe?g|png)$/i, '.webp');
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<div class={`lazy-image-container ${className}`} data-lazy-image>
+  <!-- Placeholder -->
+  <img
+    src={placeholder}
+    alt=""
+    width={width}
+    height={height}
+    class="lazy-placeholder absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
+    aria-hidden="true"
+  />
+  
+  <!-- Blur placeholder if provided -->
+  {blurDataURL && (
+    <img
+      src={blurDataURL}
+      alt=""
+      width={width}
+      height={height}
+      class="lazy-blur absolute inset-0 w-full h-full object-cover transition-opacity duration-300 filter blur-sm"
+      aria-hidden="true"
+    />
+  )}
+  
+  <!-- Actual image (WebP with fallback) -->
+  <picture class="lazy-picture opacity-0 transition-opacity duration-300">
+    <source 
+      data-srcset={`${baseUrl}${webpSrc}`}
+      type="image/webp"
+    />
+    <img
+      data-src={`${baseUrl}${src}`}
+      alt={alt}
+      width={width}
+      height={height}
+      class="w-full h-full object-cover"
+      loading="lazy"
+      decoding="async"
+    />
+  </picture>
+</div>
+
+<style>
+  .lazy-image-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .lazy-image-container.loaded .lazy-placeholder,
+  .lazy-image-container.loaded .lazy-blur {
+    opacity: 0;
+  }
+  
+  .lazy-image-container.loaded .lazy-picture {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  // Enhanced lazy loading with Intersection Observer
+  const lazyImageObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const container = entry.target as HTMLElement;
+        const picture = container.querySelector('.lazy-picture') as HTMLElement;
+        const img = picture?.querySelector('img');
+        const source = picture?.querySelector('source');
+        
+        if (img && source) {
+          // Load WebP source
+          if (source.dataset.srcset) {
+            source.srcset = source.dataset.srcset;
+          }
+          
+          // Load fallback image
+          if (img.dataset.src) {
+            img.src = img.dataset.src;
+          }
+          
+          // Handle load event
+          img.onload = () => {
+            container.classList.add('loaded');
+          };
+          
+          // Handle error (fallback to JPEG)
+          img.onerror = () => {
+            if (img.dataset.src) {
+              img.src = img.dataset.src;
+              container.classList.add('loaded');
+            }
+          };
+        }
+        
+        lazyImageObserver.unobserve(container);
+      }
+    });
+  }, {
+    rootMargin: '50px 0px',
+    threshold: 0.01
+  });
+
+  // Observe all lazy images
+  document.querySelectorAll('[data-lazy-image]').forEach(img => {
+    lazyImageObserver.observe(img);
+  });
+</script>

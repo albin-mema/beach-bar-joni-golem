@@ -5,6 +5,10 @@
   "compilerOptions": {
     "allowJs": true,
     "noImplicitAny": false,
-    "strict": false
+    "strict": false,
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "noEmit": true
   }
 }
