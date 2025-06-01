@@ -7,30 +7,36 @@ export const menuData = {
         name: "Spritz",
         price: "600 L",
         description: "Aperol, Prosecco, soda water, fresh orange slice",
-        image: "https://images.unsplash.com/photo-1499638673689-79a0b5115d87?fm=jpg&q=80&w=600&h=400&fit=crop&ixlib=rb-4.0.3",
+        image: `${import.meta.env.BASE_URL}cocktails/spritz.jpg`,
         featured: true
       },
       {
         name: "Mojito",
         price: "600 L",
         description: "White rum, fresh mint leaves, lime juice, sugar, soda water",
-        image: "https://images.unsplash.com/photo-1633807187088-90f58cb2048b?fm=jpg&q=80&w=600&h=400&fit=crop&ixlib=rb-4.0.3",
+        image: `${import.meta.env.BASE_URL}cocktails/mojito.jpg`,
         featured: true
       },
       {
         name: "Margarita",
         price: "600 L",
         description: "Premium tequila, fresh lime juice, triple sec, salt rim",
-        image: "https://images.unsplash.com/photo-1517620430776-0ec904756579?fm=jpg&q=80&w=600&h=400&fit=crop&ixlib=rb-4.0.3",
+        image: `${import.meta.env.BASE_URL}cocktails/margarita.jpg`,
         featured: true
       },
       {
         name: "Caipiroska",
-        price: "600 L"
+        price: "600 L",
+        description: "Vodka, lime, sugar, crushed ice",
+        image: `${import.meta.env.BASE_URL}cocktails/caipiroska.jpg`,
+        featured: true
       },
       {
         name: "Sex On The Beach",
-        price: "600 L"
+        price: "600 L",
+        description: "Vodka, peach schnapps, cranberry juice, pineapple juice",
+        image: `${import.meta.env.BASE_URL}cocktails/sex-on-the-beach.jpg`,
+        featured: true
       },
 
     ]

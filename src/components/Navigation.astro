@@ -298,7 +298,20 @@ const languageConfig = {
 
     const languageNavLinks = document.querySelectorAll('.language-nav-link');
     languageNavLinks.forEach(link => {
-      link.addEventListener('click', function() {
+      link.addEventListener('click', function(e) {
+        // Store the selected language preference
+        const href = this.getAttribute('href');
+        if (href) {
+          // Extract language from URL (e.g., '/sq/' -> 'sq', '/en/' -> 'en')
+          const langMatch = href.match(/\/([a-z]{2})\//);
+          if (langMatch) {
+            localStorage.setItem('preferred-language', langMatch[1]);
+          } else if (href === '/' || href.endsWith('/')) {
+            // Root URL means English
+            localStorage.setItem('preferred-language', 'en');
+          }
+        }
+
         if (isLanguageMenuOpen) {
           toggleLanguageMenu();
         }

@@ -6,6 +6,7 @@ import Section from '../components/Section.astro'
 import Gallery from '../components/Gallery.astro'
 import Button from '../components/Button.astro'
 import Footer from '../components/Footer.astro'
+import LanguageDetector from '../components/LanguageDetector.astro'
 import { getTranslations, useTranslations } from '../i18n/utils.js'
 
 const lang = 'en'
@@ -52,6 +53,9 @@ const galleryImages = [
 		<meta name="msapplication-TileColor" content="#2563eb" />
 	</head>
 	<body class="bg-white">
+		<!-- Language Detection -->
+		<LanguageDetector currentLang={lang} />
+
 		<!-- Navigation -->
 		<Navigation currentPage="home" lang={lang} translations={translations} />
 

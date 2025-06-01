@@ -8,27 +8,32 @@ const baseMenuData = {
       {
         key: "spritz",
         price: "600 L",
-        image: "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?fm=jpg&q=80&w=600&h=400&fit=crop&ixlib=rb-4.0.3",
+        image: `${import.meta.env.BASE_URL}cocktails/spritz.jpg`,
         featured: true
       },
       {
         key: "mojito",
         price: "600 L",
-        image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?fm=jpg&q=80&w=600&h=400&fit=crop&ixlib=rb-4.0.3",
+        image: `${import.meta.env.BASE_URL}cocktails/mojito.jpg`,
         featured: true
       },
       {
         key: "caipiroska",
-        price: "600 L"
+        price: "600 L",
+        image: `${import.meta.env.BASE_URL}cocktails/caipiroska.jpg`,
+        featured: true
       },
       {
         key: "sexOnTheBeach",
-        price: "600 L"
+        price: "600 L",
+        image: `${import.meta.env.BASE_URL}cocktails/sex-on-the-beach.jpg`,
+        featured: true
       },
-
       {
         key: "margarita",
-        price: "600 L"
+        price: "600 L",
+        image: `${import.meta.env.BASE_URL}cocktails/margarita.jpg`,
+        featured: true
       },
 
     ]

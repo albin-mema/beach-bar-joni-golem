@@ -11,6 +11,49 @@ export const languages = {
 
 export const defaultLang = 'en';
 
+// Browser language detection
+export function detectBrowserLanguage() {
+  if (typeof window === 'undefined') return defaultLang;
+
+  // Get browser languages in order of preference
+  const browserLanguages = navigator.languages || [navigator.language || navigator.userLanguage || defaultLang];
+
+  // Check each browser language against our supported languages
+  for (const browserLang of browserLanguages) {
+    // Extract language code (e.g., 'en-US' -> 'en', 'sq-AL' -> 'sq')
+    const langCode = browserLang.toLowerCase().split('-')[0];
+
+    // Check if we support this language
+    if (langCode in languages) {
+      return langCode;
+    }
+  }
+
+  // Fallback to default language
+  return defaultLang;
+}
+
+// Get preferred language (browser detection + localStorage)
+export function getPreferredLanguage() {
+  if (typeof window === 'undefined') return defaultLang;
+
+  // First check if user has manually selected a language before
+  const storedLang = localStorage.getItem('preferred-language');
+  if (storedLang && storedLang in languages) {
+    return storedLang;
+  }
+
+  // Otherwise detect from browser
+  return detectBrowserLanguage();
+}
+
+// Store user's language preference
+export function setLanguagePreference(lang) {
+  if (typeof window !== 'undefined' && lang in languages) {
+    localStorage.setItem('preferred-language', lang);
+  }
+}
+
 // Get current language from URL
 export function getLangFromUrl(url) {
   const [, lang] = url.pathname.split('/');
