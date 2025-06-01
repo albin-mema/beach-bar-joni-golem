@@ -62,6 +62,10 @@
         "name": "Sex On The Beach",
         "description": "Wodka, Pfirsichschnaps, Cranberrysaft, Ananassaft"
       },
+      "margarita": {
+        "name": "Margarita",
+        "description": "Tequila, Limettensaft, Triple Sec, Salzrand"
+      },
       "espresso": {
         "name": "Espresso"
       },

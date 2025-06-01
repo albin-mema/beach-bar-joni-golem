@@ -1,0 +1,257 @@
+{
+  "Te Ngrohta": {
+    "title": "Te Ngrohta",
+    "items": [
+      {
+        "key": "kafe",
+        "price": "100 L"
+      },
+      {
+        "key": "uje",
+        "price": "100 L"
+      },
+      {
+        "key": "makiato",
+        "price": "100 L"
+      },
+      {
+        "key": "cajINgrohte",
+        "price": "90 L"
+      },
+      {
+        "key": "kakao",
+        "price": "150 L"
+      },
+      {
+        "key": "kapucino",
+        "price": "200 L"
+      },
+      {
+        "key": "latte",
+        "price": "200 L"
+      },
+      {
+        "key": "fredo",
+        "price": "200 L"
+      },
+      {
+        "key": "makiatoEMadhe",
+        "price": "150 L"
+      },
+      {
+        "key": "kafeEMadhe",
+        "price": "150 L"
+      },
+      {
+        "key": "frape",
+        "price": "200 L"
+      },
+      {
+        "key": "kapucinoEFtohte",
+        "price": "200 L"
+      },
+      {
+        "key": "kakaoEFtohte",
+        "price": "200 L"
+      }
+    ]
+  },
+  "Birra": {
+    "title": "Birra",
+    "items": [
+      {
+        "key": "heineken",
+        "price": "300 L"
+      },
+      {
+        "key": "korona",
+        "price": "350 L"
+      },
+      {
+        "key": "peroni",
+        "price": "200 L"
+      },
+      {
+        "key": "schoffer",
+        "price": "350 L"
+      },
+      {
+        "key": "peja",
+        "price": "200 L"
+      },
+      {
+        "key": "korca",
+        "price": "200 L"
+      },
+      {
+        "key": "paulaner",
+        "price": "350 L"
+      },
+      {
+        "key": "bavaria",
+        "price": "250 L"
+      }
+    ]
+  },
+  "Kokteil": {
+    "title": "Kokteil",
+    "items": [
+      {
+        "key": "spritz",
+        "price": "600 L",
+        "image": "cocktails/spritz.jpeg",
+        "featured": true
+      },
+      {
+        "key": "mojito",
+        "price": "600 L",
+        "image": "cocktails/mojito.webp",
+        "featured": true
+      },
+      {
+        "key": "caipiroska",
+        "price": "600 L",
+        "image": "cocktails/caipiroska.jpeg",
+        "featured": true
+      },
+      {
+        "key": "sexOnTheBeach",
+        "price": "600 L",
+        "image": "cocktails/sexonthebeach.webp",
+        "featured": true
+      },
+      {
+        "key": "margarita",
+        "price": "600 L",
+        "image": "cocktails/margarita.jpeg",
+        "featured": true
+      }
+    ]
+  },
+  "Freskuese": {
+    "title": "Freskuese",
+    "items": [
+      {
+        "key": "cocaCola",
+        "price": "200 L"
+      },
+      {
+        "key": "fanta",
+        "price": "200 L"
+      },
+      {
+        "key": "lemonSoda",
+        "price": "200 L"
+      },
+      {
+        "key": "orangeSoda",
+        "price": "200 L"
+      },
+      {
+        "key": "lipton",
+        "price": "200 L"
+      },
+      {
+        "key": "akullore",
+        "price": "100 L"
+      },
+      {
+        "key": "schweppes",
+        "price": "200 L"
+      },
+      {
+        "key": "bravo",
+        "price": "200 L"
+      },
+      {
+        "key": "neskafe",
+        "price": "200 L"
+      },
+      {
+        "key": "redBull",
+        "price": "350 L"
+      },
+      {
+        "key": "b52",
+        "price": "200 L"
+      },
+      {
+        "key": "grodino",
+        "price": "150 L"
+      },
+      {
+        "key": "rosseLimonade",
+        "price": "350 L"
+      },
+      {
+        "key": "ujeVitamine",
+        "price": "150 L"
+      },
+      {
+        "key": "ivi",
+        "price": "200 L"
+      }
+    ]
+  },
+  "Alkoolike": {
+    "title": "Alkoolike",
+    "items": [
+      {
+        "key": "gin",
+        "price": "300 L"
+      },
+      {
+        "key": "bombay",
+        "price": "350 L"
+      },
+      {
+        "key": "hendricks",
+        "price": "600 L"
+      },
+      {
+        "key": "martini",
+        "price": "250 L"
+      },
+      {
+        "key": "jagermeister",
+        "price": "300 L"
+      },
+      {
+        "key": "konjakSkenderbeu",
+        "price": "150 L"
+      },
+      {
+        "key": "raki",
+        "price": "100 L"
+      },
+      {
+        "key": "tekila",
+        "price": "250 L"
+      },
+      {
+        "key": "bacardi",
+        "price": "300 L"
+      },
+      {
+        "key": "jackDaniels",
+        "price": "300 L"
+      },
+      {
+        "key": "chivas",
+        "price": "300 L"
+      },
+      {
+        "key": "vodka",
+        "price": "250 L"
+      },
+      {
+        "key": "amaro",
+        "price": "250 L"
+      },
+      {
+        "key": "amaroDelKapo",
+        "price": "300 L"
+      }
+    ]
+  }
+}

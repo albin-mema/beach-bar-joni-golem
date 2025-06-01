@@ -66,41 +66,68 @@
         "name": "Margarita",
         "description": "Tequila, lëng limoni, triple sec, buzë me kripë"
       },
-      "espresso": {
-        "name": "Espresso"
+      "kafe": {
+        "name": "Kafe"
       },
-      "cappuccino": {
-        "name": "Cappuccino"
+      "uje": {
+        "name": "Ujë"
       },
-      "macchiato": {
-        "name": "Macchiato"
+      "makiato": {
+        "name": "Makiato"
       },
-      "americano": {
-        "name": "Americano"
+      "cajINgrohte": {
+        "name": "Çaj i Ngrohtë"
+      },
+      "kakao": {
+        "name": "Kakao"
+      },
+      "kapucino": {
+        "name": "Kapuçino"
       },
       "latte": {
         "name": "Latte"
       },
-      "hotChocolate": {
-        "name": "Çokollatë e Nxehtë"
+      "fredo": {
+        "name": "Fredo"
       },
-      "tea": {
-        "name": "Çaj"
+      "makiatoEMadhe": {
+        "name": "Makiato e Madhe"
       },
-      "birraKorca": {
-        "name": "Birra Korça"
+      "kafeEMadhe": {
+        "name": "Kafe e Madhe"
       },
-      "birraTirana": {
-        "name": "Birra Tirana"
+      "frape": {
+        "name": "Frapé"
+      },
+      "kapucinoEFtohte": {
+        "name": "Kapuçino e Ftohtë"
+      },
+      "kakaoEFtohte": {
+        "name": "Kakao e Ftohtë"
       },
       "heineken": {
         "name": "Heineken"
       },
-      "corona": {
+      "korona": {
         "name": "Corona"
       },
-      "stellaArtois": {
-        "name": "Stella Artois"
+      "peroni": {
+        "name": "Peroni"
+      },
+      "schoffer": {
+        "name": "Schöfferhofer"
+      },
+      "peja": {
+        "name": "Peja"
+      },
+      "korca": {
+        "name": "Korça"
+      },
+      "paulaner": {
+        "name": "Paulaner"
+      },
+      "bavaria": {
+        "name": "Bavaria"
       },
       "cocaCola": {
         "name": "Coca Cola"
@@ -108,38 +135,86 @@
       "fanta": {
         "name": "Fanta"
       },
-      "sprite": {
-        "name": "Sprite"
+      "lemonSoda": {
+        "name": "Soda Limoni"
       },
-      "water": {
-        "name": "Ujë"
+      "orangeSoda": {
+        "name": "Soda Portokalli"
       },
-      "freshOrangeJuice": {
-        "name": "Lëng Portokalli i Freskët"
+      "lipton": {
+        "name": "Lipton Ice Tea"
       },
-      "lemonade": {
-        "name": "Limonadë"
+      "akullore": {
+        "name": "Akullore"
       },
-      "raki": {
-        "name": "Raki"
+      "schweppes": {
+        "name": "Schweppes"
       },
-      "vodka": {
-        "name": "Vodka"
+      "bravo": {
+        "name": "Bravo"
       },
-      "whiskey": {
-        "name": "Whiskey"
+      "neskafe": {
+        "name": "Nescafé"
+      },
+      "redBull": {
+        "name": "Red Bull"
+      },
+      "b52": {
+        "name": "B52"
+      },
+      "grodino": {
+        "name": "Grodino"
+      },
+      "rosseLimonade": {
+        "name": "Limonadë e Kuqe"
+      },
+      "ujeVitamine": {
+        "name": "Ujë Vitaminash"
+      },
+      "ivi": {
+        "name": "Ivi"
       },
       "gin": {
         "name": "Gin"
       },
-      "rum": {
-        "name": "Rum"
+      "bombay": {
+        "name": "Bombay"
       },
-      "tequila": {
-        "name": "Tequila"
+      "hendricks": {
+        "name": "Hendrick's"
       },
-      "brandy": {
-        "name": "Brandy"
+      "martini": {
+        "name": "Martini"
+      },
+      "jagermeister": {
+        "name": "Jägermeister"
+      },
+      "konjakSkenderbeu": {
+        "name": "Konjak Skënderbeu"
+      },
+      "raki": {
+        "name": "Raki"
+      },
+      "tekila": {
+        "name": "Tekila"
+      },
+      "bacardi": {
+        "name": "Bacardi"
+      },
+      "jackDaniels": {
+        "name": "Jack Daniel's"
+      },
+      "chivas": {
+        "name": "Chivas"
+      },
+      "vodka": {
+        "name": "Vodka"
+      },
+      "amaro": {
+        "name": "Amaro"
+      },
+      "amaroDelKapo": {
+        "name": "Amaro del Capo"
       }
     }
   },
