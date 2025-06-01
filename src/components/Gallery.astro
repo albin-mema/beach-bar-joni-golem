@@ -28,19 +28,20 @@ const { images } = Astro.props;
   </div>
 
   <!-- Instagram Section -->
-  <aside class="bg-gradient-to-r from-purple-500 to-pink-500 p-8 rounded-2xl text-white text-center">
+  <aside class="bg-gradient-to-r from-purple-500 to-pink-500 p-4 sm:p-8 rounded-2xl text-white text-center">
     <div class="space-y-6 mx-auto max-w-4xl">
-      <h3 class="font-bold text-3xl">Follow us on Instagram</h3>
-      <p class="opacity-90 text-xl">@beach_bar_joni</p>
+      <h3 class="font-bold text-2xl sm:text-3xl">Follow us on Instagram</h3>
+      <p class="opacity-90 text-lg sm:text-xl">@beach_bar_joni</p>
 
       <!-- Instagram Embed Placeholder -->
-      <div class="bg-white/10 backdrop-blur-sm mt-8 p-4 rounded-lg">
-        <blockquote
-          class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/beach_bar_joni/"
-          data-instgrm-version="12"
-          style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; min-width:326px; padding:0; width:100%;"
-        >
+      <div class="bg-white/10 backdrop-blur-sm mt-8 p-2 sm:p-4 rounded-lg">
+        <div class="flex justify-center">
+          <blockquote
+            class="mx-auto instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/beach_bar_joni/"
+            data-instgrm-version="12"
+            style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 0 auto; max-width:540px; min-width:280px; padding:0; width:calc(100% - 2px);"
+          >
           <div style="padding:16px;">
             <a 
               href="https://www.instagram.com/beach_bar_joni/" 
@@ -96,7 +97,30 @@ const { images } = Astro.props;
             </p>
           </div>
         </blockquote>
+        </div>
       </div>
     </div>
   </aside>
 </div>
+
+<style>
+  /* Ensure Instagram embed is properly centered on mobile */
+  .instagram-media {
+    margin: 0 auto !important;
+  }
+
+  /* Override Instagram's min-width on very small screens */
+  @media (max-width: 320px) {
+    .instagram-media {
+      min-width: 280px !important;
+      width: 100% !important;
+    }
+  }
+
+  /* Ensure proper centering on all screen sizes */
+  @media (max-width: 640px) {
+    .instagram-media {
+      max-width: calc(100vw - 32px) !important;
+    }
+  }
+</style>
