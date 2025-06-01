@@ -33,7 +33,7 @@ const { currentPage = 'home' } = Astro.props;
           <span class="bg-white nav-scrolled:bg-gray-900 w-6 h-0.5 transition-colors"></span>
         </button>
 
-        <!-- Hover Menu -->
+        <!-- Mobile Menu -->
         <div class="invisible group-hover:visible top-full right-0 absolute opacity-0 group-hover:opacity-100 mt-2 w-48 transition-all translate-y-2 group-hover:translate-y-0 duration-300 transform mobile-menu">
           <div class="space-y-1 bg-white/95 shadow-lg backdrop-blur-md px-2 pt-2 pb-3 rounded-lg">
             <a href={`${import.meta.env.BASE_URL}#home`} class="block hover:bg-gray-50 px-3 py-2 rounded-md text-gray-700 hover:text-blue-600 transition-colors mobile-nav-link">Home</a>
@@ -100,6 +100,38 @@ const { currentPage = 'home' } = Astro.props;
     color: rgb(37 99 235); /* text-blue-600 */
     font-weight: 600; /* font-semibold */
   }
+
+  /* Mobile menu improvements */
+  .mobile-menu-toggle {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .mobile-menu {
+    z-index: 1000;
+  }
+
+  /* Ensure menu works on touch devices */
+  @media (hover: none) and (pointer: coarse) {
+    .menu-container:hover .mobile-menu {
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(8px);
+    }
+
+    .mobile-menu.visible {
+      visibility: visible !important;
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+  }
+
+  /* Improve touch targets */
+  .mobile-nav-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
 </style>
 
 <script>
@@ -145,7 +177,47 @@ const { currentPage = 'home' } = Astro.props;
 
     window.addEventListener('scroll', onScroll, { passive: true });
 
-    // Mobile navigation hover (no click functionality needed for hover menu)
+    // Mobile navigation toggle functionality
+    let isMenuOpen = false;
+
+    function toggleMobileMenu() {
+      isMenuOpen = !isMenuOpen;
+      if (mobileMenu) {
+        if (isMenuOpen) {
+          mobileMenu.classList.remove('invisible', 'opacity-0', 'translate-y-2');
+          mobileMenu.classList.add('visible', 'opacity-100', 'translate-y-0');
+        } else {
+          mobileMenu.classList.add('invisible', 'opacity-0', 'translate-y-2');
+          mobileMenu.classList.remove('visible', 'opacity-100', 'translate-y-0');
+        }
+      }
+    }
+
+    // Handle mobile menu toggle click
+    if (navToggle) {
+      navToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleMobileMenu();
+      });
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (isMenuOpen && mobileMenu && !mobileMenu.contains(e.target) && !navToggle?.contains(e.target)) {
+        toggleMobileMenu();
+      }
+    });
+
+    // Close menu when clicking on a navigation link
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        if (isMenuOpen) {
+          toggleMobileMenu();
+        }
+      });
+    });
 
     // Smooth scrolling for navigation links
     const links = document.querySelectorAll('a[href^="#"]');
