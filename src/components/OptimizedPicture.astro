@@ -1,0 +1,51 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+  sizes?: string;
+  decoding?: 'async' | 'sync' | 'auto';
+  priority?: boolean;
+}
+
+const {
+  src,
+  alt,
+  width,
+  height,
+  class: className = '',
+  loading = 'lazy',
+  sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
+  decoding = 'async',
+  priority = false
+} = Astro.props;
+
+// Generate WebP source path
+const webpSrc = src.replace(/\.(jpe?g|png)$/i, '.webp');
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<picture>
+  <!-- WebP source for modern browsers -->
+  <source
+    srcset={`${baseUrl}${webpSrc}`}
+    type="image/webp"
+    sizes={sizes}
+  />
+
+  <!-- Fallback JPEG/PNG for older browsers -->
+  <img
+    src={`${baseUrl}${src}`}
+    alt={alt}
+    width={width}
+    height={height}
+    class={className}
+    loading={priority ? 'eager' : loading}
+    decoding={decoding}
+    sizes={sizes}
+    style={`aspect-ratio: ${width}/${height};`}
+  />
+</picture>

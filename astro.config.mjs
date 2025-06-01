@@ -17,27 +17,57 @@ export default defineConfig({
     }
   },
 
+  // Performance optimizations
+  build: {
+    inlineStylesheets: 'auto',
+    assets: '_astro',
+    // Enable compression and optimization
+    format: 'directory'
+  },
+
+  // Image optimization
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/sharp'
+    },
+    domains: ['albin-mema.github.io'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'albin-mema.github.io'
+      }
+    ]
+  },
+
   vite: {
     plugins: [tailwindcss()],
     build: {
       // Optimize build output
       cssCodeSplit: true,
+      minify: 'terser',
       rollupOptions: {
         output: {
           manualChunks: undefined,
+          // Better asset naming for caching
+          assetFileNames: 'assets/[name].[hash][extname]',
+          chunkFileNames: 'assets/[name].[hash].js',
+          entryFileNames: 'assets/[name].[hash].js'
         }
-      }
+      },
+      // Enable source maps for debugging but keep them small
+      sourcemap: false,
+      // Optimize chunk size
+      chunkSizeWarningLimit: 1000
+    },
+    // Optimize dependencies
+    optimizeDeps: {
+      include: ['lucide-astro']
     }
-  },
-
-  // Performance optimizations
-  build: {
-    inlineStylesheets: 'auto',
   },
 
   // Prefetch settings for better performance
   prefetch: {
-    prefetchAll: true,
+    prefetchAll: false,
     defaultStrategy: 'viewport'
   }
 });

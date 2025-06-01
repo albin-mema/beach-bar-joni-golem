@@ -42,11 +42,22 @@ const galleryImages = [
 		<title>{t('meta.title')}</title>
 		<meta name="description" content={t('meta.description')} />
 
-		<!-- Performance optimizations -->
-		<link rel="preload" href={`${import.meta.env.BASE_URL}beach_bar.webp`} as="image" type="image/webp" />
-		<link rel="preload" href={`${import.meta.env.BASE_URL}beach_bar.jpeg`} as="image" type="image/jpeg" />
+		<!-- Critical performance optimizations -->
+		<link rel="preload" href={`${import.meta.env.BASE_URL}beach_bar.webp`} as="image" type="image/webp" fetchpriority="high" />
+		<link rel="preload" href={`${import.meta.env.BASE_URL}beach_bar.jpeg`} as="image" type="image/jpeg" fetchpriority="high" />
+
+		<!-- Preload critical gallery images -->
+		<link rel="preload" href={`${import.meta.env.BASE_URL}beach_bar_1.webp`} as="image" type="image/webp" />
+		<link rel="preload" href={`${import.meta.env.BASE_URL}beach_bar_2.webp`} as="image" type="image/webp" />
+
+		<!-- DNS prefetch for external resources -->
 		<link rel="dns-prefetch" href="//script.google.com" />
+		<link rel="dns-prefetch" href="//www.instagram.com" />
 		<link rel="preconnect" href="//script.google.com" crossorigin />
+
+		<!-- Resource hints for better loading -->
+		<link rel="modulepreload" href="/src/components/Gallery.astro" />
+		<link rel="modulepreload" href="/src/components/Hero.astro" />
 
 		<!-- Favicons -->
 		<link rel="icon" type="image/x-icon" href={`${import.meta.env.BASE_URL}favicon.ico`} />
@@ -160,24 +171,31 @@ const galleryImages = [
 		<!-- Instagram Embed Script -->
 		<script is:inline async src="https://www.instagram.com/embed.js"></script>
 
-		<!-- Optimized Visitor Tracking Script -->
+		<!-- Highly Optimized Visitor Tracking Script -->
 		<script>
-			// Optimized visitor tracking with performance considerations
+			// Ultra-lightweight visitor tracking with minimal performance impact
 			function trackVisitor() {
-				// Use requestIdleCallback for better performance
+				// Use requestIdleCallback for zero impact on main thread
 				const track = () => {
-					const scriptUrl = 'https://script.google.com/macros/s/AKfycbxvZNXq1f3CU8pEg-pgsij9VICglp62bLKH1l0YRPe4k4GdOFvvLaA0rmNQ2XzqrPRz0Q/exec';
+					try {
+						const scriptUrl = 'https://script.google.com/macros/s/AKfycbxvZNXq1f3CU8pEg-pgsij9VICglp62bLKH1l0YRPe4k4GdOFvvLaA0rmNQ2XzqrPRz0Q/exec';
 
-					const params = new URLSearchParams({
-						url: location.href,
-						userAgent: navigator.userAgent,
-						timestamp: new Date().toISOString(),
-						referrer: document.referrer || 'direct'
-					});
+						// Minimal data collection for better performance
+						const params = new URLSearchParams({
+							url: location.pathname,
+							ref: document.referrer ? new URL(document.referrer).hostname : 'direct',
+							ts: Date.now().toString()
+						});
 
-					// Use image pixel method for better performance (no CORS issues)
-					const img = new Image();
-					img.src = `${scriptUrl}?${params}`;
+						// Use image pixel method - fastest and most reliable
+						const img = new Image();
+						img.src = `${scriptUrl}?${params}`;
+
+						// Clean up after 5 seconds
+						setTimeout(() => img.src = '', 5000);
+					} catch (e) {
+						// Silently fail to avoid any performance impact
+					}
 				};
 
 				// Use requestIdleCallback if available, otherwise setTimeout
@@ -193,6 +211,19 @@ const galleryImages = [
 				trackVisitor();
 			} else {
 				window.addEventListener('load', trackVisitor, { once: true });
+			}
+
+			// Register service worker for performance improvements
+			if ('serviceWorker' in navigator) {
+				window.addEventListener('load', () => {
+					navigator.serviceWorker.register('/beach-bar-joni-golem/sw.js')
+						.then(registration => {
+							console.log('SW registered: ', registration);
+						})
+						.catch(registrationError => {
+							console.log('SW registration failed: ', registrationError);
+						});
+				});
 			}
 		</script>
 	</body>
