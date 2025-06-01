@@ -1,9 +1,9 @@
 {
   "meta": {
     "title": "Beach Bar Joni - Golem, Shqipëri",
-    "description": "Beach Bar Joni në Golem. Shijoni kokteje, birra dhe pamje të bukura të plazhit. Na vizitoni për një përvojë të paharrueshme në bar pranë detit.",
+    "description": "Beach Bar Joni në Golem. Shijoni kokteje të shijshme, birra të ftohta dhe pamje të mrekullueshme të plazhit. Vizitoni për një përvojë të paharrueshme pranë detit.",
     "menuTitle": "Menyja - Beach Bar Joni",
-    "menuDescription": "Eksploroni menynë tonë në Beach Bar Joni - kokteje, birra, pije të ngrohta dhe freskuese."
+    "menuDescription": "Zbuloni menynë tonë të pasur në Beach Bar Joni - kokteje, birra, pije të ngrohta dhe freskuese."
   },
   "navigation": {
     "brand": "Beach Bar Joni",
@@ -15,7 +15,7 @@
   },
   "hero": {
     "title": "Beach Bar Joni",
-    "subtitle": "Përjetoni përzierjen e përsosur të pijeve freskuese dhe pamjeve mahnitëse të plazhit",
+    "subtitle": "Shijoni kombinimin e përsosur të pijeve freskuese dhe pamjeve të mrekullueshme të plazhit",
     "viewMenu": "Shiko Menynë",
     "findUs": "Na Gjeni"
   },
@@ -32,12 +32,12 @@
     "getDirections": "Merrni Udhëzimet"
   },
   "footer": {
-    "description": "Përjetoni përzierjen e përsosur të pijeve freskuese dhe pamjeve mahnitëse të plazhit.",
+    "description": "Shijoni kombinimin e përsosur të pijeve freskuese dhe pamjeve të mrekullueshme të plazhit.",
     "copyright": "© 2025 Beach Bar Joni. Të gjitha të drejtat e rezervuara."
   },
   "menu": {
     "featuredCocktails": "Kokteje të Veçanta",
-    "featuredSubtitle": "Zbuloni koktejet tona të veçanta të përgatitura me përbërës premium",
+    "featuredSubtitle": "Zbuloni koktejet tona speciale të përgatitura me përbërës të cilësisë së lartë",
     "categories": {
       "kokteil": "Kokteil",
       "teNgrohta": "Te Ngrohta",
@@ -48,23 +48,23 @@
     "items": {
       "spritz": {
         "name": "Spritz",
-        "description": "Aperol, Prosecco, ujë soda, feta portokalli të freskëta"
+        "description": "Aperol, Prosecco, ujë me gaz dhe portokall i freskët"
       },
       "mojito": {
         "name": "Mojito",
-        "description": "Rum i bardhë, gjethe mente të freskëta, lëng limoni, sheqer, ujë soda"
+        "description": "Rum i bardhë me mente të freskët, limon dhe ujë me gaz"
       },
       "caipiroska": {
         "name": "Caipiroska",
-        "description": "Vodka, limon, sheqer, akull i thërrmuar"
+        "description": "Vodka me limon të freskët, sheqer dhe akull të thërrmuar"
       },
       "sexOnTheBeach": {
         "name": "Sex On The Beach",
-        "description": "Vodka, peach schnapps, lëng kumbulla, lëng ananas"
+        "description": "Vodka, likör pjeshke, lëng kumbulla dhe ananas"
       },
       "margarita": {
         "name": "Margarita",
-        "description": "Tequila, lëng limoni, triple sec, buzë me kripë"
+        "description": "Tequila me limon të freskët, triple sec dhe buzë me kripë"
       },
       "kafe": {
         "name": "Kafe"

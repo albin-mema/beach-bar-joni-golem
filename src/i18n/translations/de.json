@@ -66,20 +66,155 @@
         "name": "Margarita",
         "description": "Tequila, Limettensaft, Triple Sec, Salzrand"
       },
-      "espresso": {
-        "name": "Espresso"
+      "kafe": {
+        "name": "Kaffee"
       },
-      "cappuccino": {
+      "uje": {
+        "name": "Wasser"
+      },
+      "makiato": {
+        "name": "Macchiato"
+      },
+      "cajINgrohte": {
+        "name": "Heißer Tee"
+      },
+      "kakao": {
+        "name": "Heiße Schokolade"
+      },
+      "kapucino": {
         "name": "Cappuccino"
       },
-      "birraKorca": {
-        "name": "Birra Korça"
+      "latte": {
+        "name": "Latte"
+      },
+      "fredo": {
+        "name": "Freddo"
+      },
+      "makiatoEMadhe": {
+        "name": "Großer Macchiato"
+      },
+      "kafeEMadhe": {
+        "name": "Großer Kaffee"
+      },
+      "frape": {
+        "name": "Frappé"
+      },
+      "kapucinoEFtohte": {
+        "name": "Eiskappuccino"
+      },
+      "kakaoEFtohte": {
+        "name": "Eisschokolade"
+      },
+      "heineken": {
+        "name": "Heineken"
+      },
+      "korona": {
+        "name": "Corona"
+      },
+      "peroni": {
+        "name": "Peroni"
+      },
+      "schoffer": {
+        "name": "Schöfferhofer"
+      },
+      "peja": {
+        "name": "Peja"
+      },
+      "korca": {
+        "name": "Korça"
+      },
+      "paulaner": {
+        "name": "Paulaner"
+      },
+      "bavaria": {
+        "name": "Bavaria"
       },
       "cocaCola": {
         "name": "Coca Cola"
       },
+      "fanta": {
+        "name": "Fanta"
+      },
+      "lemonSoda": {
+        "name": "Zitronenlimonade"
+      },
+      "orangeSoda": {
+        "name": "Orangenlimonade"
+      },
+      "lipton": {
+        "name": "Lipton Eistee"
+      },
+      "akullore": {
+        "name": "Eis"
+      },
+      "schweppes": {
+        "name": "Schweppes"
+      },
+      "bravo": {
+        "name": "Bravo"
+      },
+      "neskafe": {
+        "name": "Nescafé"
+      },
+      "redBull": {
+        "name": "Red Bull"
+      },
+      "b52": {
+        "name": "B52"
+      },
+      "grodino": {
+        "name": "Grodino"
+      },
+      "rosseLimonade": {
+        "name": "Rote Limonade"
+      },
+      "ujeVitamine": {
+        "name": "Vitaminwasser"
+      },
+      "ivi": {
+        "name": "Ivi"
+      },
+      "gin": {
+        "name": "Gin"
+      },
+      "bombay": {
+        "name": "Bombay"
+      },
+      "hendricks": {
+        "name": "Hendrick's"
+      },
+      "martini": {
+        "name": "Martini"
+      },
+      "jagermeister": {
+        "name": "Jägermeister"
+      },
+      "konjakSkenderbeu": {
+        "name": "Skënderbeu Cognac"
+      },
       "raki": {
         "name": "Raki"
+      },
+      "tekila": {
+        "name": "Tequila"
+      },
+      "bacardi": {
+        "name": "Bacardi"
+      },
+      "jackDaniels": {
+        "name": "Jack Daniel's"
+      },
+      "chivas": {
+        "name": "Chivas"
+      },
+      "vodka": {
+        "name": "Wodka"
+      },
+      "amaro": {
+        "name": "Amaro"
+      },
+      "amaroDelKapo": {
+        "name": "Amaro del Capo"
       }
     }
   },
