@@ -65,7 +65,7 @@ const languageConfig = {
           alt="Bar Joni Logo"
           class="rounded-full w-10 h-10 object-cover group-hover:scale-105 transition-transform"
         />
-        <span class="font-bold text-white nav-scrolled:text-gray-900 text-xl transition-colors">
+        <span class="font-bold text-white text-xl transition-colors brand-text">
           {t('navigation.brand')}
         </span>
       </a>
@@ -74,10 +74,10 @@ const languageConfig = {
       <div class="flex items-center space-x-4">
         <!-- Language Selector -->
         <div class="group relative language-menu-container">
-          <button class="flex items-center space-x-2 bg-white/10 hover:bg-white/20 nav-scrolled:bg-gray-100 nav-scrolled:hover:bg-gray-200 px-3 py-2 rounded-lg transition-colors language-menu-toggle">
+          <button class="flex items-center space-x-2 bg-white/10 hover:bg-white/20 px-3 py-2 rounded-lg transition-colors language-menu-toggle">
             <span class="text-xl">{languageConfig[lang]?.flag}</span>
-            <span class="hidden sm:block font-medium text-white nav-scrolled:text-gray-900 text-sm">{languageConfig[lang]?.label}</span>
-            <svg class="w-4 h-4 text-white nav-scrolled:text-gray-900 group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <span class="hidden sm:block font-medium text-white text-sm language-text">{languageConfig[lang]?.label}</span>
+            <svg class="w-4 h-4 text-white group-hover:rotate-180 transition-transform language-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </button>
@@ -109,9 +109,9 @@ const languageConfig = {
           <a
             href={getLocalizedUrl('/', lang)}
             aria-label={t('navigation.home')}
-            class="group flex justify-center items-center bg-white/10 hover:bg-white/20 nav-scrolled:bg-gray-100 nav-scrolled:hover:bg-gray-200 p-3 rounded-lg transition-colors"
+            class="group flex justify-center items-center bg-white/10 hover:bg-white/20 p-3 rounded-lg transition-colors nav-icon-link"
           >
-            <svg class="w-5 h-5 text-white nav-scrolled:text-gray-900 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+            <svg class="w-5 h-5 text-white group-hover:scale-110 transition-transform nav-icon" fill="currentColor" viewBox="0 0 20 20">
               <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
             </svg>
           </a>
@@ -120,9 +120,9 @@ const languageConfig = {
           <a
             href={getLocalizedUrl('/menu', lang)}
             aria-label={t('navigation.menu')}
-            class="group flex justify-center items-center bg-white/10 hover:bg-white/20 nav-scrolled:bg-gray-100 nav-scrolled:hover:bg-gray-200 p-3 rounded-lg transition-colors"
+            class="group flex justify-center items-center bg-white/10 hover:bg-white/20 p-3 rounded-lg transition-colors nav-icon-link"
           >
-            <Martini class="w-5 h-5 text-white nav-scrolled:text-gray-900 group-hover:scale-110 transition-transform" />
+            <Martini class="w-5 h-5 text-white group-hover:scale-110 transition-transform nav-icon" />
           </a>
         </div>
       </div>
@@ -182,10 +182,45 @@ const languageConfig = {
     font-weight: 600; /* font-semibold */
   }
 
+  /* Brand text color changes when scrolled */
+  .nav-scrolled .brand-text {
+    color: rgb(55 65 81); /* text-gray-700 */
+  }
+
   /* Navigation icon improvements */
   .nav-icon {
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Navigation icon color changes when scrolled */
+  .nav-scrolled .nav-icon {
+    color: rgb(55 65 81); /* text-gray-700 */
+  }
+
+  .nav-scrolled .nav-icon-link {
+    background: rgba(243 244 246 / 1); /* bg-gray-100 */
+  }
+
+  .nav-scrolled .nav-icon-link:hover {
+    background: rgba(229 231 235 / 1); /* bg-gray-200 */
+  }
+
+  /* Language selector color changes when scrolled */
+  .nav-scrolled .language-text {
+    color: rgb(55 65 81); /* text-gray-700 */
+  }
+
+  .nav-scrolled .language-icon {
+    color: rgb(55 65 81); /* text-gray-700 */
+  }
+
+  .nav-scrolled .language-menu-toggle {
+    background: rgba(243 244 246 / 1); /* bg-gray-100 */
+  }
+
+  .nav-scrolled .language-menu-toggle:hover {
+    background: rgba(229 231 235 / 1); /* bg-gray-200 */
   }
 
   /* Language menu styles */

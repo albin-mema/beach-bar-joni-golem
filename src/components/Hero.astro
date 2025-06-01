@@ -1,5 +1,6 @@
 ---
-import { getLocalizedUrl } from '../i18n/utils.js';
+import { getLocalizedUrl } from '../i18n/utils.ts';
+import BackgroundImage from './BackgroundImage.astro';
 
 interface Props {
   title: string;
@@ -13,10 +14,10 @@ interface Props {
 const { title, subtitle, backgroundImage, showButtons = false, lang = 'en', translations } = Astro.props;
 
 // Get translation function
-function t(key) {
+function t(key: string): string {
   if (!translations) return key;
   const keys = key.split('.');
-  let value = translations;
+  let value: any = translations;
   for (const k of keys) {
     if (value && typeof value === 'object' && k in value) {
       value = value[k];
@@ -28,18 +29,15 @@ function t(key) {
 }
 ---
 
-<section id="home" class="relative flex justify-center items-center min-h-screen overflow-hidden">
-  <!-- Background Image -->
-  <div 
-    class="absolute inset-0 bg-cover bg-center bg-fixed"
-    style={`background-image: url('${backgroundImage}')`}
-  >
-    <!-- Overlay -->
-    <div class="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60"></div>
-  </div>
+<BackgroundImage
+  src={backgroundImage.replace(import.meta.env.BASE_URL, '')}
+  class="flex justify-center items-center min-h-screen overflow-hidden"
+>
+  <!-- Overlay -->
+  <div class="z-10 absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60"></div>
 
   <!-- Content -->
-  <div class="z-10 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
+  <section id="home" class="z-20 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
     <h1 class="mb-6 font-black text-white text-5xl md:text-6xl lg:text-7xl tracking-tight">
       {title}
     </h1>
@@ -51,7 +49,7 @@ function t(key) {
       <div class="flex sm:flex-row flex-col justify-center items-center gap-4">
         <a
           href={getLocalizedUrl('/menu', lang)}
-          class="inline-flex justify-center items-center bg-blue-600 hover:bg-blue-700 hover:shadow-xl px-8 py-4 rounded-lg min-w-[160px] font-semibold text-white text-lg hover:scale-105 transition-all duration-300"
+          class="inline-flex justify-center items-center bg-teal-600 hover:bg-teal-700 hover:shadow-xl px-8 py-4 rounded-lg min-w-[160px] font-semibold text-white text-lg hover:scale-105 transition-all duration-300"
         >
           {t('hero.viewMenu')}
         </a>
@@ -63,10 +61,8 @@ function t(key) {
         </a>
       </div>
     )}
-  </div>
-
-
-</section>
+  </section>
+</BackgroundImage>
 
 <style>
   /* Custom animations */

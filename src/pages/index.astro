@@ -7,7 +7,7 @@ import Gallery from '../components/Gallery.astro'
 import Button from '../components/Button.astro'
 import Footer from '../components/Footer.astro'
 import LanguageDetector from '../components/LanguageDetector.astro'
-import { getTranslations, useTranslations } from '../i18n/utils.js'
+import { getTranslations, useTranslations } from '../i18n/utils.ts'
 
 const lang = 'en'
 const translations = await getTranslations(lang)
@@ -37,10 +37,16 @@ const galleryImages = [
 <html lang={lang}>
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{t('meta.title')}</title>
 		<meta name="description" content={t('meta.description')} />
+
+		<!-- Performance optimizations -->
+		<link rel="preload" href={`${import.meta.env.BASE_URL}beach_bar.webp`} as="image" type="image/webp" />
+		<link rel="preload" href={`${import.meta.env.BASE_URL}beach_bar.jpeg`} as="image" type="image/jpeg" />
+		<link rel="dns-prefetch" href="//script.google.com" />
+		<link rel="preconnect" href="//script.google.com" crossorigin />
 
 		<!-- Favicons -->
 		<link rel="icon" type="image/x-icon" href={`${import.meta.env.BASE_URL}favicon.ico`} />
@@ -49,8 +55,11 @@ const galleryImages = [
 		<link rel="apple-touch-icon" sizes="180x180" href={`${import.meta.env.BASE_URL}apple-touch-icon.png`} />
 
 		<!-- Theme color for mobile browsers -->
-		<meta name="theme-color" content="#2563eb" />
-		<meta name="msapplication-TileColor" content="#2563eb" />
+		<meta name="theme-color" content="#0d9488" />
+		<meta name="msapplication-TileColor" content="#0d9488" />
+
+		<!-- Cache control -->
+		<meta http-equiv="Cache-Control" content="public, max-age=31536000" />
 	</head>
 	<body class="bg-white">
 		<!-- Language Detection -->
@@ -151,43 +160,39 @@ const galleryImages = [
 		<!-- Instagram Embed Script -->
 		<script is:inline async src="https://www.instagram.com/embed.js"></script>
 
-		<!-- Visitor Tracking Script -->
-		<script is:inline>
-			// Enhanced visitor tracking with better error handling
+		<!-- Optimized Visitor Tracking Script -->
+		<script>
+			// Optimized visitor tracking with performance considerations
 			function trackVisitor() {
-				const scriptUrl = 'https://script.google.com/macros/s/AKfycbxvZNXq1f3CU8pEg-pgsij9VICglp62bLKH1l0YRPe4k4GdOFvvLaA0rmNQ2XzqrPRz0Q/exec';
+				// Use requestIdleCallback for better performance
+				const track = () => {
+					const scriptUrl = 'https://script.google.com/macros/s/AKfycbxvZNXq1f3CU8pEg-pgsij9VICglp62bLKH1l0YRPe4k4GdOFvvLaA0rmNQ2XzqrPRz0Q/exec';
 
-				const params = new URLSearchParams({
-					url: window.location.href,
-					userAgent: navigator.userAgent,
-					timestamp: new Date().toISOString(),
-					referrer: document.referrer || 'direct'
-				});
+					const params = new URLSearchParams({
+						url: location.href,
+						userAgent: navigator.userAgent,
+						timestamp: new Date().toISOString(),
+						referrer: document.referrer || 'direct'
+					});
 
-				// Try with fetch first
-				fetch(`${scriptUrl}?${params}`, {
-					method: "GET",
-					mode: "no-cors"
-				})
-				.then(() => {
-					console.log("Visitor tracking: Request sent successfully");
-				})
-				.catch((error) => {
-					console.warn("Visitor tracking: Fetch failed, trying alternative method", error);
-
-					// Fallback: Try with image pixel method
+					// Use image pixel method for better performance (no CORS issues)
 					const img = new Image();
-					img.onload = () => console.log("Visitor tracking: Image pixel method succeeded");
-					img.onerror = () => console.warn("Visitor tracking: All methods failed");
 					img.src = `${scriptUrl}?${params}`;
-				});
+				};
+
+				// Use requestIdleCallback if available, otherwise setTimeout
+				if ('requestIdleCallback' in window) {
+					requestIdleCallback(track, { timeout: 2000 });
+				} else {
+					setTimeout(track, 100);
+				}
 			}
 
-			// Track visitor when page loads
-			if (document.readyState === 'loading') {
-				document.addEventListener('DOMContentLoaded', trackVisitor);
-			} else {
+			// Track visitor after page load to not block rendering
+			if (document.readyState === 'complete') {
 				trackVisitor();
+			} else {
+				window.addEventListener('load', trackVisitor, { once: true });
 			}
 		</script>
 	</body>

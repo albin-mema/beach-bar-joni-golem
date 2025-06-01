@@ -37,7 +37,7 @@
   },
   "menu": {
     "featuredCocktails": "Cocktail in Evidenza",
-    "featuredSubtitle": "Scopri i nostri cocktail signature preparati con ingredienti premium",
+    "featuredSubtitle": "Scopri i nostri cocktail speciali preparati con ingredienti di alta qualità",
     "categories": {
       "kokteil": "Cocktail",
       "teNgrohta": "Bevande Calde",
@@ -60,7 +60,7 @@
       },
       "sexOnTheBeach": {
         "name": "Sex On The Beach",
-        "description": "Vodka, peach schnapps, succo di mirtillo, succo d'ananas"
+        "description": "Vodka, liquore alla pesca, succo di mirtillo, succo d'ananas"
       },
       "margarita": {
         "name": "Margarita",

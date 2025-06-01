@@ -1,12 +1,13 @@
-import { formatPrice } from '../i18n/utils.js';
+import { formatPrice } from '../i18n/utils.ts';
 import menuData from './menu-data.json';
+import type { MenuData, Translations } from '../types/menu';
 
 // Get localized menu data with proper pricing and translations
-export function getLocalizedMenuData(lang, translations) {
-  const localizedMenu = {};
+export function getLocalizedMenuData(lang: string, translations: Translations): MenuData {
+  const localizedMenu: MenuData = {};
 
   // Category key mapping to match translation files
-  const categoryKeyMap = {
+  const categoryKeyMap: Record<string, string> = {
     "Te Ngrohta": "teNgrohta",
     "Birra": "birra",
     "Kokteil": "kokteil",
@@ -14,7 +15,7 @@ export function getLocalizedMenuData(lang, translations) {
     "Alkoolike": "alkoolike"
   };
 
-  for (const [categoryKey, category] of Object.entries(menuData)) {
+  for (const [categoryKey, category] of Object.entries(menuData as MenuData)) {
     const translationKey = categoryKeyMap[categoryKey] || categoryKey.toLowerCase();
     const translatedTitle = translations.menu?.categories?.[translationKey] || category.title;
 

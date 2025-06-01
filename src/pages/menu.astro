@@ -3,8 +3,9 @@ import '../styles/global.css'
 import Navigation from '../components/Navigation.astro'
 import Hero from '../components/Hero.astro'
 import Footer from '../components/Footer.astro'
-import { getTranslations, useTranslations } from '../i18n/utils.js'
-import { getLocalizedMenuData } from '../data/menu-i18n.js'
+import { getTranslations, useTranslations } from '../i18n/utils.ts'
+import { getLocalizedMenuData } from '../data/menu-i18n.ts'
+import type { MenuCategory, MenuItem } from '../types/menu'
 
 const lang = 'en'
 const translations = await getTranslations(lang)
@@ -26,8 +27,8 @@ const menuData = getLocalizedMenuData(lang, translations)
 		<link rel="apple-touch-icon" href={`${import.meta.env.BASE_URL}apple-touch-icon.png`} />
 
 		<!-- Theme color for mobile browsers -->
-		<meta name="theme-color" content="#2563eb" />
-		<meta name="msapplication-TileColor" content="#2563eb" />
+		<meta name="theme-color" content="#0d9488" />
+		<meta name="msapplication-TileColor" content="#0d9488" />
 	</head>
 	<body class="bg-white">
 		<!-- Navigation -->
@@ -58,7 +59,7 @@ const menuData = getLocalizedMenuData(lang, translations)
 							</p>
 						</div>
 						<div class="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-							{menuData.Kokteil.items.filter(item => item.featured).map((cocktail) => (
+							{menuData.Kokteil.items.filter((item: MenuItem) => item.featured).map((cocktail: MenuItem) => (
 								<div class="group bg-white shadow-lg hover:shadow-xl rounded-xl overflow-hidden transition-all hover:-translate-y-1 duration-300">
 									<div class="relative h-48 overflow-hidden">
 										<img
@@ -84,13 +85,13 @@ const menuData = getLocalizedMenuData(lang, translations)
 
 				{/* Regular Menu Sections */}
 				<div class="gap-12 lg:gap-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-					{Object.entries(menuData).map(([, category]) => (
+					{Object.entries(menuData).map(([, category]: [string, MenuCategory]) => (
 						<section class="space-y-6">
 							<h2 class="pb-2 border-gray-200 border-b-2 font-bold text-gray-800 text-xl uppercase tracking-wider">
 								{category.title}
 							</h2>
 							<div class="space-y-4">
-								{category.items.map((item) => (
+								{category.items.map((item: MenuItem) => (
 									<div class="flex justify-between items-start leading-relaxed">
 										<div class="flex-1 mr-4">
 											<h3 class="font-normal text-gray-600 text-base">{item.name}</h3>

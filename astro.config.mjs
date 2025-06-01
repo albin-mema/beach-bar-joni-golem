@@ -19,5 +19,25 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
+    build: {
+      // Optimize build output
+      cssCodeSplit: true,
+      rollupOptions: {
+        output: {
+          manualChunks: undefined,
+        }
+      }
+    }
   },
+
+  // Performance optimizations
+  build: {
+    inlineStylesheets: 'auto',
+  },
+
+  // Prefetch settings for better performance
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'viewport'
+  }
 });

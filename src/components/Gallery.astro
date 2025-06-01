@@ -1,8 +1,6 @@
 ---
-interface GalleryImage {
-  src: string;
-  alt: string;
-}
+import Picture from './Picture.astro';
+import type { GalleryImage } from '../types/menu';
 
 interface Props {
   images: GalleryImage[];
@@ -14,12 +12,16 @@ const { images } = Astro.props;
 <div class="space-y-12">
   <!-- Image Grid -->
   <div class="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-    {images.map((image) => (
+    {images.map((image: GalleryImage, index: number) => (
       <figure class="group relative shadow-md hover:shadow-xl rounded-xl aspect-[4/3] overflow-hidden transition-all duration-300">
-        <img
-          src={image.src}
+        <Picture
+          src={image.src.replace(import.meta.env.BASE_URL, '')}
           alt={image.alt}
-          loading="lazy"
+          loading={index < 2 ? "eager" : "lazy"}
+          decoding="async"
+          width={400}
+          height={300}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
           class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
         />
         <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
