@@ -32,9 +32,9 @@ export function getLocalizedMenuData(lang: string, translations: Translations): 
           price: formatPrice(item.price, lang)
         };
 
-        // Add BASE_URL to image path if it exists
+        // Keep image path as is - BASE_URL will be handled by Astro during build
         if (item.image) {
-          processedItem.image = `${import.meta.env.BASE_URL}${item.image}`;
+          processedItem.image = item.image;
         }
 
         return processedItem;

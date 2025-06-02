@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clear Cache - Beach Bar Joni</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #0d9488;
+            text-align: center;
+        }
+        .button {
+            background-color: #0d9488;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #0f766e;
+        }
+        .status {
+            margin: 20px 0;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+        .success {
+            background-color: #d1fae5;
+            color: #065f46;
+            border: 1px solid #10b981;
+        }
+        .error {
+            background-color: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #ef4444;
+        }
+        .instructions {
+            background-color: #fef3c7;
+            color: #92400e;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏖️ Beach Bar Joni - Clear Cache</h1>
+        
+        <div class="instructions">
+            <strong>If you're seeing 404 errors for gallery images:</strong><br>
+            This page will help clear your browser cache and service worker cache to resolve any issues with missing images.
+        </div>
+
+        <div id="status" class="status"></div>
+
+        <h3>Clear Cache Options:</h3>
+        
+        <button class="button" onclick="clearServiceWorker()">
+            Clear Service Worker Cache
+        </button>
+        
+        <button class="button" onclick="clearBrowserCache()">
+            Clear Browser Cache
+        </button>
+        
+        <button class="button" onclick="clearAll()">
+            Clear All Caches
+        </button>
+        
+        <a href="/beach-bar-joni-golem/" class="button">
+            Return to Website
+        </a>
+
+        <h3>Manual Steps:</h3>
+        <ol>
+            <li>Press <strong>Ctrl+Shift+R</strong> (or <strong>Cmd+Shift+R</strong> on Mac) to hard refresh</li>
+            <li>Open Developer Tools (F12)</li>
+            <li>Right-click the refresh button and select "Empty Cache and Hard Reload"</li>
+            <li>Go to Application tab → Storage → Clear storage</li>
+        </ol>
+    </div>
+
+    <script>
+        function showStatus(message, isError = false) {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            status.className = `status ${isError ? 'error' : 'success'}`;
+            status.style.display = 'block';
+            
+            setTimeout(() => {
+                status.style.display = 'none';
+            }, 5000);
+        }
+
+        async function clearServiceWorker() {
+            try {
+                if ('serviceWorker' in navigator) {
+                    const registrations = await navigator.serviceWorker.getRegistrations();
+                    for (let registration of registrations) {
+                        await registration.unregister();
+                    }
+                    showStatus('Service Worker cache cleared successfully!');
+                } else {
+                    showStatus('Service Worker not supported in this browser', true);
+                }
+            } catch (error) {
+                showStatus('Error clearing Service Worker: ' + error.message, true);
+            }
+        }
+
+        async function clearBrowserCache() {
+            try {
+                if ('caches' in window) {
+                    const cacheNames = await caches.keys();
+                    await Promise.all(
+                        cacheNames.map(cacheName => caches.delete(cacheName))
+                    );
+                    showStatus('Browser cache cleared successfully!');
+                } else {
+                    showStatus('Cache API not supported in this browser', true);
+                }
+            } catch (error) {
+                showStatus('Error clearing browser cache: ' + error.message, true);
+            }
+        }
+
+        async function clearAll() {
+            try {
+                await clearServiceWorker();
+                await clearBrowserCache();
+                
+                // Clear localStorage and sessionStorage
+                localStorage.clear();
+                sessionStorage.clear();
+                
+                showStatus('All caches cleared successfully! Please refresh the page.');
+                
+                // Reload the page after a short delay
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
+            } catch (error) {
+                showStatus('Error clearing caches: ' + error.message, true);
+            }
+        }
+
+        // Auto-clear cache if accessed with ?clear parameter
+        if (window.location.search.includes('clear=true')) {
+            clearAll();
+        }
+    </script>
+</body>
+</html>

@@ -72,24 +72,24 @@ const menuData = getLocalizedMenuData(lang, translations);
 
       <!-- Featured Cocktails Section -->
       {menuData.kokteil && (
-        <section class="py-16 bg-white">
-          <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-              <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <section class="bg-white py-16">
+          <div class="mx-auto px-4 container">
+            <div class="mb-12 text-center">
+              <h2 class="mb-4 font-bold text-gray-900 text-3xl md:text-4xl">
                 {t('menu.featuredCocktails')}
               </h2>
-              <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+              <p class="mx-auto max-w-2xl text-gray-600 text-lg">
                 {t('menu.featuredSubtitle')}
               </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div class="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-6xl">
               {menuData.kokteil.items.map((item: MenuItem) => (
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <div class="bg-white shadow-lg hover:shadow-xl rounded-xl overflow-hidden transition-shadow duration-300">
                   {item.image && (
                     <div class="h-48 overflow-hidden">
-                      <img 
-                        src={item.image} 
+                      <img
+                        src={`${import.meta.env.BASE_URL}${item.image}`}
                         alt={item.name}
                         class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                       />
@@ -97,8 +97,8 @@ const menuData = getLocalizedMenuData(lang, translations);
                   )}
                   <div class="p-6">
                     <div class="flex justify-between items-start mb-3">
-                      <h3 class="text-xl font-semibold text-gray-900">{item.name}</h3>
-                      <span class="text-lg font-bold text-blue-600">{item.price}</span>
+                      <h3 class="font-semibold text-gray-900 text-xl">{item.name}</h3>
+                      <span class="font-bold text-blue-600 text-lg">{item.price}</span>
                     </div>
                     {item.description && (
                       <p class="text-gray-600 text-sm leading-relaxed">{item.description}</p>
@@ -112,31 +112,31 @@ const menuData = getLocalizedMenuData(lang, translations);
       )}
 
       <!-- Full Menu Section -->
-      <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-          <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+      <section class="bg-gray-50 py-16">
+        <div class="mx-auto px-4 container">
+          <div class="mb-12 text-center">
+            <h2 class="mb-4 font-bold text-gray-900 text-3xl md:text-4xl">
               {t('navigation.menu')}
             </h2>
           </div>
           
-          <div class="max-w-4xl mx-auto space-y-12">
+          <div class="space-y-12 mx-auto max-w-4xl">
             {Object.entries(menuData).map(([categoryKey, category]: [string, MenuCategory]) => (
-              <div class="bg-white rounded-xl shadow-lg p-8">
-                <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center border-b border-gray-200 pb-4">
+              <div class="bg-white shadow-lg p-8 rounded-xl">
+                <h3 class="mb-6 pb-4 border-gray-200 border-b font-bold text-gray-900 text-2xl text-center">
                   {category.title}
                 </h3>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="gap-4 grid grid-cols-1 md:grid-cols-2">
                   {category.items.map((item: MenuItem) => (
-                    <div class="flex justify-between items-start py-3 border-b border-gray-100 last:border-b-0">
+                    <div class="flex justify-between items-start py-3 border-gray-100 border-b last:border-b-0">
                       <div class="flex-1">
                         <h4 class="font-medium text-gray-900">{item.name}</h4>
                         {item.description && (
-                          <p class="text-sm text-gray-600 mt-1">{item.description}</p>
+                          <p class="mt-1 text-gray-600 text-sm">{item.description}</p>
                         )}
                       </div>
-                      <span class="font-semibold text-blue-600 ml-4">{item.price}</span>
+                      <span class="ml-4 font-semibold text-blue-600">{item.price}</span>
                     </div>
                   ))}
                 </div>
