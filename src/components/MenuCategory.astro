@@ -4,22 +4,32 @@ export interface Props {
   items: Array<{
     name: string;
     price: string;
+    description?: string;
   }>;
 }
 
 const { title, items } = Astro.props;
 ---
 
-<article>
-  <h3>{title}</h3>
-  <ul>
-    {items.map((item) => (
-      <li>
-        <div>
-          <h4>{item.name}</h4>
-        </div>
-        <span>{item.price}</span>
-      </li>
-    ))}
-  </ul>
+<article class="bg-white shadow-lg p-8 rounded-xl">
+  <h3 class="mb-6 pb-4 border-gray-200 border-b font-bold text-gray-900 text-2xl text-center">{title}</h3>
+  <div class="overflow-x-auto">
+    <table class="w-full border-collapse">
+      <tbody>
+        {items.map((item) => (
+          <tr class="border-gray-100 border-b last:border-b-0">
+            <td class="py-3 pr-4 align-top">
+              <h4 class="font-medium text-gray-900">{item.name}</h4>
+              {item.description && (
+                <p class="mt-1 text-gray-600 text-sm">{item.description}</p>
+              )}
+            </td>
+            <td class="py-3 pl-4 text-right align-top">
+              <span class="font-semibold text-blue-600 whitespace-nowrap">{item.price}</span>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
 </article>

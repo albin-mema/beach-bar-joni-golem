@@ -114,18 +114,24 @@ const menuData = getLocalizedMenuData(lang, translations)
                   {category.title}
                 </h3>
 
-                <div class="gap-4 grid grid-cols-1 md:grid-cols-2">
-                  {category.items.map((item: MenuItem) => (
-                    <div class="flex justify-between items-start py-3 border-gray-100 border-b last:border-b-0">
-                      <div class="flex-1">
-                        <h4 class="font-medium text-gray-900">{item.name}</h4>
-                        {item.description && (
-                          <p class="mt-1 text-gray-600 text-sm">{item.description}</p>
-                        )}
-                      </div>
-                      <span class="ml-4 font-semibold text-blue-600">{item.price}</span>
-                    </div>
-                  ))}
+                <div class="overflow-x-auto">
+                  <table class="w-full border-collapse">
+                    <tbody>
+                      {category.items.map((item: MenuItem) => (
+                        <tr class="border-gray-100 border-b last:border-b-0">
+                          <td class="py-3 pr-4 align-top">
+                            <h4 class="font-medium text-gray-900">{item.name}</h4>
+                            {item.description && (
+                              <p class="mt-1 text-gray-600 text-sm">{item.description}</p>
+                            )}
+                          </td>
+                          <td class="py-3 pl-4 text-right align-top">
+                            <span class="font-semibold text-blue-600 whitespace-nowrap">{item.price}</span>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
               </div>
             ))}
