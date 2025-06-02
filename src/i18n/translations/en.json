@@ -19,13 +19,22 @@
     "viewMenu": "View Menu",
     "findUs": "Find Us"
   },
+  "gallery": {
+    "image1": "Beach Bar Joni exterior view",
+    "image2": "Cocktails and drinks",
+    "image3": "Beach view from bar",
+    "image4": "Bar interior",
+    "image5": "Sunset at the beach",
+    "image6": "Bar atmosphere"
+  },
   "location": {
     "title": "Visit Us",
     "subtitle": "Find us on the beautiful shores of Golem",
     "address": "Address",
     "addressText": "Shetitorja plazhit Golem\nGolem, Tiranë, Albania",
     "hours": "Hours",
-    "hoursText": "Daily: 7:00 AM - 12:00 PM\nHours may vary seasonally"
+    "hoursText": "Daily: 7:00 AM - 12:00 PM\nHours may vary seasonally",
+    "mapTitle": "Beach Bar Joni Location"
   },
   "contact": {
     "followInstagram": "Follow us on Instagram",

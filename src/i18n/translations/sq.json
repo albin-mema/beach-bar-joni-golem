@@ -19,13 +19,22 @@
     "viewMenu": "Shiko Menynë",
     "findUs": "Na Gjeni"
   },
+  "gallery": {
+    "image1": "Pamja e jashtme e Beach Bar Joni",
+    "image2": "Kokteje dhe pije",
+    "image3": "Pamja e plazhit nga bari",
+    "image4": "Brendësia e barit",
+    "image5": "Perëndimi i diellit në plazh",
+    "image6": "Atmosfera e barit"
+  },
   "location": {
     "title": "Na Vizitoni",
     "subtitle": "Na gjeni në brigjet e bukura të Golemit",
     "address": "Adresa",
     "addressText": "Shetitorja plazhit Golem\nGolem, Tiranë, Shqipëri",
     "hours": "Orari",
-    "hoursText": "Çdo ditë: 7:00 - 24:00\nOrari mund të ndryshojë sipas sezonit"
+    "hoursText": "Çdo ditë: 7:00 - 24:00\nOrari mund të ndryshojë sipas sezonit",
+    "mapTitle": "Vendndodhja e Beach Bar Joni"
   },
   "contact": {
     "followInstagram": "Na ndiqni në Instagram",

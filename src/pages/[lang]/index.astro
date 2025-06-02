@@ -1,0 +1,201 @@
+---
+import '../../styles/global.css'
+import Navigation from '../../components/Navigation.astro'
+import Hero from '../../components/Hero.astro'
+import Section from '../../components/Section.astro'
+import Gallery from '../../components/Gallery.astro'
+import Button from '../../components/Button.astro'
+import Footer from '../../components/Footer.astro'
+import FixedBackground from '../../components/FixedBackground.astro'
+import { getTranslations, useTranslations, languages } from '../../i18n/utils.js'
+
+// Generate static paths for all languages
+export async function getStaticPaths() {
+  const paths = Object.keys(languages).map(lang => ({
+    params: { lang }
+  }));
+  
+  return paths;
+}
+
+// Get the language from the URL params
+const { lang } = Astro.params;
+const translations = await getTranslations(lang);
+const t = useTranslations(translations);
+
+// Gallery images
+const galleryImages = [
+  { src: 'gallery1.jpeg', alt: t('gallery.image1') },
+  { src: 'gallery2.jpeg', alt: t('gallery.image2') },
+  { src: 'gallery3.jpeg', alt: t('gallery.image3') },
+  { src: 'gallery4.jpeg', alt: t('gallery.image4') },
+  { src: 'gallery5.jpeg', alt: t('gallery.image5') },
+  { src: 'gallery6.jpeg', alt: t('gallery.image6') }
+];
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{t('meta.title')}</title>
+    <meta name="description" content={t('meta.description')} />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <link rel="icon" type="image/png" href={`${import.meta.env.BASE_URL}favicon.png`} />
+    <link rel="apple-touch-icon" href={`${import.meta.env.BASE_URL}apple-touch-icon.png`} />
+    
+    <!-- Visitor tracking -->
+    <script>
+      // Send visitor data to Google Sheets
+      fetch('https://script.google.com/macros/s/AKfycbxvZNXq1f3CU8pEg-pgsij9VICglp62bLKH1l0YRPe4k4GdOFvvLaA0rmNQ2XzqrPRz0Q/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          timestamp: new Date().toISOString(),
+          page: window.location.href,
+          userAgent: navigator.userAgent,
+          language: navigator.language
+        })
+      }).catch(err => console.log('Tracking request failed:', err));
+    </script>
+  </head>
+
+  <body>
+    <!-- Fixed Background -->
+    <FixedBackground src="beach_bar.jpeg" />
+
+    <!-- Main Content Container -->
+    <div class="z-10 relative">
+      <!-- Navigation -->
+      <Navigation currentPage="home" lang={lang} translations={translations} />
+
+      <main>
+        <!-- Hero Section -->
+        <Hero
+          title={t('hero.title')}
+          subtitle={t('hero.subtitle')}
+          showButtons={true}
+          lang={lang}
+          translations={translations}
+          useFixedBackground={true}
+        />
+
+        <!-- Gallery Section -->
+        <Section
+          id="gallery"
+          background="semi-transparent"
+        >
+          <Gallery images={galleryImages} />
+        </Section>
+
+        <!-- Location Section -->
+        <Section
+          id="location"
+          title={t('location.title')}
+          subtitle={t('location.subtitle')}
+          background="semi-transparent"
+        >
+        <div class="items-start gap-12 grid grid-cols-1 lg:grid-cols-2">
+          <!-- Info Cards -->
+          <div class="space-y-8">
+            <div class="bg-white shadow-md hover:shadow-lg p-6 rounded-xl transition-shadow">
+              <h3 class="mb-3 font-semibold text-gray-900 text-xl">{t('location.address')}</h3>
+              <p class="text-gray-600 leading-relaxed" set:html={t('location.addressText').replace(/\n/g, '<br>')}></p>
+            </div>
+            <div class="bg-white shadow-md hover:shadow-lg p-6 rounded-xl transition-shadow">
+              <h3 class="mb-3 font-semibold text-gray-900 text-xl">{t('location.hours')}</h3>
+              <p class="text-gray-600 leading-relaxed" set:html={t('location.hoursText').replace(/\n/g, '<br>')}></p>
+            </div>
+          </div>
+          
+          <!-- Map -->
+          <div class="bg-white shadow-md hover:shadow-lg rounded-xl overflow-hidden transition-shadow">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.8234567890123!2d19.52006358162717!3d41.25247109878686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDE1JzA4LjkiTiAxOcKwMzEnMTIuMiJF!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s"
+              width="100%"
+              height="300"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title={t('location.mapTitle') || 'Beach Bar Joni Location'}
+            ></iframe>
+          </div>
+        </div>
+        
+        <!-- Contact Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+          <Button 
+            href="https://www.instagram.com/beach_bar_joni/" 
+            variant="primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {t('contact.followInstagram')}
+          </Button>
+          <Button 
+            href="https://www.google.com/maps/dir//41.25247109878686,19.52006358162717" 
+            variant="secondary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {t('contact.getDirections')}
+          </Button>
+        </div>
+        </Section>
+
+        <!-- Instagram Section -->
+        <Section
+          id="instagram"
+          background="semi-transparent"
+        >
+          <div id="instagram-embed" class="flex justify-center">
+            <blockquote 
+              class="instagram-media" 
+              data-instgrm-permalink="https://www.instagram.com/beach_bar_joni/" 
+              data-instgrm-version="14"
+              style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"
+            >
+              <div style="padding:16px;">
+                <a href="https://www.instagram.com/beach_bar_joni/" style="background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">
+                  <div style="display: flex; flex-direction: row; align-items: center;">
+                    <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div>
+                    <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;">
+                      <div style="background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div>
+                      <div style="background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </blockquote>
+          </div>
+          <script async src="//www.instagram.com/embed.js"></script>
+        </Section>
+      </main>
+
+      <!-- Footer -->
+      <Footer lang={lang} translations={translations} />
+    </div>
+
+    <!-- Instagram Embed Centering Styles -->
+    <style>
+      /* Center Instagram iframe */
+      .instagram-media-rendered {
+        margin: 0 auto !important;
+      }
+
+      /* Ensure parent container is centered */
+      #instagram-embed {
+        display: flex !important;
+        justify-content: center !important;
+      }
+    </style>
+
+  </body>
+</html>
