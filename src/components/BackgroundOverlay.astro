@@ -1,0 +1,57 @@
+---
+// Background overlay component that creates transparency/fade effects on scroll
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<!-- Background overlay that changes opacity on scroll -->
+<div id="background-overlay" class={`fixed inset-0 z-5 pointer-events-none transition-opacity duration-300 ${className}`}>
+  <!-- Gradient overlay that fades on scroll -->
+  <div class="absolute inset-0 bg-gradient-to-br from-black/40 via-black/20 to-black/40"></div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const overlay = document.getElementById('background-overlay');
+    let ticking = false;
+
+    function updateOverlay() {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      
+      // Calculate opacity based on scroll position
+      // Start at 0.6 opacity, fade to 0.2 as user scrolls
+      const maxScroll = windowHeight * 2; // Fade over 2 viewport heights
+      const opacity = Math.max(0.2, 0.6 - (scrollY / maxScroll) * 0.4);
+      
+      if (overlay) {
+        overlay.style.opacity = opacity.toString();
+      }
+      
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(updateOverlay);
+        ticking = true;
+      }
+    }
+
+    // Initial setup
+    updateOverlay();
+    
+    // Listen for scroll events
+    window.addEventListener('scroll', onScroll, { passive: true });
+  });
+</script>
+
+<style>
+  /* Ensure overlay is positioned correctly */
+  #background-overlay {
+    z-index: 5; /* Above background but below content */
+  }
+</style>
