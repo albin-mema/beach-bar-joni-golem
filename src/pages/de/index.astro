@@ -6,6 +6,7 @@ import Section from '../../components/Section.astro'
 import Gallery from '../../components/Gallery.astro'
 import Button from '../../components/Button.astro'
 import Footer from '../../components/Footer.astro'
+import FixedBackground from '../../components/FixedBackground.astro'
 import { getTranslations, useTranslations } from '../../i18n/utils.js'
 
 const lang = 'de'
@@ -66,34 +67,40 @@ const galleryImages = [
 	</head>
 
 	<body>
-		<!-- Navigation -->
-		<Navigation currentPage="home" lang={lang} translations={translations} />
+		<!-- Fixed Background -->
+		<FixedBackground src="beach_bar.jpeg" />
 
-		<main>
-			<!-- Hero Section -->
-			<Hero
-				title={t('hero.title')}
-				subtitle={t('hero.subtitle')}
-				backgroundImage={`${import.meta.env.BASE_URL}beach_bar.jpeg`}
-				showButtons={true}
-				lang={lang}
-				translations={translations}
-			/>
+		<!-- Main Content Container -->
+		<div class="z-10 relative">
+			<!-- Navigation -->
+			<Navigation currentPage="home" lang={lang} translations={translations} />
 
-			<!-- Gallery Section -->
-			<Section
-				id="gallery"
-				background="gray"
-			>
-				<Gallery images={galleryImages} />
-			</Section>
+			<main>
+				<!-- Hero Section -->
+				<Hero
+					title={t('hero.title')}
+					subtitle={t('hero.subtitle')}
+					showButtons={true}
+					lang={lang}
+					translations={translations}
+					useFixedBackground={true}
+				/>
 
-			<!-- Location Section -->
-			<Section
-				id="location"
-				title={t('location.title')}
-				subtitle={t('location.subtitle')}
-			>
+				<!-- Gallery Section -->
+				<Section
+					id="gallery"
+					background="semi-transparent"
+				>
+					<Gallery images={galleryImages} />
+				</Section>
+
+				<!-- Location Section -->
+				<Section
+					id="location"
+					title={t('location.title')}
+					subtitle={t('location.subtitle')}
+					background="semi-transparent"
+				>
 				<div class="items-start gap-12 grid grid-cols-1 lg:grid-cols-2">
 					<!-- Info Cards -->
 					<div class="space-y-8">
@@ -123,11 +130,11 @@ const galleryImages = [
 				</div>
 			</Section>
 
-			<!-- Contact Section -->
-			<Section
-				id="contact"
-				background="gray"
-			>
+				<!-- Contact Section -->
+				<Section
+					id="contact"
+					background="semi-transparent"
+				>
 				<div class="space-y-8 mx-auto max-w-4xl text-center">
 					<div class="flex sm:flex-row flex-col justify-center gap-4">
 						<Button
@@ -152,10 +159,11 @@ const galleryImages = [
 						</Button>
 					</div>
 				</div>
-			</Section>
-		</main>
+				</Section>
+			</main>
 
-		<!-- Footer -->
-		<Footer lang={lang} translations={translations} />
+			<!-- Footer -->
+			<Footer lang={lang} translations={translations} />
+		</div>
 	</body>
 </html>

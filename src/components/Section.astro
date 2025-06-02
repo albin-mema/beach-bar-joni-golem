@@ -3,15 +3,15 @@ interface Props {
   id?: string;
   title?: string;
   subtitle?: string;
-  background?: 'white' | 'gray' | 'dark';
+  background?: 'white' | 'gray' | 'dark' | 'transparent' | 'semi-transparent';
   padding?: 'normal' | 'large' | 'small';
   maxWidth?: 'normal' | 'wide' | 'full';
 }
 
-const { 
-  id, 
-  title, 
-  subtitle, 
+const {
+  id,
+  title,
+  subtitle,
   background = 'white',
   padding = 'normal',
   maxWidth = 'normal'
@@ -20,7 +20,9 @@ const {
 const backgroundClasses = {
   white: 'bg-white',
   gray: 'bg-gray-50',
-  dark: 'bg-gray-900 text-white'
+  dark: 'bg-gray-900 text-white',
+  transparent: 'bg-transparent',
+  'semi-transparent': 'bg-white/80 backdrop-blur-sm'
 };
 
 const paddingClasses = {
@@ -42,14 +44,14 @@ const maxWidthClasses = {
 >
   <div class={`${maxWidthClasses[maxWidth]} mx-auto px-4 sm:px-6 lg:px-8`}>
     {(title || subtitle) && (
-      <header class="text-center mb-12 lg:mb-16">
+      <header class="mb-12 lg:mb-16 text-center">
         {title && (
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 tracking-tight">
+          <h2 class="mb-4 font-bold text-3xl md:text-4xl lg:text-5xl tracking-tight">
             {title}
           </h2>
         )}
         {subtitle && (
-          <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p class="mx-auto max-w-3xl text-gray-600 text-lg md:text-xl leading-relaxed">
             {subtitle}
           </p>
         )}

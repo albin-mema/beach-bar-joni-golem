@@ -1,0 +1,65 @@
+---
+interface Props {
+  src: string;
+  class?: string;
+}
+
+const {
+  src,
+  class: className = ''
+} = Astro.props;
+
+// Generate WebP source path
+const webpSrc = src.replace(/\.(jpe?g|png)$/i, '.webp');
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<!-- Fixed background that stays in place during scroll -->
+<div class={`fixed inset-0 z-0 ${className}`}>
+  <!-- WebP background for modern browsers -->
+  <div
+    class="absolute inset-0 bg-cover bg-center bg-no-repeat webp-bg"
+    style={`background-image: url('${baseUrl}${webpSrc}')`}
+  ></div>
+
+  <!-- Fallback JPEG/PNG background -->
+  <div
+    class="absolute inset-0 bg-cover bg-center bg-no-repeat fallback-bg"
+    style={`background-image: url('${baseUrl}${src}')`}
+  ></div>
+</div>
+
+<style>
+  /* Show WebP by default, hide fallback */
+  .webp-bg {
+    opacity: 1;
+  }
+  .fallback-bg {
+    opacity: 0;
+  }
+  
+  /* If WebP is not supported, show fallback */
+  .no-webp .webp-bg {
+    opacity: 0;
+  }
+  .no-webp .fallback-bg {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  // Detect WebP support
+  function supportsWebP() {
+    const canvas = document.createElement('canvas');
+    canvas.width = 1;
+    canvas.height = 1;
+    return canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+  }
+  
+  // Add appropriate class to document
+  if (supportsWebP()) {
+    document.documentElement.classList.add('webp');
+  } else {
+    document.documentElement.classList.add('no-webp');
+  }
+</script>

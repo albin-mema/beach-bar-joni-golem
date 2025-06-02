@@ -7,6 +7,7 @@ import Gallery from '../components/Gallery.astro'
 import Button from '../components/Button.astro'
 import Footer from '../components/Footer.astro'
 import LanguageDetector from '../components/LanguageDetector.astro'
+import FixedBackground from '../components/FixedBackground.astro'
 import { getTranslations, useTranslations } from '../i18n/utils.ts'
 
 const lang = 'en'
@@ -73,36 +74,42 @@ const galleryImages = [
 		<meta http-equiv="Cache-Control" content="public, max-age=31536000" />
 	</head>
 	<body class="bg-white">
-		<!-- Language Detection -->
-		<LanguageDetector currentLang={lang} />
+		<!-- Fixed Background -->
+		<FixedBackground src="beach_bar.jpeg" />
 
-		<!-- Navigation -->
-		<Navigation currentPage="home" lang={lang} translations={translations} />
+		<!-- Main Content Container -->
+		<div class="z-10 relative">
+			<!-- Language Detection -->
+			<LanguageDetector currentLang={lang} />
 
-		<!-- Hero Section -->
-		<Hero
-			title={t('hero.title')}
-			subtitle={t('hero.subtitle')}
-			backgroundImage={`${import.meta.env.BASE_URL}beach_bar.jpeg`}
-			showButtons={true}
-			lang={lang}
-			translations={translations}
-		/>
+			<!-- Navigation -->
+			<Navigation currentPage="home" lang={lang} translations={translations} />
 
-		<!-- Gallery Section -->
-		<Section
-			id="gallery"
-			background="gray"
-		>
-			<Gallery images={galleryImages} />
-		</Section>
+			<!-- Hero Section -->
+			<Hero
+				title={t('hero.title')}
+				subtitle={t('hero.subtitle')}
+				showButtons={true}
+				lang={lang}
+				translations={translations}
+				useFixedBackground={true}
+			/>
 
-		<!-- Location Section -->
-		<Section
-			id="location"
-			title={t('location.title')}
-			subtitle={t('location.subtitle')}
-		>
+			<!-- Gallery Section -->
+			<Section
+				id="gallery"
+				background="semi-transparent"
+			>
+				<Gallery images={galleryImages} />
+			</Section>
+
+			<!-- Location Section -->
+			<Section
+				id="location"
+				title={t('location.title')}
+				subtitle={t('location.subtitle')}
+				background="semi-transparent"
+			>
 			<div class="items-start gap-12 grid grid-cols-1 lg:grid-cols-2">
 				<!-- Info Cards -->
 				<div class="space-y-8">
@@ -132,11 +139,11 @@ const galleryImages = [
 			</div>
 		</Section>
 
-		<!-- Contact Section -->
-		<Section
-			id="contact"
-			background="gray"
-		>
+			<!-- Contact Section -->
+			<Section
+				id="contact"
+				background="semi-transparent"
+			>
 			<div class="space-y-8 mx-auto max-w-4xl text-center">
 				<p class="text-gray-700 text-lg leading-relaxed">
 				</p>
@@ -165,8 +172,9 @@ const galleryImages = [
 			</div>
 		</Section>
 
-		<!-- Footer -->
-		<Footer lang={lang} translations={translations} />
+			<!-- Footer -->
+			<Footer lang={lang} translations={translations} />
+		</div>
 
 		<!-- Instagram Embed Script -->
 		<script is:inline async src="https://www.instagram.com/embed.js"></script>
