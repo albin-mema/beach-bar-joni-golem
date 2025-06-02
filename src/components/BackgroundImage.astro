@@ -12,21 +12,25 @@ const {
 } = Astro.props;
 
 // Generate WebP source path
-const webpSrc = src.replace(/\.(jpe?g|png)$/i, '.webp');
+const webpSrc = src ? src.replace(/\.(jpe?g|png)$/i, '.webp') : '';
 const baseUrl = import.meta.env.BASE_URL;
+
+// Create full URLs
+const webpUrl = baseUrl + webpSrc;
+const fallbackUrl = baseUrl + src;
 ---
 
 <div class={`relative ${className}`}>
   <!-- WebP background for modern browsers -->
   <div
     class="absolute inset-0 bg-cover bg-center bg-fixed webp-bg"
-    style={`background-image: url('${baseUrl}${webpSrc}')`}
+    style={`background-image: url('${webpUrl}'); background-size: cover; background-position: center;`}
   ></div>
 
   <!-- Fallback JPEG/PNG background -->
   <div
     class="absolute inset-0 bg-cover bg-center bg-fixed fallback-bg"
-    style={`background-image: url('${baseUrl}${src}')`}
+    style={`background-image: url('${fallbackUrl}'); background-size: cover; background-position: center;`}
   ></div>
 
   <!-- Content slot - no wrapper div -->
