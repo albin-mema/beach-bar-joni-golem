@@ -69,5 +69,8 @@ export default defineConfig({
   prefetch: {
     prefetchAll: false,
     defaultStrategy: 'viewport'
-  }
+  },
+
+  // Ensure proper GitHub Pages deployment
+  trailingSlash: 'ignore'
 });
