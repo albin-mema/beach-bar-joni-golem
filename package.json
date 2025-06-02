@@ -9,8 +9,11 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@sentry/astro": "^9.24.0",
+    "@spotlightjs/astro": "^3.2.3",
     "@tailwindcss/vite": "^4.1.8",
     "astro": "^5.8.1",
+    "astro-compressor": "^1.0.0",
     "lucide-astro": "^0.511.0",
     "sharp": "^0.34.2"
   },

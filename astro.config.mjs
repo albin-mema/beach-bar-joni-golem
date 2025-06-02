@@ -3,11 +3,16 @@ import { defineConfig } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
 
+import sentry from '@sentry/astro';
+import spotlightjs from '@spotlightjs/astro';
+
+import compressor from 'astro-compressor';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://albin-mema.github.io',
   base: '/beach-bar-joni-golem/',
-  integrations: [],
+  integrations: [sentry(), spotlightjs(), compressor()],
 
   i18n: {
     locales: ['en', 'sq', 'it', 'pl', 'de', 'fr'],
