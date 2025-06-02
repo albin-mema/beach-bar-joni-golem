@@ -123,17 +123,20 @@ const { images } = Astro.props;
 </div>
 
 <!-- Optimized Instagram loading script -->
-<script>
+<script is:inline>
   // Optimized Instagram embed loading
   function loadInstagramEmbed() {
     const placeholder = document.getElementById('instagram-placeholder');
     const embed = document.getElementById('instagram-embed');
 
-    if (!placeholder || !embed) return;
+    if (!placeholder || !embed) {
+      console.warn('Instagram placeholder or embed container not found');
+      return;
+    }
 
     // Show embed, hide placeholder
     placeholder.style.display = 'none';
-    embed.style.display = 'block';
+    embed.style.display = 'flex';
 
     // Load Instagram script only when needed
     if (!document.querySelector('script[src*="instagram.com/embed.js"]')) {
@@ -141,37 +144,59 @@ const { images } = Astro.props;
       script.async = true;
       script.defer = true;
       script.src = 'https://www.instagram.com/embed.js';
-      script.onload = () => {
+      script.onload = function() {
         // Process Instagram embeds after script loads
-        if ((window as any).instgrm && (window as any).instgrm.Embeds) {
-          (window as any).instgrm.Embeds.process();
+        if (window.instgrm && window.instgrm.Embeds) {
+          try {
+            window.instgrm.Embeds.process();
+          } catch (error) {
+            console.warn('Error processing Instagram embeds:', error);
+          }
+        }
+      };
+      script.onerror = function() {
+        console.warn('Failed to load Instagram embed script');
+        // Show fallback link if script fails to load
+        const fallbackLink = embed.querySelector('a[href*="instagram.com"]');
+        if (fallbackLink) {
+          fallbackLink.style.display = 'block';
         }
       };
       document.head.appendChild(script);
-    } else if ((window as any).instgrm && (window as any).instgrm.Embeds) {
+    } else {
       // Script already loaded, just process embeds
-      (window as any).instgrm.Embeds.process();
+      if (window.instgrm && window.instgrm.Embeds) {
+        try {
+          window.instgrm.Embeds.process();
+        } catch (error) {
+          console.warn('Error processing existing Instagram embeds:', error);
+        }
+      }
     }
   }
 
   // Use Intersection Observer with better performance settings
-  const instagramContainer = document.getElementById('instagram-container');
-  if (instagramContainer) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Add a small delay to improve perceived performance
-          setTimeout(loadInstagramEmbed, 500);
-          observer.unobserve(entry.target);
-        }
+  document.addEventListener('DOMContentLoaded', function() {
+    const instagramContainer = document.getElementById('instagram-container');
+    if (instagramContainer) {
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            // Add a small delay to improve perceived performance
+            setTimeout(loadInstagramEmbed, 500);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        rootMargin: '200px',
+        threshold: 0.1
       });
-    }, {
-      rootMargin: '200px',
-      threshold: 0.1
-    });
 
-    observer.observe(instagramContainer);
-  }
+      observer.observe(instagramContainer);
+    } else {
+      console.warn('Instagram container not found for intersection observer');
+    }
+  });
 </script>
 
 <style>
