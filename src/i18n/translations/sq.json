@@ -3,7 +3,7 @@
     "title": "Beach Bar Joni - Golem, Shqipëri",
     "description": "Beach Bar Joni në Golem. Shijoni kokteje të shijshme, birra të ftohta dhe pamje të mrekullueshme të plazhit. Vizitoni për një përvojë të paharrueshme pranë detit.",
     "menuTitle": "Menuja - Beach Bar Joni",
-    "menuDescription": "Zbuloni menynë tonë të pasur në Beach Bar Joni - kokteje, birra, pije të ngrohta dhe freskuese."
+    "menuDescription": "Zbuloni menunë tonë të pasur në Beach Bar Joni - kokteje, birra, pije të ngrohta dhe freskuese."
   },
   "navigation": {
     "brand": "Beach Bar Joni",
@@ -16,7 +16,7 @@
   "hero": {
     "title": "Beach Bar Joni",
     "subtitle": "Shijoni kombinimin e përsosur të pijeve freskuese dhe pamjeve të mrekullueshme të plazhit",
-    "viewMenu": "Shiko Menynë",
+    "viewMenu": "Shiko Menunë",
     "findUs": "Na Gjeni"
   },
   "gallery": {
