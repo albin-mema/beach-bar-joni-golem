@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://albin-mema.github.io/beach-bar-joni-golem/sitemap.xml

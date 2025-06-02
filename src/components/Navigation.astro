@@ -63,6 +63,8 @@ const languageConfig = {
         <img
           src={`${import.meta.env.BASE_URL}bar-joni-logo.jpg`}
           alt="Bar Joni Logo"
+          width="40"
+          height="40"
           class="rounded-full w-10 h-10 object-cover group-hover:scale-105 transition-transform"
         />
         <span class="font-bold text-white text-xl transition-colors brand-text">
@@ -84,14 +86,14 @@ const languageConfig = {
 
           <!-- Language Dropdown -->
           <div class="invisible group-hover:visible top-full right-0 absolute opacity-0 group-hover:opacity-100 mt-2 w-48 transition-all translate-y-2 group-hover:translate-y-0 duration-300 transform language-menu">
-            <div class="space-y-1 bg-white/95 shadow-lg backdrop-blur-md px-2 pt-2 pb-3 rounded-lg">
+            <div class="space-y-2 bg-white/95 shadow-lg backdrop-blur-md px-2 pt-2 pb-3 rounded-lg">
               {Object.entries(languageConfig).map(([langCode, langData]) => {
                 const langUrl = languageUrls[langCode]?.url || getLocalizedUrl('/', langCode);
                 const isActive = langCode === lang;
                 return (
                   <a
                     href={langUrl}
-                    class={`flex items-center space-x-3 px-3 py-2 rounded-md text-sm transition-colors language-nav-link ${isActive ? 'bg-blue-50 text-blue-600 font-medium' : 'text-gray-700 hover:bg-gray-50 hover:text-blue-600'}`}
+                    class={`flex items-center space-x-3 px-4 py-4 min-h-[44px] rounded-md text-sm transition-colors language-nav-link ${isActive ? 'bg-blue-50 text-blue-600 font-medium' : 'text-gray-700 hover:bg-gray-50 hover:text-blue-600'}`}
                   >
                     <span class="text-lg">{langData.flag}</span>
                     <span>{langData.label}</span>
@@ -250,9 +252,11 @@ const languageConfig = {
 
   /* Language nav link improvements */
   .language-nav-link {
-    min-height: 44px;
-    display: flex;
-    align-items: center;
+    min-height: 44px !important;
+    height: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 12px 16px !important;
   }
 </style>
 

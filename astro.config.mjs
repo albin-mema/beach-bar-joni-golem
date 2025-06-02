@@ -25,6 +25,13 @@ export default defineConfig({
     format: 'directory'
   },
 
+  // Add cache headers for better performance
+  server: {
+    headers: {
+      'Cache-Control': 'public, max-age=31536000, immutable'
+    }
+  },
+
   // Image optimization
   image: {
     service: {
