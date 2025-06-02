@@ -6,7 +6,8 @@ export const languages: Record<string, string> = {
   sq: 'Shqip',
   it: 'Italiano',
   pl: 'Polski',
-  de: 'Deutsch'
+  de: 'Deutsch',
+  fr: 'Français'
 };
 
 export const defaultLang: string = 'en';

@@ -1,0 +1,233 @@
+{
+  "meta": {
+    "title": "Beach Bar Joni - Golem, Albanie",
+    "description": "Beach Bar Joni à Golem. Profitez de cocktails, bières et de magnifiques vues sur la plage. Visitez-nous pour une expérience de bar inoubliable au bord de mer.",
+    "menuTitle": "Menu - Beach Bar Joni",
+    "menuDescription": "Explorez notre menu au Beach Bar Joni - cocktails, bières, boissons chaudes et rafraîchissements."
+  },
+  "navigation": {
+    "brand": "Beach Bar Joni",
+    "home": "Accueil",
+    "menu": "Menu",
+    "gallery": "Galerie",
+    "location": "Localisation",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Beach Bar Joni",
+    "subtitle": "Découvrez le mélange parfait de boissons rafraîchissantes et de vues magnifiques sur la plage",
+    "viewMenu": "Voir le Menu",
+    "findUs": "Nous Trouver"
+  },
+  "gallery": {
+    "image1": "Vue extérieure du Beach Bar Joni",
+    "image2": "Beach Bar Joni - Terrasse Extérieure",
+    "image3": "Beach Bar Joni - Intérieur du Bar",
+    "image4": "Beach Bar Joni - Cocktails et Boissons"
+  },
+  "location": {
+    "title": "Visitez-Nous",
+    "subtitle": "Trouvez-nous sur les magnifiques rives de Golem",
+    "address": "Adresse",
+    "addressText": "Shetitorja plazhit Golem\nGolem, Tiranë, Albanie",
+    "hours": "Horaires",
+    "hoursText": "Tous les jours : 7h00 - 24h00\nLes horaires peuvent varier selon la saison",
+    "mapTitle": "Localisation du Beach Bar Joni"
+  },
+  "contact": {
+    "followInstagram": "Suivez-nous sur Instagram",
+    "getDirections": "Obtenir l'Itinéraire"
+  },
+  "footer": {
+    "description": "Découvrez le mélange parfait de boissons rafraîchissantes et de vues magnifiques sur la plage.",
+    "copyright": "© 2025 Beach Bar Joni. Tous droits réservés."
+  },
+  "menu": {
+    "featuredCocktails": "Cocktails Vedettes",
+    "featuredSubtitle": "Découvrez nos cocktails signature préparés avec des ingrédients premium",
+    "categories": {
+      "kokteil": "Cocktails",
+      "teNgrohta": "Boissons Chaudes",
+      "birra": "Bière",
+      "freskuese": "Boissons Rafraîchissantes",
+      "alkoolike": "Boissons Alcoolisées"
+    },
+    "items": {
+      "spritz": {
+        "name": "Spritz",
+        "description": "Aperol, Prosecco, eau gazeuse, tranche d'orange fraîche"
+      },
+      "mojito": {
+        "name": "Mojito",
+        "description": "Rhum blanc, feuilles de menthe fraîche, jus de citron vert, sucre, eau gazeuse"
+      },
+      "caipiroska": {
+        "name": "Caipiroska",
+        "description": "Vodka, citron vert, sucre, glace pilée"
+      },
+      "sexOnTheBeach": {
+        "name": "Sex On The Beach",
+        "description": "Vodka, schnaps de pêche, jus de canneberge, jus d'ananas"
+      },
+      "margarita": {
+        "name": "Margarita",
+        "description": "Tequila, jus de citron vert, triple sec, rebord salé"
+      },
+      "kafe": {
+        "name": "Café"
+      },
+      "uje": {
+        "name": "Eau"
+      },
+      "makiato": {
+        "name": "Macchiato"
+      },
+      "cajINgrohte": {
+        "name": "Thé Chaud"
+      },
+      "kakao": {
+        "name": "Chocolat Chaud"
+      },
+      "kapucino": {
+        "name": "Cappuccino"
+      },
+      "latte": {
+        "name": "Latte"
+      },
+      "fredo": {
+        "name": "Freddo"
+      },
+      "makiatoEMadhe": {
+        "name": "Grand Macchiato"
+      },
+      "kafeEMadhe": {
+        "name": "Grand Café"
+      },
+      "frape": {
+        "name": "Frappé"
+      },
+      "kapucinoEFtohte": {
+        "name": "Cappuccino Glacé"
+      },
+      "kakaoEFtohte": {
+        "name": "Chocolat Glacé"
+      },
+      "heineken": {
+        "name": "Heineken"
+      },
+      "korona": {
+        "name": "Corona"
+      },
+      "peroni": {
+        "name": "Peroni"
+      },
+      "schoffer": {
+        "name": "Schöfferhofer"
+      },
+      "peja": {
+        "name": "Peja"
+      },
+      "korca": {
+        "name": "Korça"
+      },
+      "paulaner": {
+        "name": "Paulaner"
+      },
+      "bavaria": {
+        "name": "Bavaria"
+      },
+      "cocaCola": {
+        "name": "Coca Cola"
+      },
+      "fanta": {
+        "name": "Fanta"
+      },
+      "lemonSoda": {
+        "name": "Soda au Citron"
+      },
+      "orangeSoda": {
+        "name": "Soda à l'Orange"
+      },
+      "lipton": {
+        "name": "Thé Glacé Lipton"
+      },
+      "akullore": {
+        "name": "Glace"
+      },
+      "schweppes": {
+        "name": "Schweppes"
+      },
+      "bravo": {
+        "name": "Bravo"
+      },
+      "neskafe": {
+        "name": "Nescafé"
+      },
+      "redBull": {
+        "name": "Red Bull"
+      },
+      "b52": {
+        "name": "B52"
+      },
+      "grodino": {
+        "name": "Grodino"
+      },
+      "rosseLimonade": {
+        "name": "Limonade Rosse"
+      },
+      "ujeVitamine": {
+        "name": "Eau Vitaminée"
+      },
+      "ivi": {
+        "name": "Ivi"
+      },
+      "gin": {
+        "name": "Gin"
+      },
+      "bombay": {
+        "name": "Bombay"
+      },
+      "hendricks": {
+        "name": "Hendrick's"
+      },
+      "martini": {
+        "name": "Martini"
+      },
+      "jagermeister": {
+        "name": "Jägermeister"
+      },
+      "konjakSkenderbeu": {
+        "name": "Cognac Skënderbeu"
+      },
+      "raki": {
+        "name": "Raki"
+      },
+      "tekila": {
+        "name": "Tequila"
+      },
+      "bacardi": {
+        "name": "Bacardi"
+      },
+      "jackDaniels": {
+        "name": "Jack Daniel's"
+      },
+      "chivas": {
+        "name": "Chivas"
+      },
+      "vodka": {
+        "name": "Vodka"
+      },
+      "amaro": {
+        "name": "Amaro"
+      },
+      "amaroDelKapo": {
+        "name": "Amaro del Capo"
+      }
+    }
+  },
+  "currency": "€",
+  "language": {
+    "current": "Français",
+    "switch": "Langue"
+  }
+}
