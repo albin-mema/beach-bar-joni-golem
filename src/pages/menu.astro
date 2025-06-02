@@ -1,28 +1,21 @@
 ---
-import '../../styles/global.css'
-import Navigation from '../../components/Navigation.astro'
-import Hero from '../../components/Hero.astro'
-import Footer from '../../components/Footer.astro'
-import Section from '../../components/Section.astro'
-import FixedBackground from '../../components/FixedBackground.astro'
-import { getTranslations, useTranslations, languages } from '../../i18n/utils.js'
-import { getLocalizedMenuData } from '../../data/menu-i18n.ts'
-import type { MenuCategory, MenuItem } from '../../types/menu'
+import '../styles/global.css'
+import Navigation from '../components/Navigation.astro'
+import Hero from '../components/Hero.astro'
+import Footer from '../components/Footer.astro'
+import Section from '../components/Section.astro'
+import FixedBackground from '../components/FixedBackground.astro'
+import { getTranslations, useTranslations } from '../i18n/utils.js'
+import { getLocalizedMenuData } from '../data/menu-i18n.ts'
+import type { MenuCategory, MenuItem } from '../types/menu'
 
-// Generate static paths for all languages
-export async function getStaticPaths() {
-  const paths = Object.keys(languages).map(lang => ({
-    params: { lang }
-  }));
-  
-  return paths;
-}
+// Default to English for root menu page
+const lang = 'en'
+const translations = await getTranslations(lang)
+const t = useTranslations(translations)
 
-// Get the language from the URL params
-const { lang } = Astro.params;
-const translations = await getTranslations(lang);
-const t = useTranslations(translations);
-const menuData = getLocalizedMenuData(lang, translations);
+// Get menu data for the current language
+const menuData = getLocalizedMenuData(lang, translations)
 ---
 
 <html lang={lang}>
@@ -32,15 +25,14 @@ const menuData = getLocalizedMenuData(lang, translations);
     <meta name="generator" content={Astro.generator} />
     <title>{t('meta.menuTitle')}</title>
     <meta name="description" content={t('meta.menuDescription')} />
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
     <link rel="icon" type="image/png" href={`${import.meta.env.BASE_URL}favicon.png`} />
     <link rel="apple-touch-icon" href={`${import.meta.env.BASE_URL}apple-touch-icon.png`} />
-    
+
     <!-- Visitor tracking -->
-    <script>
-      // Send visitor data to Google Sheets
+    <script type="module" is:inline>
       fetch('https://script.google.com/macros/s/AKfycbxvZNXq1f3CU8pEg-pgsij9VICglp62bLKH1l0YRPe4k4GdOFvvLaA0rmNQ2XzqrPRz0Q/exec', {
         method: 'POST',
         mode: 'no-cors',
@@ -53,7 +45,7 @@ const menuData = getLocalizedMenuData(lang, translations);
           userAgent: navigator.userAgent,
           language: navigator.language
         })
-      }).catch(err => console.log('Tracking request failed:', err));
+      }).catch(e => console.log('Tracking request failed:', e));
     </script>
   </head>
 
