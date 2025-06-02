@@ -6,7 +6,6 @@ import Section from '../components/Section.astro'
 import Gallery from '../components/Gallery.astro'
 import Button from '../components/Button.astro'
 import Footer from '../components/Footer.astro'
-import LanguageDetector from '../components/LanguageDetector.astro'
 import FixedBackground from '../components/FixedBackground.astro'
 import BackgroundOverlay from '../components/BackgroundOverlay.astro'
 import { getTranslations, useTranslations } from '../i18n/utils.ts'
@@ -83,9 +82,6 @@ const galleryImages = [
 
 		<!-- Main Content Container -->
 		<div class="z-10 relative">
-			<!-- Language Detection -->
-			<LanguageDetector currentLang={lang} />
-
 			<!-- Navigation -->
 			<Navigation currentPage="home" lang={lang} translations={translations} />
 
