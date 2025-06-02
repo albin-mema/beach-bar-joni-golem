@@ -72,5 +72,5 @@ export default defineConfig({
   },
 
   // Ensure proper GitHub Pages deployment
-  trailingSlash: 'ignore'
+  trailingSlash: 'always'
 });
