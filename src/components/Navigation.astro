@@ -1,6 +1,6 @@
 ---
 import { getLocalizedUrl, getLanguageUrls } from '../i18n/utils.js';
-import { Martini, Umbrella, Menu, X } from 'lucide-astro';
+import { Martini, Umbrella, Menu } from 'lucide-astro';
 
 interface Props {
   currentPage?: string;
@@ -139,48 +139,49 @@ const languageConfig = {
         </div>
 
         <!-- Mobile Menu Button -->
-        <button
-          class="md:hidden flex justify-center items-center bg-white/10 hover:bg-white/20 p-3 rounded-lg transition-colors mobile-menu-toggle"
-          aria-label="Toggle mobile menu"
-        >
-          <Menu class="w-5 h-5 text-white transition-transform mobile-menu-icon" />
-          <X class="hidden w-5 h-5 text-white transition-transform mobile-menu-close" />
-        </button>
+        <div class="group md:hidden relative mobile-menu-container">
+          <button
+            class="flex items-center space-x-2 bg-white/10 hover:bg-white/20 px-3 py-2 rounded-lg transition-colors mobile-menu-toggle"
+            aria-label="Toggle mobile menu"
+          >
+            <Menu class="w-5 h-5 text-white" />
+          </button>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Mobile Menu Dropdown -->
-  <div class="hidden md:hidden mobile-menu">
-    <div class="space-y-3 bg-white/95 shadow-lg backdrop-blur-md px-4 py-4">
-      <!-- Mobile Navigation Links -->
-      <a
-        href={getLocalizedUrl('/', lang)}
-        class="flex items-center space-x-3 hover:bg-gray-100 px-4 py-3 rounded-lg text-gray-700 hover:text-blue-600 transition-colors mobile-nav-link"
-      >
-        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
-        </svg>
-        <span class="font-medium">{t('navigation.home')}</span>
-      </a>
+          <!-- Mobile Menu Dropdown -->
+          <div class="invisible group-hover:visible top-full right-0 absolute opacity-0 group-hover:opacity-100 mt-2 w-48 transition-all translate-y-2 group-hover:translate-y-0 duration-300 transform mobile-menu">
+            <div class="space-y-2 bg-white/95 shadow-lg backdrop-blur-md px-2 pt-2 pb-3 rounded-lg">
+              <a
+                href={getLocalizedUrl('/', lang)}
+                class="flex items-center space-x-3 hover:bg-gray-50 px-4 py-4 rounded-md min-h-[44px] text-gray-700 hover:text-blue-600 text-sm transition-colors mobile-nav-link"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                </svg>
+                <span>{t('navigation.home')}</span>
+              </a>
 
-      <a
-        href={getLocalizedUrl('/beach-rules', lang)}
-        class="flex items-center space-x-3 hover:bg-gray-100 px-4 py-3 rounded-lg text-gray-700 hover:text-blue-600 transition-colors mobile-nav-link"
-      >
-        <Umbrella class="w-5 h-5" />
-        <span class="font-medium">{t('navigation.beachRules')}</span>
-      </a>
+              <a
+                href={getLocalizedUrl('/beach-rules', lang)}
+                class="flex items-center space-x-3 hover:bg-gray-50 px-4 py-4 rounded-md min-h-[44px] text-gray-700 hover:text-blue-600 text-sm transition-colors mobile-nav-link"
+              >
+                <Umbrella class="w-5 h-5" />
+                <span>{t('navigation.beachRules')}</span>
+              </a>
 
-      <a
-        href={getLocalizedUrl('/menu', lang)}
-        class="flex items-center space-x-3 hover:bg-gray-100 px-4 py-3 rounded-lg text-gray-700 hover:text-blue-600 transition-colors mobile-nav-link"
-      >
-        <Martini class="w-5 h-5" />
-        <span class="font-medium">{t('navigation.menu')}</span>
-      </a>
-    </div>
-  </div>
+              <a
+                href={getLocalizedUrl('/menu', lang)}
+                class="flex items-center space-x-3 hover:bg-gray-50 px-4 py-4 rounded-md min-h-[44px] text-gray-700 hover:text-blue-600 text-sm transition-colors mobile-nav-link"
+              >
+                <Martini class="w-5 h-5" />
+                <span>{t('navigation.menu')}</span>
+              </a>
+            </div>
+          </div>
+        </div>
 </nav>
 
 <style>
@@ -276,6 +277,15 @@ const languageConfig = {
     background: rgba(229 231 235 / 1); /* bg-gray-200 */
   }
 
+  /* Mobile menu toggle color changes when scrolled */
+  .nav-scrolled .mobile-menu-toggle {
+    background: rgba(243 244 246 / 1); /* bg-gray-100 */
+  }
+
+  .nav-scrolled .mobile-menu-toggle:hover {
+    background: rgba(229 231 235 / 1); /* bg-gray-200 */
+  }
+
   /* Language menu styles */
   .language-menu {
     z-index: 1000;
@@ -312,15 +322,7 @@ const languageConfig = {
 
   /* Mobile menu styles */
   .mobile-menu {
-    transition: all 0.3s ease;
-    transform: translateY(-10px);
-    opacity: 0;
-  }
-
-  .mobile-menu.show {
-    display: block !important;
-    transform: translateY(0);
-    opacity: 1;
+    z-index: 1000;
   }
 
   .mobile-menu-toggle {
@@ -329,28 +331,27 @@ const languageConfig = {
   }
 
   .mobile-nav-link {
-    min-height: 44px;
+    min-height: 44px !important;
+    height: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 12px 16px !important;
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* Mobile menu icon transitions */
-  .mobile-menu-icon {
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
+  /* Ensure mobile menu works on touch devices */
+  @media (hover: none) and (pointer: coarse) {
+    .mobile-menu-container:hover .mobile-menu {
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(8px);
+    }
 
-  .mobile-menu-close {
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-
-  .mobile-menu-open .mobile-menu-icon {
-    transform: rotate(90deg);
-    opacity: 0;
-  }
-
-  .mobile-menu-open .mobile-menu-close {
-    display: block !important;
-    transform: rotate(0deg);
-    opacity: 1;
+    .mobile-menu.visible {
+      visibility: visible !important;
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
   }
 </style>
 
@@ -420,15 +421,13 @@ const languageConfig = {
 
     function toggleMobileMenu() {
       isMobileMenuOpen = !isMobileMenuOpen;
-      if (mobileMenu && mobileMenuToggle) {
+      if (mobileMenu) {
         if (isMobileMenuOpen) {
-          mobileMenu.classList.remove('hidden');
-          mobileMenu.classList.add('show');
-          mobileMenuToggle.classList.add('mobile-menu-open');
+          mobileMenu.classList.remove('invisible', 'opacity-0', 'translate-y-2');
+          mobileMenu.classList.add('visible', 'opacity-100', 'translate-y-0');
         } else {
-          mobileMenu.classList.add('hidden');
-          mobileMenu.classList.remove('show');
-          mobileMenuToggle.classList.remove('mobile-menu-open');
+          mobileMenu.classList.add('invisible', 'opacity-0', 'translate-y-2');
+          mobileMenu.classList.remove('visible', 'opacity-100', 'translate-y-0');
         }
       }
     }
