@@ -9,6 +9,7 @@
     "brand": "Beach Bar Joni",
     "home": "Kreu",
     "menu": "Menuja",
+    "beachRules": "Rregullat e Plazhit",
     "gallery": "Galeria",
     "location": "Vendndodhja",
     "contact": "Kontakti"
@@ -17,6 +18,7 @@
     "title": "Beach Bar Joni",
     "subtitle": "Shijoni kombinimin e përsosur të pijeve freskuese dhe pamjeve të mrekullueshme të plazhit",
     "viewMenu": "Shiko Menunë",
+    "beachRules": "Rregullat e Plazhit",
     "findUs": "Na Gjeni"
   },
   "gallery": {
@@ -229,5 +231,25 @@
   "language": {
     "current": "Shqip",
     "switch": "Gjuha"
+  },
+  "beachRules": {
+    "title": "Çadrat e Plazhit & Rregullat",
+    "subtitle": "Shijoni plazhin tonë me komoditet dhe respektoni udhëzimet tona",
+    "pricing": {
+      "title": "Çadra",
+      "fullDay": "Dita e Plotë (7:00 - 18:00)"
+    },
+    "rules": {
+      "title": "Rregullat dhe Udhëzimet e Plazhit",
+      "rule1": "Nuk lejohen ushqime ose pije të sjella nga shtëpia - ju lutemi shijoni ofertat tona të barit",
+      "rule2": "Nuk lejohen kafshë në zonën e plazhit",
+      "rule3": "Ju lutemi hidhni të gjitha mbeturinat në koshat e siguruara - mos i hidhni në plazh",
+      "rule4": "Fëmijët duhet të mbikëqyren gjithmonë",
+      "rule5": "Ju lutemi respektoni vizitorët e tjerë të plazhit dhe mbani nivele të arsyeshme zëri"
+    },
+    "contact": {
+      "title": "Pyetje?",
+      "text": "Kontaktoni stafin tonë për qira çadrash dhe çdo pyetje rreth rregullave të plazhit."
+    }
   }
 }

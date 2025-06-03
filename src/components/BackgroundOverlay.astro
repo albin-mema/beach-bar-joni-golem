@@ -10,7 +10,7 @@ const { class: className = '' } = Astro.props;
 <!-- Background overlay that changes opacity on scroll -->
 <div id="background-overlay" class={`fixed inset-0 z-5 pointer-events-none transition-opacity duration-300 ${className}`}>
   <!-- Gradient overlay that fades on scroll -->
-  <div class="absolute inset-0 bg-gradient-to-br from-black/40 via-black/20 to-black/40"></div>
+  <div class="absolute inset-0 bg-gradient-to-br from-black/20 via-black/10 to-black/20"></div>
 </div>
 
 <script>
@@ -23,9 +23,9 @@ const { class: className = '' } = Astro.props;
       const windowHeight = window.innerHeight;
       
       // Calculate opacity based on scroll position
-      // Start at 0.6 opacity, fade to 0.2 as user scrolls
+      // Start at 0.3 opacity, fade to 0.1 as user scrolls
       const maxScroll = windowHeight * 2; // Fade over 2 viewport heights
-      const opacity = Math.max(0.2, 0.6 - (scrollY / maxScroll) * 0.4);
+      const opacity = Math.max(0.1, 0.3 - (scrollY / maxScroll) * 0.2);
       
       if (overlay) {
         overlay.style.opacity = opacity.toString();

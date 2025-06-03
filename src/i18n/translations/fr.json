@@ -9,6 +9,7 @@
     "brand": "Beach Bar Joni",
     "home": "Accueil",
     "menu": "Menu",
+    "beachRules": "Règles de la Plage",
     "gallery": "Galerie",
     "location": "Localisation",
     "contact": "Contact"
@@ -17,6 +18,7 @@
     "title": "Beach Bar Joni",
     "subtitle": "Découvrez le mélange parfait de boissons rafraîchissantes et de vues magnifiques sur la plage",
     "viewMenu": "Voir le Menu",
+    "beachRules": "Règles de la Plage",
     "findUs": "Nous Trouver"
   },
   "gallery": {
@@ -229,5 +231,25 @@
   "language": {
     "current": "Français",
     "switch": "Langue"
+  },
+  "beachRules": {
+    "title": "Parasols de Plage & Règles",
+    "subtitle": "Profitez de notre plage avec confort et respectez nos directives",
+    "pricing": {
+      "title": "Prix de Location des Parasols",
+      "fullDay": "Journée Complète (7h00 - 18h00)"
+    },
+    "rules": {
+      "title": "Règles et Directives de la Plage",
+      "rule1": "Aucune nourriture ou boisson apportée de l'extérieur - veuillez profiter de nos offres de bar",
+      "rule2": "Les animaux ne sont pas autorisés sur la zone de plage",
+      "rule3": "Veuillez jeter tous les déchets dans les poubelles fournies - interdiction de jeter des détritus",
+      "rule4": "Les enfants doivent être surveillés en permanence",
+      "rule5": "Veuillez respecter les autres usagers de la plage et maintenir des niveaux sonores raisonnables"
+    },
+    "contact": {
+      "title": "Questions?",
+      "text": "Contactez notre personnel pour la location de parasols et toute question concernant les règles de la plage."
+    }
   }
 }

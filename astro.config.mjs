@@ -73,7 +73,8 @@ export default defineConfig({
     },
     // Optimize dependencies
     optimizeDeps: {
-      include: ['lucide-astro']
+      include: ['lucide-astro'],
+      exclude: ['@sentry/astro']
     }
   },
 

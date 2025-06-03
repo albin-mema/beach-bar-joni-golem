@@ -34,7 +34,7 @@ function t(key: string): string {
   <!-- Hero content for fixed background layout -->
   <div class="relative flex justify-center items-center min-h-screen overflow-hidden">
     <!-- Overlay -->
-    <div class="z-10 absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60"></div>
+    <div class="z-10 absolute inset-0 bg-gradient-to-br from-black/30 via-black/20 to-black/30"></div>
 
     <!-- Content -->
     <section id="home" class="z-20 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
@@ -52,6 +52,12 @@ function t(key: string): string {
             class="inline-flex justify-center items-center bg-teal-600 hover:bg-teal-700 hover:shadow-xl px-8 py-4 rounded-lg min-w-[160px] font-semibold text-white text-lg hover:scale-105 transition-all duration-300"
           >
             {t('hero.viewMenu')}
+          </a>
+          <a
+            href={getLocalizedUrl('/beach-rules', lang)}
+            class="inline-flex justify-center items-center bg-blue-600 hover:bg-blue-700 hover:shadow-xl px-8 py-4 rounded-lg min-w-[160px] font-semibold text-white text-lg hover:scale-105 transition-all duration-300"
+          >
+            {t('hero.beachRules')}
           </a>
           <a
             href="#location"
@@ -70,7 +76,7 @@ function t(key: string): string {
     class="flex justify-center items-center min-h-screen overflow-hidden"
   >
     <!-- Overlay -->
-    <div class="z-10 absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60"></div>
+    <div class="z-10 absolute inset-0 bg-gradient-to-br from-black/30 via-black/20 to-black/30"></div>
 
     <!-- Content -->
     <section id="home" class="z-20 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
@@ -88,6 +94,12 @@ function t(key: string): string {
             class="inline-flex justify-center items-center bg-teal-600 hover:bg-teal-700 hover:shadow-xl px-8 py-4 rounded-lg min-w-[160px] font-semibold text-white text-lg hover:scale-105 transition-all duration-300"
           >
             {t('hero.viewMenu')}
+          </a>
+          <a
+            href={getLocalizedUrl('/beach-rules', lang)}
+            class="inline-flex justify-center items-center bg-blue-600 hover:bg-blue-700 hover:shadow-xl px-8 py-4 rounded-lg min-w-[160px] font-semibold text-white text-lg hover:scale-105 transition-all duration-300"
+          >
+            {t('hero.beachRules')}
           </a>
           <a
             href="#location"

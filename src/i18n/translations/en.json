@@ -9,6 +9,7 @@
     "brand": "Beach Bar Joni",
     "home": "Home",
     "menu": "Menu",
+    "beachRules": "Beach Rules",
     "gallery": "Gallery",
     "location": "Location",
     "contact": "Contact"
@@ -17,6 +18,7 @@
     "title": "Beach Bar Joni",
     "subtitle": "Experience the perfect blend of refreshing drinks and stunning beach views",
     "viewMenu": "View Menu",
+    "beachRules": "Beach Rules",
     "findUs": "Find Us"
   },
   "gallery": {
@@ -229,5 +231,25 @@
   "language": {
     "current": "English",
     "switch": "Language"
+  },
+  "beachRules": {
+    "title": "Beach Umbrellas & Rules",
+    "subtitle": "Enjoy our beach with comfort and respect our guidelines",
+    "pricing": {
+      "title": "Umbrella Rental Prices",
+      "fullDay": "Full Day (7:00 AM - 6:00 PM)"
+    },
+    "rules": {
+      "title": "Beach Rules & Guidelines",
+      "rule1": "No outside food or drinks allowed - please enjoy our bar offerings",
+      "rule2": "No animals allowed on the beach area",
+      "rule3": "Please dispose of all garbage in the provided bins - no littering",
+      "rule4": "Children must be supervised at all times",
+      "rule5": "Please respect other beachgoers and maintain reasonable noise levels"
+    },
+    "contact": {
+      "title": "Questions?",
+      "text": "Contact our staff for umbrella rentals and any questions about beach rules."
+    }
   }
 }

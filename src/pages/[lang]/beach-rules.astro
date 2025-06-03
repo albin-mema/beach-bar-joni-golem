@@ -1,0 +1,175 @@
+---
+import '../../styles/global.css'
+import Navigation from '../../components/Navigation.astro'
+import Hero from '../../components/Hero.astro'
+import Footer from '../../components/Footer.astro'
+import Section from '../../components/Section.astro'
+import FixedBackground from '../../components/FixedBackground.astro'
+import BackgroundOverlay from '../../components/BackgroundOverlay.astro'
+import { getTranslations, useTranslations, languages } from '../../i18n/utils.js'
+import pricingData from '../../data/umbrella-pricing.json'
+
+// Generate static paths for all languages
+export async function getStaticPaths() {
+  const paths = Object.keys(languages).map(lang => ({
+    params: { lang }
+  }));
+
+  return paths;
+}
+
+// Get the language from the URL params
+const { lang } = Astro.params;
+const translations = await getTranslations(lang);
+const t = useTranslations(translations);
+
+// Use umbrella pricing data
+const pricing = pricingData
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{t('beachRules.title')} - {t('navigation.brand')}</title>
+    <meta name="description" content={t('beachRules.subtitle')} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={`https://albin-mema.github.io/beach-bar-joni-golem/${lang}/beach-rules`} />
+    <meta property="og:title" content={`${t('beachRules.title')} - ${t('navigation.brand')}`} />
+    <meta property="og:description" content={t('beachRules.subtitle')} />
+    <meta property="og:image" content={`${import.meta.env.BASE_URL}beach_bar_1.jpeg`} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={`https://albin-mema.github.io/beach-bar-joni-golem/${lang}/beach-rules`} />
+    <meta property="twitter:title" content={`${t('beachRules.title')} - ${t('navigation.brand')}`} />
+    <meta property="twitter:description" content={t('beachRules.subtitle')} />
+    <meta property="twitter:image" content={`${import.meta.env.BASE_URL}beach_bar_1.jpeg`} />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href={`${import.meta.env.BASE_URL}favicon.ico`} />
+    <link rel="icon" type="image/png" sizes="16x16" href={`${import.meta.env.BASE_URL}favicon-16x16.png`} />
+    <link rel="icon" type="image/png" sizes="32x32" href={`${import.meta.env.BASE_URL}favicon-32x32.png`} />
+    <link rel="apple-touch-icon" sizes="180x180" href={`${import.meta.env.BASE_URL}apple-touch-icon.png`} />
+
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#f97316" />
+    <meta name="msapplication-TileColor" content="#f97316" />
+  </head>
+
+  <body class="bg-white">
+    <!-- Fixed Background -->
+    <FixedBackground src="beach_bar_1.jpeg" />
+
+    <!-- Background Overlay for transparency effects -->
+    <BackgroundOverlay />
+
+    <!-- Main Content Container -->
+    <div class="z-10 relative">
+      <!-- Navigation -->
+      <Navigation currentPage="beach-rules" lang={lang} translations={translations} />
+
+      <main>
+        <!-- Hero Section -->
+        <Hero
+          title={t('beachRules.title')}
+          subtitle={t('beachRules.subtitle')}
+          showButtons={false}
+          lang={lang}
+          translations={translations}
+          useFixedBackground={true}
+        />
+
+        <!-- Pricing Section -->
+        <Section
+          title={t('beachRules.pricing.title')}
+          background="semi-transparent"
+        >
+          <div class="space-y-8 mx-auto max-w-4xl">
+            <div class="bg-white shadow-lg p-8 rounded-xl">
+              <div class="overflow-x-auto">
+                <table class="w-full border-collapse">
+                  <tbody>
+                    <tr>
+                      <td class="py-4 pr-4 align-top">
+                        <h4 class="font-medium text-gray-900">{t('beachRules.pricing.fullDay')}</h4>
+                      </td>
+                      <td class="py-4 pl-4 text-right align-top">
+                        <span class="font-semibold text-orange-600 whitespace-nowrap">{pricing.fullDay[lang]}</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </Section>
+
+        <!-- Rules Section -->
+        <Section
+          title={t('beachRules.rules.title')}
+          background="semi-transparent"
+        >
+          <div class="space-y-6 mx-auto max-w-4xl">
+            <div class="bg-white shadow-lg p-8 rounded-xl">
+              <div class="space-y-4">
+                <div class="flex items-start space-x-4">
+                  <span class="flex flex-shrink-0 justify-center items-center bg-orange-100 rounded-full w-8 h-8 font-semibold text-orange-600 text-sm">1</span>
+                  <p class="text-gray-700">{t('beachRules.rules.rule1')}</p>
+                </div>
+                <div class="flex items-start space-x-4">
+                  <span class="flex flex-shrink-0 justify-center items-center bg-orange-100 rounded-full w-8 h-8 font-semibold text-orange-600 text-sm">2</span>
+                  <p class="text-gray-700">{t('beachRules.rules.rule2')}</p>
+                </div>
+                <div class="flex items-start space-x-4">
+                  <span class="flex flex-shrink-0 justify-center items-center bg-orange-100 rounded-full w-8 h-8 font-semibold text-orange-600 text-sm">3</span>
+                  <p class="text-gray-700">{t('beachRules.rules.rule3')}</p>
+                </div>
+                <div class="flex items-start space-x-4">
+                  <span class="flex flex-shrink-0 justify-center items-center bg-orange-100 rounded-full w-8 h-8 font-semibold text-orange-600 text-sm">4</span>
+                  <p class="text-gray-700">{t('beachRules.rules.rule4')}</p>
+                </div>
+                <div class="flex items-start space-x-4">
+                  <span class="flex flex-shrink-0 justify-center items-center bg-orange-100 rounded-full w-8 h-8 font-semibold text-orange-600 text-sm">5</span>
+                  <p class="text-gray-700">{t('beachRules.rules.rule5')}</p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </Section>
+
+        <!-- Contact Section -->
+        <Section
+          title={t('beachRules.contact.title')}
+          background="semi-transparent"
+        >
+          <div class="space-y-8 mx-auto max-w-4xl text-center">
+            <div class="bg-white shadow-lg p-8 rounded-xl">
+              <p class="mb-6 text-gray-700 text-lg leading-relaxed">
+                {t('beachRules.contact.text')}
+              </p>
+              <div class="flex sm:flex-row flex-col justify-center gap-4">
+                <a
+                  href="https://www.instagram.com/beach_bar_joni/"
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-flex justify-center items-center bg-orange-500 hover:bg-orange-600 hover:shadow-xl px-8 py-4 rounded-lg font-semibold text-white text-lg hover:scale-105 transition-all duration-300"
+                >
+                  <span class="mr-2">📱</span>
+                  {t('contact.followInstagram')}
+                </a>
+              </div>
+            </div>
+          </div>
+        </Section>
+      </main>
+
+      <!-- Footer -->
+      <Footer lang={lang} translations={translations} />
+    </div>
+  </body>
+</html>

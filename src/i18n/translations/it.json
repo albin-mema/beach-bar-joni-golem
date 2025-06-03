@@ -9,6 +9,7 @@
     "brand": "Beach Bar Joni",
     "home": "Home",
     "menu": "Menu",
+    "beachRules": "Regole della Spiaggia",
     "gallery": "Galleria",
     "location": "Posizione",
     "contact": "Contatto"
@@ -17,6 +18,7 @@
     "title": "Beach Bar Joni",
     "subtitle": "Vivi la perfetta combinazione di bevande rinfrescanti e splendide viste sulla spiaggia",
     "viewMenu": "Vedi Menu",
+    "beachRules": "Regole della Spiaggia",
     "findUs": "Trovaci"
   },
   "gallery": {
@@ -229,5 +231,25 @@
   "language": {
     "current": "Italiano",
     "switch": "Lingua"
+  },
+  "beachRules": {
+    "title": "Ombrelloni & Regole della Spiaggia",
+    "subtitle": "Goditi la nostra spiaggia con comfort e rispetta le nostre linee guida",
+    "pricing": {
+      "title": "Prezzi Noleggio Ombrelloni",
+      "fullDay": "Giornata Intera (7:00 - 18:00)"
+    },
+    "rules": {
+      "title": "Regole e Linee Guida della Spiaggia",
+      "rule1": "Non sono consentiti cibi o bevande portati da casa - godetevi le nostre offerte del bar",
+      "rule2": "Non sono ammessi animali nell'area della spiaggia",
+      "rule3": "Si prega di smaltire tutti i rifiuti negli appositi contenitori - non gettare rifiuti",
+      "rule4": "I bambini devono essere supervisionati in ogni momento",
+      "rule5": "Si prega di rispettare gli altri bagnanti e mantenere livelli di rumore ragionevoli"
+    },
+    "contact": {
+      "title": "Domande?",
+      "text": "Contatta il nostro staff per il noleggio ombrelloni e qualsiasi domanda sulle regole della spiaggia."
+    }
   }
 }

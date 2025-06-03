@@ -9,6 +9,7 @@
     "brand": "Beach Bar Joni",
     "home": "Startseite",
     "menu": "Speisekarte",
+    "beachRules": "Strandregeln",
     "gallery": "Galerie",
     "location": "Standort",
     "contact": "Kontakt"
@@ -17,6 +18,7 @@
     "title": "Beach Bar Joni",
     "subtitle": "Erleben Sie die perfekte Mischung aus erfrischenden Getränken und atemberaubenden Strandblicken",
     "viewMenu": "Speisekarte Ansehen",
+    "beachRules": "Strandregeln",
     "findUs": "Finden Sie Uns"
   },
   "gallery": {
@@ -229,5 +231,25 @@
   "language": {
     "current": "Deutsch",
     "switch": "Sprache"
+  },
+  "beachRules": {
+    "title": "Sonnenschirme & Strandregeln",
+    "subtitle": "Genießen Sie unseren Strand mit Komfort und respektieren Sie unsere Richtlinien",
+    "pricing": {
+      "title": "Sonnenschirm-Mietpreise",
+      "fullDay": "Ganzer Tag (7:00 - 18:00)"
+    },
+    "rules": {
+      "title": "Strand-Regeln und Richtlinien",
+      "rule1": "Keine mitgebrachten Speisen oder Getränke erlaubt - bitte genießen Sie unser Barangebot",
+      "rule2": "Tiere sind im Strandbereich nicht erlaubt",
+      "rule3": "Bitte entsorgen Sie allen Müll in den bereitgestellten Behältern - kein Littering",
+      "rule4": "Kinder müssen jederzeit beaufsichtigt werden",
+      "rule5": "Bitte respektieren Sie andere Strandbesucher und halten Sie angemessene Lautstärke ein"
+    },
+    "contact": {
+      "title": "Fragen?",
+      "text": "Kontaktieren Sie unser Personal für Sonnenschirm-Vermietung und Fragen zu den Strandregeln."
+    }
   }
 }

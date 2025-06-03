@@ -9,6 +9,7 @@
     "brand": "Beach Bar Joni",
     "home": "Strona Główna",
     "menu": "Menu",
+    "beachRules": "Zasady Plaży",
     "gallery": "Galeria",
     "location": "Lokalizacja",
     "contact": "Kontakt"
@@ -17,6 +18,7 @@
     "title": "Beach Bar Joni",
     "subtitle": "Doświadcz idealnego połączenia orzeźwiających napojów i wspaniałych widoków na plażę",
     "viewMenu": "Zobacz Menu",
+    "beachRules": "Zasady Plaży",
     "findUs": "Znajdź Nas"
   },
   "gallery": {
@@ -229,5 +231,25 @@
   "language": {
     "current": "Polski",
     "switch": "Język"
+  },
+  "beachRules": {
+    "title": "Parasole Plażowe i Zasady",
+    "subtitle": "Ciesz się naszą plażą z komfortem i przestrzegaj naszych wytycznych",
+    "pricing": {
+      "title": "Ceny Wynajmu Parasoli",
+      "fullDay": "Cały Dzień (7:00 - 18:00)"
+    },
+    "rules": {
+      "title": "Zasady i Wytyczne Plaży",
+      "rule1": "Nie wolno wnosić jedzenia ani napojów z domu - prosimy korzystać z naszej oferty barowej",
+      "rule2": "Zwierzęta nie są dozwolone na obszarze plaży",
+      "rule3": "Prosimy wyrzucać wszystkie śmieci do odpowiednich koszy - zakaz śmiecenia",
+      "rule4": "Dzieci muszą być nadzorowane przez cały czas",
+      "rule5": "Prosimy o szanowanie innych plażowiczów i utrzymywanie rozsądnego poziomu hałasu"
+    },
+    "contact": {
+      "title": "Pytania?",
+      "text": "Skontaktuj się z naszym personelem w sprawie wynajmu parasoli i wszelkich pytań dotyczących zasad plaży."
+    }
   }
 }

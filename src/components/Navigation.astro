@@ -1,6 +1,6 @@
 ---
 import { getLocalizedUrl, getLanguageUrls } from '../i18n/utils.js';
-import { Martini } from 'lucide-astro';
+import { Martini, Umbrella } from 'lucide-astro';
 
 interface Props {
   currentPage?: string;
@@ -119,6 +119,15 @@ const languageConfig = {
             </svg>
           </a>
 
+          <!-- Beach Rules Icon -->
+          <a
+            href={getLocalizedUrl('/beach-rules', lang)}
+            aria-label={t('navigation.beachRules')}
+            class="group flex justify-center items-center bg-white/10 hover:bg-white/20 p-3 rounded-lg transition-colors nav-icon-link"
+          >
+            <Umbrella class="w-5 h-5 text-white group-hover:scale-110 transition-transform nav-icon" />
+          </a>
+
           <!-- Menu Icon -->
           <a
             href={getLocalizedUrl('/menu', lang)}
@@ -136,13 +145,13 @@ const languageConfig = {
 <style>
   .nav-bar {
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(4px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .nav-bar.nav-scrolled {
     background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(4px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   }
