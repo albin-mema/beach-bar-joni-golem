@@ -30,10 +30,13 @@ export default defineConfig({
     format: 'directory'
   },
 
-  // Add cache headers for better performance
+  // Development server configuration
   server: {
     headers: {
-      'Cache-Control': 'public, max-age=31536000, immutable'
+      // Less aggressive caching for development
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Pragma': 'no-cache',
+      'Expires': '0'
     }
   },
 
@@ -60,7 +63,7 @@ export default defineConfig({
       rollupOptions: {
         output: {
           manualChunks: undefined,
-          // Better asset naming for caching
+          // Better asset naming with timestamp for cache busting
           assetFileNames: 'assets/[name].[hash][extname]',
           chunkFileNames: 'assets/[name].[hash].js',
           entryFileNames: 'assets/[name].[hash].js'

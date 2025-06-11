@@ -1,7 +1,7 @@
 // Service Worker for Bar Joni Website
 // Provides offline caching and performance improvements
 
-const CACHE_NAME = 'bar-joni-v2';
+const CACHE_NAME = 'bar-joni-v3';
 const BASE_URL = '/beach-bar-joni-golem/';
 
 // Critical resources to cache immediately
@@ -52,49 +52,66 @@ self.addEventListener('activate', event => {
   );
 });
 
-// Fetch event - serve from cache with network fallback
+// Fetch event - network first for HTML, cache first for assets
 self.addEventListener('fetch', event => {
   // Only handle GET requests
   if (event.request.method !== 'GET') return;
-  
+
   // Skip cross-origin requests
   if (!event.request.url.startsWith(self.location.origin)) return;
-  
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        // Return cached version if available
-        if (response) {
-          return response;
-        }
-        
-        // Otherwise fetch from network
-        return fetch(event.request)
-          .then(response => {
-            // Don't cache non-successful responses
-            if (!response || response.status !== 200 || response.type !== 'basic') {
-              return response;
-            }
-            
-            // Clone the response
+
+  // Network-first strategy for HTML pages to avoid stale content
+  if (event.request.destination === 'document' ||
+      event.request.url.includes('.html') ||
+      event.request.url.endsWith('/')) {
+
+    event.respondWith(
+      fetch(event.request)
+        .then(response => {
+          // Cache successful responses
+          if (response && response.status === 200 && response.type === 'basic') {
             const responseToCache = response.clone();
-            
-            // Cache the response for future use
             caches.open(CACHE_NAME)
               .then(cache => {
                 cache.put(event.request, responseToCache);
               });
-            
+          }
+          return response;
+        })
+        .catch(() => {
+          // Fallback to cache if network fails
+          return caches.match(event.request)
+            .then(response => {
+              return response || caches.match(`${BASE_URL}index.html`);
+            });
+        })
+    );
+  } else {
+    // Cache-first strategy for assets (images, CSS, JS)
+    event.respondWith(
+      caches.match(event.request)
+        .then(response => {
+          if (response) {
             return response;
-          })
-          .catch(() => {
-            // Return offline page for HTML requests
-            if (event.request.destination === 'document') {
-              return caches.match(`${BASE_URL}index.html`);
-            }
-          });
-      })
-  );
+          }
+
+          return fetch(event.request)
+            .then(response => {
+              if (!response || response.status !== 200 || response.type !== 'basic') {
+                return response;
+              }
+
+              const responseToCache = response.clone();
+              caches.open(CACHE_NAME)
+                .then(cache => {
+                  cache.put(event.request, responseToCache);
+                });
+
+              return response;
+            });
+        })
+    );
+  }
 });
 
 // Background sync for analytics (if supported)

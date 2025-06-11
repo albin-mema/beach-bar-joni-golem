@@ -80,8 +80,10 @@ const galleryImages = [
 		<meta name="theme-color" content="#0d9488" />
 		<meta name="msapplication-TileColor" content="#0d9488" />
 
-		<!-- Cache control -->
-		<meta http-equiv="Cache-Control" content="public, max-age=31536000" />
+		<!-- Prevent aggressive caching for better development experience -->
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
 	</head>
 
 	<body class="bg-white">
