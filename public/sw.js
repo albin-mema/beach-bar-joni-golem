@@ -1,8 +1,8 @@
 // Service Worker for Bar Joni Website
 // Provides offline caching and performance improvements
 
-const CACHE_NAME = 'bar-joni-v3';
-const BASE_URL = '/beach-bar-joni-golem/';
+const CACHE_NAME = 'bar-joni-v4';
+const BASE_URL = '/';
 
 // Critical resources to cache immediately
 // Only includes the 4 gallery images that actually exist

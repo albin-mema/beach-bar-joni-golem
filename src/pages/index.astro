@@ -226,7 +226,7 @@ const galleryImages = [
 			// Register service worker for performance improvements
 			if ('serviceWorker' in navigator) {
 				window.addEventListener('load', () => {
-					navigator.serviceWorker.register('/beach-bar-joni-golem/sw.js')
+					navigator.serviceWorker.register('/sw.js')
 						.then(registration => {
 							console.log('SW registered: ', registration);
 						})

@@ -10,8 +10,8 @@ import compressor from 'astro-compressor';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://albin-mema.github.io',
-  base: '/beach-bar-joni-golem/',
+  site: 'https://beachbarjoni.al',
+  base: '/',
   integrations: [sentry(), spotlightjs(), compressor()],
 
   i18n: {
@@ -45,11 +45,11 @@ export default defineConfig({
     service: {
       entrypoint: 'astro/assets/services/sharp'
     },
-    domains: ['albin-mema.github.io'],
+    domains: ['beachbarjoni.al'],
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'albin-mema.github.io'
+        hostname: 'beachbarjoni.al'
       }
     ]
   },
