@@ -6,6 +6,7 @@ import Footer from '../../components/Footer.astro'
 import Section from '../../components/Section.astro'
 import FixedBackground from '../../components/FixedBackground.astro'
 import BackgroundOverlay from '../../components/BackgroundOverlay.astro'
+import Analytics from '../../components/Analytics.astro'
 import { getTranslations, useTranslations, languages } from '../../i18n/utils.js'
 import pricingData from '../../data/umbrella-pricing.json'
 
@@ -58,6 +59,9 @@ const pricing = pricingData
     <!-- Theme color for mobile browsers -->
     <meta name="theme-color" content="#f97316" />
     <meta name="msapplication-TileColor" content="#f97316" />
+
+    <!-- Analytics Scripts -->
+    <Analytics />
   </head>
 
   <body class="bg-white">

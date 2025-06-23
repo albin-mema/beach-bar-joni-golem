@@ -8,6 +8,7 @@ import Button from '../../components/Button.astro'
 import Footer from '../../components/Footer.astro'
 import FixedBackground from '../../components/FixedBackground.astro'
 import BackgroundOverlay from '../../components/BackgroundOverlay.astro'
+import Analytics from '../../components/Analytics.astro'
 import { getTranslations, useTranslations, languages } from '../../i18n/utils.js'
 
 // Generate static paths for all languages
@@ -65,6 +66,9 @@ const galleryImages = [
 		<link rel="dns-prefetch" href="//script.google.com" />
 		<link rel="dns-prefetch" href="//www.instagram.com" />
 		<link rel="preconnect" href="//script.google.com" crossorigin />
+
+		<!-- Analytics Scripts -->
+		<Analytics />
 
 		<!-- Resource hints for better loading -->
 		<link rel="preload" href={`${import.meta.env.BASE_URL}assets/page.Cg2IRjKt.js`} as="script" />

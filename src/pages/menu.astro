@@ -6,6 +6,7 @@ import Footer from '../components/Footer.astro'
 import Section from '../components/Section.astro'
 import FixedBackground from '../components/FixedBackground.astro'
 import BackgroundOverlay from '../components/BackgroundOverlay.astro'
+import Analytics from '../components/Analytics.astro'
 import { getTranslations, useTranslations } from '../i18n/utils.js'
 import { getLocalizedMenuData } from '../data/menu-i18n.ts'
 import type { MenuCategory, MenuItem } from '../types/menu'
@@ -26,6 +27,12 @@ const menuData = getLocalizedMenuData(lang, translations)
     <meta name="generator" content={Astro.generator} />
     <title>{t('meta.menuTitle')}</title>
     <meta name="description" content={t('meta.menuDescription')} />
+
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//script.google.com" />
+
+    <!-- Analytics Scripts -->
+    <Analytics />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />

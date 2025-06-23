@@ -1,0 +1,16 @@
+---
+// Analytics component for global tracking scripts
+// This component includes Microsoft Clarity and can be extended with other analytics
+---
+
+<!-- DNS prefetch for analytics services -->
+<link rel="dns-prefetch" href="//www.clarity.ms" />
+
+<!-- Microsoft Clarity Analytics -->
+<script type="text/javascript" is:inline>
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "s3vzhsnpu2");
+</script>
