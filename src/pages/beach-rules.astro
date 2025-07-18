@@ -7,6 +7,7 @@ import Section from '../components/Section.astro'
 import FixedBackground from '../components/FixedBackground.astro'
 import BackgroundOverlay from '../components/BackgroundOverlay.astro'
 import Analytics from '../components/Analytics.astro'
+import RuleSection from '../components/RuleSection.astro'
 import { getTranslations, useTranslations } from '../i18n/utils.js'
 import pricingData from '../data/umbrella-pricing.json'
 
@@ -99,6 +100,11 @@ const pricing = pricingData
                   </tbody>
                 </table>
               </div>
+              {t('beachRules.pricing.note') && (
+                <div class="mt-6 p-4 bg-blue-50 border-l-4 border-blue-400 rounded-r-lg">
+                  <p class="text-blue-800 text-sm leading-relaxed">{t('beachRules.pricing.note')}</p>
+                </div>
+              )}
             </div>
           </div>
         </Section>
@@ -108,32 +114,81 @@ const pricing = pricingData
           title={t('beachRules.rules.title')}
           background="semi-transparent"
         >
-          <div class="space-y-6 mx-auto max-w-4xl">
-            <div class="bg-white shadow-lg p-8 rounded-xl">
-              <div class="space-y-4">
-                <div class="flex items-start space-x-4">
-                  <span class="flex flex-shrink-0 justify-center items-center bg-gray-100 rounded-full w-8 h-8 font-semibold text-black text-sm">1</span>
-                  <p class="text-gray-700">{t('beachRules.rules.rule1')}</p>
-                </div>
-                <div class="flex items-start space-x-4">
-                  <span class="flex flex-shrink-0 justify-center items-center bg-gray-100 rounded-full w-8 h-8 font-semibold text-black text-sm">2</span>
-                  <p class="text-gray-700">{t('beachRules.rules.rule2')}</p>
-                </div>
-                <div class="flex items-start space-x-4">
-                  <span class="flex flex-shrink-0 justify-center items-center bg-gray-100 rounded-full w-8 h-8 font-semibold text-black text-sm">3</span>
-                  <p class="text-gray-700">{t('beachRules.rules.rule3')}</p>
-                </div>
-                <div class="flex items-start space-x-4">
-                  <span class="flex flex-shrink-0 justify-center items-center bg-gray-100 rounded-full w-8 h-8 font-semibold text-black text-sm">4</span>
-                  <p class="text-gray-700">{t('beachRules.rules.rule4')}</p>
-                </div>
-                <div class="flex items-start space-x-4">
-                  <span class="flex flex-shrink-0 justify-center items-center bg-gray-100 rounded-full w-8 h-8 font-semibold text-black text-sm">5</span>
-                  <p class="text-gray-700">{t('beachRules.rules.rule5')}</p>
-                </div>
+          <div class="space-y-8 mx-auto max-w-4xl">
 
-              </div>
-            </div>
+            <!-- Section 1: Reservation Criteria -->
+            <RuleSection
+              title={t('beachRules.rules.section1.title')}
+              rules={[
+                t('beachRules.rules.section1.rule1'),
+                t('beachRules.rules.section1.rule2'),
+                t('beachRules.rules.section1.rule3'),
+                t('beachRules.rules.section1.rule4'),
+                t('beachRules.rules.section1.rule5'),
+                t('beachRules.rules.section1.rule6')
+              ]}
+              colorTheme="blue"
+            />
+
+            <!-- Section 2: Behavior towards Staff and Other Visitors -->
+            <RuleSection
+              title={t('beachRules.rules.section2.title')}
+              rules={[
+                t('beachRules.rules.section2.rule1'),
+                t('beachRules.rules.section2.rule2'),
+                t('beachRules.rules.section2.rule3'),
+                t('beachRules.rules.section2.rule4'),
+                t('beachRules.rules.section2.rule5'),
+                t('beachRules.rules.section2.rule6')
+              ]}
+              colorTheme="green"
+            />
+
+            <!-- Section 3: General Rules for Cleanliness, Maintenance and Infrastructure Protection -->
+            <RuleSection
+              title={t('beachRules.rules.section3.title')}
+              rules={[
+                t('beachRules.rules.section3.rule1'),
+                t('beachRules.rules.section3.rule2'),
+                t('beachRules.rules.section3.rule3')
+              ]}
+              colorTheme="orange"
+              subsection={{
+                title: t('beachRules.rules.section3.subsection1.title'),
+                rules: [
+                  t('beachRules.rules.section3.subsection1.rule1'),
+                  t('beachRules.rules.section3.subsection1.rule2'),
+                  t('beachRules.rules.section3.subsection1.rule3'),
+                  t('beachRules.rules.section3.subsection1.rule4'),
+                  t('beachRules.rules.section3.subsection1.rule5'),
+                  t('beachRules.rules.section3.subsection1.rule6'),
+                  t('beachRules.rules.section3.subsection1.rule7')
+                ]
+              }}
+            />
+
+            <!-- Section 4: Safety and Emergency Rules -->
+            <RuleSection
+              title={t('beachRules.rules.section4.title')}
+              rules={[
+                t('beachRules.rules.section4.rule1'),
+                t('beachRules.rules.section4.rule2'),
+                t('beachRules.rules.section4.rule3'),
+                t('beachRules.rules.section4.rule4')
+              ]}
+              colorTheme="red"
+            />
+
+            <!-- Section 5: Disciplinary Measures -->
+            <RuleSection
+              title={t('beachRules.rules.section5.title')}
+              rules={[
+                t('beachRules.rules.section5.rule1'),
+                t('beachRules.rules.section5.rule2')
+              ]}
+              colorTheme="purple"
+            />
+
           </div>
         </Section>
 

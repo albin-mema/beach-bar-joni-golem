@@ -237,15 +237,57 @@
     "subtitle": "Shijoni plazhin tonë me komoditet dhe respektoni udhëzimet tona",
     "pricing": {
       "title": "Çadra",
-      "fullDay": "Dita e Plotë (7:00 - 18:00)"
+      "fullDay": "Dita e Plotë (7:00 - 21:00)",
+      "note": "Çadra kushton 1000 leke për të gjithë orarin e lejuar. Përdorimi i plazhit lejohet vetëm gjatë orarit 07:00 - 21:00."
     },
     "rules": {
-      "title": "Rregullat dhe Udhëzimet e Plazhit",
-      "rule1": "Nuk lejohen ushqime ose pije të sjella nga shtëpia - ju lutemi shijoni ofertat tona të barit",
-      "rule2": "Nuk lejohen kafshë në zonën e plazhit",
-      "rule3": "Ju lutemi hidhni të gjitha mbeturinat në koshat e siguruara - mos i hidhni në plazh",
-      "rule4": "Fëmijët duhet të mbikëqyren gjithmonë",
-      "rule5": "Ju lutemi respektoni vizitorët e tjerë të plazhit dhe mbani nivele të arsyeshme zëri"
+      "title": "RREGULLORE PËR PËRDORIMIN E PLAZHIT",
+      "section1": {
+        "title": "1. Kriteret e Rezervimit të Vendit në Plazh",
+        "rule1": "Rezervimi i shezlongëve dhe çadrave mund të bëhet nëpërmjet stafit të Beach Bar-it.",
+        "rule2": "Vendi i rezervuar ruhet deri në orën 10:00. Pas kësaj ore, nëse nuk paraqiteni, vendi mund t'u jepet të tjerëve.",
+        "rule3": "Nuk lejohet bllokimi i vendit me peshqirë apo sende personale pa bërë rezervim të vlefshëm.",
+        "rule4": "Perdorimi nga persona te dyte nuk eshte i lejueshem.",
+        "rule5": "Pagesa kryhet paraprakisht për ditën ose paketën e zgjedhur (ditore/javore/mujore).",
+        "rule6": "Nuk pranohet asnje rezervim pa u kryer pagesa."
+      },
+      "section2": {
+        "title": "2. Sjellja ndaj Personelit dhe Pushuesve të Tjerë",
+        "rule1": "Të gjithë pushuesit duhet të tregojnë respekt dhe sjellje të denjë ndaj stafit dhe pushuesve të tjerë.",
+        "rule2": "Muzika me volum të lartë lejohet vetëm me pajisje personale dhe kufje.",
+        "rule3": "Nuk lejohet përdorimi i gjuhës fyese, ofendimeve apo sjelljeve të papërshtatshme kundrejt kujtdo.",
+        "rule4": "Prindërit janë përgjegjës për sjelljen dhe sigurinë e fëmijëve të tyre.",
+        "rule5": "Ndalohet pengimi i pamjes vizive për plazhistët e tjerë nëpërmjet peshqirëve, mbulesave, lodrave ose sendeve të tjera.",
+        "rule6": "Ndalohet përdorimi i lodrave apo luajtja me to duke cenuar komoditetin dhe sigurinë e plazhistëve të tjerë."
+      },
+      "section3": {
+        "title": "3. Rregulla të Përgjithshme për Pastertine, Mirëmbajtjen DHE Ruajtjen e Infrastruktures",
+        "rule1": "Ndalohet rreptësisht hedhja e mbeturinave në rërë apo det.",
+        "rule2": "Kerkoni per qese ose shkundes per cigaret.",
+        "rule3": "Duhet të përdoren koshat për hedhjen e mbeturinave.(Ndodhen ne afersi te dusheve).",
+        "subsection1": {
+          "title": "1. Përdorimi i Kujdesshëm",
+          "rule1": "Çadra duhet hapur dhe mbyllur VETEM stafi me kujdes për të shmangur dëmtimet mekanike.",
+          "rule2": "Në rast të erërave të forta ose kushteve të këqija atmosferike, çadra duhet mbyllur menjëherë.",
+          "rule3": "Mos varni objekte të rënda në çadër (çantat, rrobat e lagura të shumta, pajisje plazhi), pasi mund të shkaktojnë konsum ose dëmtime.",
+          "rule4": "Nëse vëreni ndonjë dëmtim apo parregullsi te pajisjes, lajmëroni menjëherë stafin për riparim ose zëvendësim.",
+          "rule5": "Mos u hidhni ,ushtroni presion ,perplasni ,uluni me force ose mbi shezlong.",
+          "rule6": "Nuk lejohet përdorimi i shezlongëve pa qenë i pajisur me peshqir ose copa mbrojtëse nga vajrat, kremrat, uji me kripë, djersa ose substanca të tjera.",
+          "rule7": "Nuk lejohet perdorimi i cadres nga me shume se tre te rritur."
+        }
+      },
+      "section4": {
+        "title": "4. Rregulla për Sigurinë dhe Ndihmën e Shpejtë",
+        "rule1": "Ndalohet notimi në zona të ndaluara apo të sinjalizuara si të rrezikshme.",
+        "rule2": "Respektoni udhëzimet e vrojtuesit të plazhit dhe tabelave informuese.",
+        "rule3": "Në rast emergjence, kontaktoni menjëherë stafin, vrojtuesin e plazhit ose thirrni numrin e ndihmës së shpejtë.",
+        "rule4": "Për më shumë, shihni edhe tabelën orientuese të sinjalistikës për sigurinë në det."
+      },
+      "section5": {
+        "title": "5. Masa Disiplinore",
+        "rule1": "Çdo shkelje e rregullores mund të rezultojë në paralajmërim ose në largim të menjëhershëm nga plazhi.",
+        "rule2": "Dëmtimi i pajisjeve të plazhit do të ndëshkohet me dëmshpërblim financiar sipas vlerës së shkaktuar."
+      }
     },
     "contact": {
       "title": "Pyetje?",

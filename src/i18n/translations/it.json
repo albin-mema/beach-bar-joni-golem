@@ -236,16 +236,58 @@
     "title": "Ombrelloni & Regole della Spiaggia",
     "subtitle": "Goditi la nostra spiaggia con comfort e rispetta le nostre linee guida",
     "pricing": {
-      "title": "Prezzi Noleggio Ombrelloni",
-      "fullDay": "Giornata Intera (7:00 - 18:00)"
+      "title": "Noleggio Ombrelloni",
+      "fullDay": "Giornata Intera (7:00 - 21:00)",
+      "note": "L'ombrellone costa 1000 leke per tutto l'orario consentito. L'uso della spiaggia è permesso solo durante le ore 07:00 - 21:00."
     },
     "rules": {
-      "title": "Regole e Linee Guida della Spiaggia",
-      "rule1": "Non sono consentiti cibi o bevande portati da casa - godetevi le nostre offerte del bar",
-      "rule2": "Non sono ammessi animali nell'area della spiaggia",
-      "rule3": "Si prega di smaltire tutti i rifiuti negli appositi contenitori - non gettare rifiuti",
-      "rule4": "I bambini devono essere supervisionati in ogni momento",
-      "rule5": "Si prega di rispettare gli altri bagnanti e mantenere livelli di rumore ragionevoli"
+      "title": "REGOLAMENTO PER L'USO DELLA SPIAGGIA",
+      "section1": {
+        "title": "1. Criteri di Prenotazione del Posto in Spiaggia",
+        "rule1": "Le prenotazioni per sdraio e ombrelloni possono essere effettuate tramite il personale del Beach Bar.",
+        "rule2": "Il posto prenotato è riservato fino alle 10:00. Dopo quest'ora, se non vi presentate, il posto può essere assegnato ad altri.",
+        "rule3": "Non è consentito bloccare il posto con asciugamani o oggetti personali senza una prenotazione valida.",
+        "rule4": "L'uso da parte di terzi non è consentito.",
+        "rule5": "Il pagamento viene effettuato in anticipo per il giorno o il pacchetto scelto (giornaliero/settimanale/mensile).",
+        "rule6": "Non si accettano prenotazioni senza pagamento."
+      },
+      "section2": {
+        "title": "2. Comportamento verso il Personale e Altri Bagnanti",
+        "rule1": "Tutti i bagnanti devono mostrare rispetto e comportamento appropriato verso il personale e gli altri visitatori.",
+        "rule2": "La musica ad alto volume è consentita solo con dispositivi personali e cuffie.",
+        "rule3": "Non è consentito l'uso di linguaggio offensivo, insulti o comportamenti inappropriati verso chiunque.",
+        "rule4": "I genitori sono responsabili del comportamento e della sicurezza dei loro figli.",
+        "rule5": "È vietato bloccare la vista visiva per altri bagnanti con asciugamani, coperture, giocattoli o altri oggetti.",
+        "rule6": "È vietato usare giocattoli o giocare con essi in modi che disturbano il comfort e la sicurezza degli altri bagnanti."
+      },
+      "section3": {
+        "title": "3. Regole Generali per Pulizia, Manutenzione e Protezione delle Infrastrutture",
+        "rule1": "È severamente vietato gettare rifiuti nella sabbia o in mare.",
+        "rule2": "Chiedete sacchetti o posacenere per le sigarette.",
+        "rule3": "Devono essere utilizzati i cestini per lo smaltimento dei rifiuti (situati vicino alle docce).",
+        "subsection1": {
+          "title": "1. Uso Attento",
+          "rule1": "Gli ombrelloni devono essere aperti e chiusi SOLO dal personale con attenzione per evitare danni meccanici.",
+          "rule2": "In caso di venti forti o cattive condizioni atmosferiche, gli ombrelloni devono essere chiusi immediatamente.",
+          "rule3": "Non appendere oggetti pesanti all'ombrellone (borse, vestiti bagnati, attrezzature da spiaggia) poiché possono causare usura o danni.",
+          "rule4": "Se notate danni o irregolarità nell'attrezzatura, avvisate immediatamente il personale per riparazione o sostituzione.",
+          "rule5": "Non saltare, applicare pressione, colpire, sedersi con forza o abusare delle sdraio.",
+          "rule6": "Le sdraio non possono essere utilizzate senza essere dotate di asciugamani o coperture protettive da oli, creme, acqua salata, sudore o altre sostanze.",
+          "rule7": "L'uso dell'ombrellone da parte di più di tre adulti non è consentito."
+        }
+      },
+      "section4": {
+        "title": "4. Regole di Sicurezza e Emergenza",
+        "rule1": "È vietato nuotare in aree proibite o segnalate come pericolose.",
+        "rule2": "Rispettate le istruzioni del bagnino e dei cartelli informativi.",
+        "rule3": "In caso di emergenza, contattate immediatamente il personale, il bagnino o chiamate i servizi di emergenza.",
+        "rule4": "Per maggiori informazioni, consultate anche la bacheca orientativa per la segnaletica di sicurezza in mare."
+      },
+      "section5": {
+        "title": "5. Misure Disciplinari",
+        "rule1": "Qualsiasi violazione del regolamento può comportare un avvertimento o l'allontanamento immediato dalla spiaggia.",
+        "rule2": "I danni alle attrezzature della spiaggia saranno puniti con risarcimento finanziario secondo il valore del danno causato."
+      }
     },
     "contact": {
       "title": "Domande?",

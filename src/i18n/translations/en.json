@@ -236,16 +236,58 @@
     "title": "Beach Umbrellas & Rules",
     "subtitle": "Enjoy our beach with comfort and respect our guidelines",
     "pricing": {
-      "title": "Umbrella Rental Prices",
-      "fullDay": "Full Day (7:00 AM - 6:00 PM)"
+      "title": "Umbrella Rental",
+      "fullDay": "Full Day (7:00 AM - 9:00 PM)",
+      "note": "Umbrella costs 1000 leke for the entire allowed schedule. Beach use is permitted only during 07:00 - 21:00 hours."
     },
     "rules": {
-      "title": "Beach Rules & Guidelines",
-      "rule1": "No outside food or drinks allowed - please enjoy our bar offerings",
-      "rule2": "No animals allowed on the beach area",
-      "rule3": "Please dispose of all garbage in the provided bins - no littering",
-      "rule4": "Children must be supervised at all times",
-      "rule5": "Please respect other beachgoers and maintain reasonable noise levels"
+      "title": "BEACH USE REGULATIONS",
+      "section1": {
+        "title": "1. Beach Spot Reservation Criteria",
+        "rule1": "Reservations for beach chairs and umbrellas can be made through Beach Bar staff.",
+        "rule2": "Reserved spots are held until 10:00 AM. After this time, if you don't show up, the spot may be given to others.",
+        "rule3": "Blocking spots with towels or personal items without a valid reservation is not allowed.",
+        "rule4": "Use by third parties is not permitted.",
+        "rule5": "Payment is made in advance for the chosen day or package (daily/weekly/monthly).",
+        "rule6": "No reservations are accepted without payment."
+      },
+      "section2": {
+        "title": "2. Behavior Towards Staff and Other Beachgoers",
+        "rule1": "All beachgoers must show respect and proper behavior towards staff and other visitors.",
+        "rule2": "Loud music is allowed only with personal devices and headphones.",
+        "rule3": "Use of offensive language, insults, or inappropriate behavior towards anyone is not allowed.",
+        "rule4": "Parents are responsible for their children's behavior and safety.",
+        "rule5": "Blocking the visual view for other beachgoers with towels, covers, toys, or other items is prohibited.",
+        "rule6": "Using toys or playing with them in ways that disturb the comfort and safety of other beachgoers is prohibited."
+      },
+      "section3": {
+        "title": "3. General Rules for Cleanliness, Maintenance and Infrastructure Protection",
+        "rule1": "Throwing garbage in the sand or sea is strictly prohibited.",
+        "rule2": "Ask for bags or ashtrays for cigarettes.",
+        "rule3": "Garbage bins must be used for waste disposal (located near the showers).",
+        "subsection1": {
+          "title": "1. Careful Use",
+          "rule1": "Umbrellas must be opened and closed ONLY by staff carefully to avoid mechanical damage.",
+          "rule2": "In case of strong winds or bad weather conditions, umbrellas must be closed immediately.",
+          "rule3": "Do not hang heavy objects on the umbrella (bags, wet clothes, beach equipment) as they may cause wear or damage.",
+          "rule4": "If you notice any damage or irregularity in the equipment, notify staff immediately for repair or replacement.",
+          "rule5": "Do not jump, apply pressure, hit, sit forcefully on or abuse beach chairs.",
+          "rule6": "Beach chairs cannot be used without being equipped with towels or protective covers from oils, creams, salt water, sweat, or other substances.",
+          "rule7": "Umbrella use by more than three adults is not permitted."
+        }
+      },
+      "section4": {
+        "title": "4. Safety and Emergency Rules",
+        "rule1": "Swimming in prohibited or signaled dangerous areas is forbidden.",
+        "rule2": "Respect the instructions of the beach guard and informational signs.",
+        "rule3": "In case of emergency, contact staff, beach guard immediately, or call emergency services.",
+        "rule4": "For more information, also see the orientation board for sea safety signage."
+      },
+      "section5": {
+        "title": "5. Disciplinary Measures",
+        "rule1": "Any violation of the regulations may result in a warning or immediate removal from the beach.",
+        "rule2": "Damage to beach equipment will be penalized with financial compensation according to the value of the damage caused."
+      }
     },
     "contact": {
       "title": "Questions?",

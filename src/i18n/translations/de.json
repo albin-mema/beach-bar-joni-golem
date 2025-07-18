@@ -236,16 +236,58 @@
     "title": "Sonnenschirme & Strandregeln",
     "subtitle": "Genießen Sie unseren Strand mit Komfort und respektieren Sie unsere Richtlinien",
     "pricing": {
-      "title": "Sonnenschirm-Mietpreise",
-      "fullDay": "Ganzer Tag (7:00 - 18:00)"
+      "title": "Sonnenschirm-Vermietung",
+      "fullDay": "Ganzer Tag (7:00 - 21:00)",
+      "note": "Der Sonnenschirm kostet 1000 Leke für die gesamte erlaubte Zeit. Die Strandnutzung ist nur während der Zeiten 07:00 - 21:00 Uhr gestattet."
     },
     "rules": {
-      "title": "Strand-Regeln und Richtlinien",
-      "rule1": "Keine mitgebrachten Speisen oder Getränke erlaubt - bitte genießen Sie unser Barangebot",
-      "rule2": "Tiere sind im Strandbereich nicht erlaubt",
-      "rule3": "Bitte entsorgen Sie allen Müll in den bereitgestellten Behältern - kein Littering",
-      "rule4": "Kinder müssen jederzeit beaufsichtigt werden",
-      "rule5": "Bitte respektieren Sie andere Strandbesucher und halten Sie angemessene Lautstärke ein"
+      "title": "STRANDNUTZUNGSORDNUNG",
+      "section1": {
+        "title": "1. Kriterien für Strandplatz-Reservierung",
+        "rule1": "Reservierungen für Liegestühle und Sonnenschirme können über das Beach Bar Personal vorgenommen werden.",
+        "rule2": "Der reservierte Platz wird bis 10:00 Uhr gehalten. Nach dieser Zeit kann der Platz, falls Sie nicht erscheinen, an andere vergeben werden.",
+        "rule3": "Das Blockieren von Plätzen mit Handtüchern oder persönlichen Gegenständen ohne gültige Reservierung ist nicht erlaubt.",
+        "rule4": "Die Nutzung durch Dritte ist nicht gestattet.",
+        "rule5": "Die Zahlung erfolgt im Voraus für den gewählten Tag oder das gewählte Paket (täglich/wöchentlich/monatlich).",
+        "rule6": "Keine Reservierungen werden ohne Zahlung akzeptiert."
+      },
+      "section2": {
+        "title": "2. Verhalten gegenüber Personal und anderen Strandbesuchern",
+        "rule1": "Alle Strandbesucher müssen Respekt und angemessenes Verhalten gegenüber dem Personal und anderen Besuchern zeigen.",
+        "rule2": "Laute Musik ist nur mit persönlichen Geräten und Kopfhörern erlaubt.",
+        "rule3": "Die Verwendung von beleidigender Sprache, Beleidigungen oder unangemessenem Verhalten gegenüber jedem ist nicht erlaubt.",
+        "rule4": "Eltern sind für das Verhalten und die Sicherheit ihrer Kinder verantwortlich.",
+        "rule5": "Das Blockieren der Sicht für andere Strandbesucher durch Handtücher, Abdeckungen, Spielzeug oder andere Gegenstände ist verboten.",
+        "rule6": "Die Verwendung von Spielzeug oder das Spielen damit auf eine Weise, die den Komfort und die Sicherheit anderer Strandbesucher beeinträchtigt, ist verboten."
+      },
+      "section3": {
+        "title": "3. Allgemeine Regeln für Sauberkeit, Wartung und Infrastrukturschutz",
+        "rule1": "Das Wegwerfen von Müll in den Sand oder ins Meer ist strengstens verboten.",
+        "rule2": "Fragen Sie nach Beuteln oder Aschenbechern für Zigaretten.",
+        "rule3": "Müllbehälter müssen für die Müllentsorgung verwendet werden (befinden sich in der Nähe der Duschen).",
+        "subsection1": {
+          "title": "1. Sorgfältige Nutzung",
+          "rule1": "Sonnenschirme dürfen NUR vom Personal sorgfältig geöffnet und geschlossen werden, um mechanische Schäden zu vermeiden.",
+          "rule2": "Bei starken Winden oder schlechten Wetterbedingungen müssen Sonnenschirme sofort geschlossen werden.",
+          "rule3": "Hängen Sie keine schweren Gegenstände an den Sonnenschirm (Taschen, nasse Kleidung, Strandausrüstung), da sie Verschleiß oder Schäden verursachen können.",
+          "rule4": "Wenn Sie Schäden oder Unregelmäßigkeiten an der Ausrüstung bemerken, informieren Sie sofort das Personal für Reparatur oder Ersatz.",
+          "rule5": "Springen Sie nicht, üben Sie keinen Druck aus, schlagen Sie nicht, setzen Sie sich nicht mit Gewalt auf Liegestühle oder missbrauchen Sie sie.",
+          "rule6": "Liegestühle können nicht ohne Handtücher oder Schutzabdeckungen gegen Öle, Cremes, Salzwasser, Schweiß oder andere Substanzen verwendet werden.",
+          "rule7": "Die Nutzung des Sonnenschirms durch mehr als drei Erwachsene ist nicht gestattet."
+        }
+      },
+      "section4": {
+        "title": "4. Sicherheits- und Notfallregeln",
+        "rule1": "Das Schwimmen in verbotenen oder als gefährlich ausgewiesenen Bereichen ist verboten.",
+        "rule2": "Respektieren Sie die Anweisungen des Rettungsschwimmers und der Informationsschilder.",
+        "rule3": "Im Notfall kontaktieren Sie sofort das Personal, den Rettungsschwimmer oder rufen Sie den Notdienst.",
+        "rule4": "Für weitere Informationen siehe auch die Orientierungstafel für Meeressicherheits-Beschilderung."
+      },
+      "section5": {
+        "title": "5. Disziplinarmaßnahmen",
+        "rule1": "Jeder Verstoß gegen die Vorschriften kann zu einer Verwarnung oder sofortigen Entfernung vom Strand führen.",
+        "rule2": "Schäden an Strandausrüstung werden mit finanzieller Entschädigung entsprechend dem Wert des verursachten Schadens bestraft."
+      }
     },
     "contact": {
       "title": "Fragen?",

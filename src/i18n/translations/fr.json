@@ -236,16 +236,58 @@
     "title": "Parasols de Plage & Règles",
     "subtitle": "Profitez de notre plage avec confort et respectez nos directives",
     "pricing": {
-      "title": "Prix de Location des Parasols",
-      "fullDay": "Journée Complète (7h00 - 18h00)"
+      "title": "Location de Parasols",
+      "fullDay": "Journée Complète (7h00 - 21h00)",
+      "note": "Le parasol coûte 1000 leke pour tout l'horaire autorisé. L'utilisation de la plage n'est autorisée que pendant les heures 07h00 - 21h00."
     },
     "rules": {
-      "title": "Règles et Directives de la Plage",
-      "rule1": "Aucune nourriture ou boisson apportée de l'extérieur - veuillez profiter de nos offres de bar",
-      "rule2": "Les animaux ne sont pas autorisés sur la zone de plage",
-      "rule3": "Veuillez jeter tous les déchets dans les poubelles fournies - interdiction de jeter des détritus",
-      "rule4": "Les enfants doivent être surveillés en permanence",
-      "rule5": "Veuillez respecter les autres usagers de la plage et maintenir des niveaux sonores raisonnables"
+      "title": "RÈGLEMENT D'UTILISATION DE LA PLAGE",
+      "section1": {
+        "title": "1. Critères de Réservation d'Emplacement sur la Plage",
+        "rule1": "Les réservations de chaises longues et parasols peuvent être effectuées par le personnel du Beach Bar.",
+        "rule2": "L'emplacement réservé est maintenu jusqu'à 10h00. Après cette heure, si vous ne vous présentez pas, l'emplacement peut être donné à d'autres.",
+        "rule3": "Il n'est pas permis de bloquer l'emplacement avec des serviettes ou des objets personnels sans réservation valide.",
+        "rule4": "L'utilisation par des tiers n'est pas autorisée.",
+        "rule5": "Le paiement est effectué à l'avance pour la journée ou le forfait choisi (journalier/hebdomadaire/mensuel).",
+        "rule6": "Aucune réservation n'est acceptée sans paiement."
+      },
+      "section2": {
+        "title": "2. Comportement envers le Personnel et les Autres Baigneurs",
+        "rule1": "Tous les baigneurs doivent faire preuve de respect et de comportement approprié envers le personnel et les autres visiteurs.",
+        "rule2": "La musique à volume élevé n'est autorisée qu'avec des appareils personnels et des écouteurs.",
+        "rule3": "L'utilisation de langage offensant, d'insultes ou de comportements inappropriés envers quiconque n'est pas autorisée.",
+        "rule4": "Les parents sont responsables du comportement et de la sécurité de leurs enfants.",
+        "rule5": "Il est interdit de bloquer la vue visuelle des autres baigneurs avec des serviettes, des couvertures, des jouets ou d'autres objets.",
+        "rule6": "Il est interdit d'utiliser des jouets ou de jouer avec eux de manière à perturber le confort et la sécurité des autres baigneurs."
+      },
+      "section3": {
+        "title": "3. Règles Générales pour la Propreté, l'Entretien et la Protection des Infrastructures",
+        "rule1": "Il est strictement interdit de jeter des déchets dans le sable ou la mer.",
+        "rule2": "Demandez des sacs ou des cendriers pour les cigarettes.",
+        "rule3": "Les poubelles doivent être utilisées pour l'élimination des déchets (situées près des douches).",
+        "subsection1": {
+          "title": "1. Utilisation Prudente",
+          "rule1": "Les parasols doivent être ouverts et fermés UNIQUEMENT par le personnel avec précaution pour éviter les dommages mécaniques.",
+          "rule2": "En cas de vents forts ou de mauvaises conditions météorologiques, les parasols doivent être fermés immédiatement.",
+          "rule3": "Ne pas suspendre d'objets lourds au parasol (sacs, vêtements mouillés, équipement de plage) car ils peuvent causer de l'usure ou des dommages.",
+          "rule4": "Si vous remarquez des dommages ou des irrégularités dans l'équipement, informez immédiatement le personnel pour réparation ou remplacement.",
+          "rule5": "Ne pas sauter, exercer de pression, frapper, s'asseoir avec force ou abuser des chaises longues.",
+          "rule6": "Les chaises longues ne peuvent pas être utilisées sans être équipées de serviettes ou de couvertures protectrices contre les huiles, crèmes, eau salée, sueur ou autres substances.",
+          "rule7": "L'utilisation du parasol par plus de trois adultes n'est pas autorisée."
+        }
+      },
+      "section4": {
+        "title": "4. Règles de Sécurité et d'Urgence",
+        "rule1": "La natation dans les zones interdites ou signalées comme dangereuses est interdite.",
+        "rule2": "Respectez les instructions du maître-nageur et des panneaux d'information.",
+        "rule3": "En cas d'urgence, contactez immédiatement le personnel, le maître-nageur ou appelez les services d'urgence.",
+        "rule4": "Pour plus d'informations, consultez également le panneau d'orientation pour la signalisation de sécurité en mer."
+      },
+      "section5": {
+        "title": "5. Mesures Disciplinaires",
+        "rule1": "Toute violation du règlement peut entraîner un avertissement ou un retrait immédiat de la plage.",
+        "rule2": "Les dommages à l'équipement de plage seront punis par une compensation financière selon la valeur des dommages causés."
+      }
     },
     "contact": {
       "title": "Questions?",

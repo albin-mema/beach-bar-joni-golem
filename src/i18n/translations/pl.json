@@ -236,16 +236,58 @@
     "title": "Parasole Plażowe i Zasady",
     "subtitle": "Ciesz się naszą plażą z komfortem i przestrzegaj naszych wytycznych",
     "pricing": {
-      "title": "Ceny Wynajmu Parasoli",
-      "fullDay": "Cały Dzień (7:00 - 18:00)"
+      "title": "Wynajem Parasoli",
+      "fullDay": "Cały Dzień (7:00 - 21:00)",
+      "note": "Parasol kosztuje 1000 leke za cały dozwolony czas. Korzystanie z plaży jest dozwolone tylko w godzinach 07:00 - 21:00."
     },
     "rules": {
-      "title": "Zasady i Wytyczne Plaży",
-      "rule1": "Nie wolno wnosić jedzenia ani napojów z domu - prosimy korzystać z naszej oferty barowej",
-      "rule2": "Zwierzęta nie są dozwolone na obszarze plaży",
-      "rule3": "Prosimy wyrzucać wszystkie śmieci do odpowiednich koszy - zakaz śmiecenia",
-      "rule4": "Dzieci muszą być nadzorowane przez cały czas",
-      "rule5": "Prosimy o szanowanie innych plażowiczów i utrzymywanie rozsądnego poziomu hałasu"
+      "title": "REGULAMIN KORZYSTANIA Z PLAŻY",
+      "section1": {
+        "title": "1. Kryteria Rezerwacji Miejsca na Plaży",
+        "rule1": "Rezerwacje leżaków i parasoli można dokonywać przez personel Beach Bar.",
+        "rule2": "Zarezerwowane miejsce jest utrzymywane do godziny 10:00. Po tym czasie, jeśli się nie pojawisz, miejsce może zostać przekazane innym.",
+        "rule3": "Nie wolno blokować miejsca ręcznikami lub przedmiotami osobistymi bez ważnej rezerwacji.",
+        "rule4": "Korzystanie przez osoby trzecie nie jest dozwolone.",
+        "rule5": "Płatność dokonywana jest z góry za wybrany dzień lub pakiet (dzienny/tygodniowy/miesięczny).",
+        "rule6": "Żadne rezerwacje nie są przyjmowane bez płatności."
+      },
+      "section2": {
+        "title": "2. Zachowanie wobec Personelu i Innych Plażowiczów",
+        "rule1": "Wszyscy plażowicze muszą okazywać szacunek i odpowiednie zachowanie wobec personelu i innych odwiedzających.",
+        "rule2": "Głośna muzyka jest dozwolona tylko z urządzeniami osobistymi i słuchawkami.",
+        "rule3": "Używanie obraźliwego języka, obelg lub nieodpowiedniego zachowania wobec kogokolwiek nie jest dozwolone.",
+        "rule4": "Rodzice są odpowiedzialni za zachowanie i bezpieczeństwo swoich dzieci.",
+        "rule5": "Zabrania się blokowania widoku dla innych plażowiczów ręcznikami, pokrowcami, zabawkami lub innymi przedmiotami.",
+        "rule6": "Zabrania się używania zabawek lub zabawy nimi w sposób zakłócający komfort i bezpieczeństwo innych plażowiczów."
+      },
+      "section3": {
+        "title": "3. Ogólne Zasady Czystości, Konserwacji i Ochrony Infrastruktury",
+        "rule1": "Surowo zabrania się wyrzucania śmieci na piasek lub do morza.",
+        "rule2": "Proś o worki lub popielniczki na papierosy.",
+        "rule3": "Należy używać koszy na śmieci do wyrzucania odpadów (znajdują się w pobliżu pryszniców).",
+        "subsection1": {
+          "title": "1. Ostrożne Użytkowanie",
+          "rule1": "Parasole muszą być otwierane i zamykane TYLKO przez personel ostrożnie, aby uniknąć uszkodzeń mechanicznych.",
+          "rule2": "W przypadku silnych wiatrów lub złych warunków pogodowych parasole muszą być natychmiast zamknięte.",
+          "rule3": "Nie wieszaj ciężkich przedmiotów na parasolu (torby, mokre ubrania, sprzęt plażowy), ponieważ mogą powodować zużycie lub uszkodzenia.",
+          "rule4": "Jeśli zauważysz jakiekolwiek uszkodzenia lub nieprawidłowości w sprzęcie, natychmiast powiadom personel o naprawie lub wymianie.",
+          "rule5": "Nie skacz, nie wywieraj nacisku, nie uderzaj, nie siadaj z siłą ani nie nadużywaj leżaków.",
+          "rule6": "Leżaków nie można używać bez wyposażenia w ręczniki lub osłony ochronne przed olejami, kremami, słoną wodą, potem lub innymi substancjami.",
+          "rule7": "Korzystanie z parasola przez więcej niż trzech dorosłych nie jest dozwolone."
+        }
+      },
+      "section4": {
+        "title": "4. Zasady Bezpieczeństwa i Awaryjne",
+        "rule1": "Pływanie w strefach zabronionych lub oznaczonych jako niebezpieczne jest zabronione.",
+        "rule2": "Przestrzegaj instrukcji ratownika i tablic informacyjnych.",
+        "rule3": "W przypadku nagłej sytuacji natychmiast skontaktuj się z personelem, ratownikiem lub zadzwoń pod numer alarmowy.",
+        "rule4": "Aby uzyskać więcej informacji, zobacz także tablicę orientacyjną dotyczącą oznakowania bezpieczeństwa na morzu."
+      },
+      "section5": {
+        "title": "5. Środki Dyscyplinarne",
+        "rule1": "Każde naruszenie regulaminu może skutkować ostrzeżeniem lub natychmiastowym usunięciem z plaży.",
+        "rule2": "Uszkodzenie sprzętu plażowego będzie karane rekompensatą finansową zgodnie z wartością wyrządzonej szkody."
+      }
     },
     "contact": {
       "title": "Pytania?",

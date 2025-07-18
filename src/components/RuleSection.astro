@@ -1,0 +1,47 @@
+---
+export interface Props {
+  title: string;
+  rules: string[];
+  colorTheme?: 'blue' | 'green' | 'orange' | 'red' | 'purple';
+  subsection?: {
+    title: string;
+    rules: string[];
+  };
+}
+
+const { title, rules, colorTheme = 'blue', subsection } = Astro.props;
+
+const colorClasses = {
+  blue: 'bg-blue-100 text-blue-800',
+  green: 'bg-green-100 text-green-800',
+  orange: 'bg-orange-100 text-orange-800',
+  red: 'bg-red-100 text-red-800',
+  purple: 'bg-purple-100 text-purple-800'
+};
+---
+
+<div class="bg-white shadow-lg p-8 rounded-xl">
+  <h3 class="text-xl font-bold text-gray-900 mb-6">{title}</h3>
+  <div class="space-y-4 mb-6">
+    {rules.map((rule) => (
+      <div class="flex items-start space-x-4">
+        <span class={`flex flex-shrink-0 justify-center items-center ${colorClasses[colorTheme]} rounded-full w-8 h-8 font-semibold text-sm`}>•</span>
+        <p class="text-gray-700">{rule}</p>
+      </div>
+    ))}
+  </div>
+  
+  {subsection && (
+    <div class="bg-gray-50 p-6 rounded-lg">
+      <h4 class="text-lg font-semibold text-gray-800 mb-4">{subsection.title}</h4>
+      <div class="space-y-4">
+        {subsection.rules.map((rule) => (
+          <div class="flex items-start space-x-4">
+            <span class={`flex flex-shrink-0 justify-center items-center ${colorClasses[colorTheme]} rounded-full w-8 h-8 font-semibold text-sm`}>•</span>
+            <p class="text-gray-700">{rule}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+</div>
