@@ -293,5 +293,13 @@
       "title": "Questions?",
       "text": "Contactez notre personnel pour la location de parasols et toute question concernant les règles de la plage."
     }
+  },
+  "wifi": {
+    "title": "WiFi Beach Bar Joni",
+    "connectTitle": "Se connecter au WiFi",
+    "networkName": "Nom du réseau",
+    "password": "Mot de passe WiFi :  ",
+    "buttonLabel": "Informations WiFi",
+    "copiedMessage": "Mot de passe copié dans le presse-papiers !"
   }
 }

@@ -293,5 +293,13 @@
       "title": "Domande?",
       "text": "Contatta il nostro staff per il noleggio ombrelloni e qualsiasi domanda sulle regole della spiaggia."
     }
+  },
+  "wifi": {
+    "title": "WiFi Beach Bar Joni",
+    "connectTitle": "Connettiti al WiFi",
+    "networkName": "Nome Rete",
+    "password": "Password WiFi:  ",
+    "buttonLabel": "Informazioni WiFi",
+    "copiedMessage": "Password copiata negli appunti!"
   }
 }

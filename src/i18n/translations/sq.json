@@ -293,5 +293,13 @@
       "title": "Pyetje?",
       "text": "Kontaktoni stafin tonë për çadra dhe çdo pyetje rreth rregullave të plazhit."
     }
+  },
+  "wifi": {
+    "title": "WiFi Beach Bar Joni",
+    "connectTitle": "Lidhu me WiFi",
+    "networkName": "Emri i Rrjetit",
+    "password": "Fjalëkalimi WiFi:  ",
+    "buttonLabel": "Informacione WiFi",
+    "copiedMessage": "Fjalëkalimi u kopjua në memorje!"
   }
 }

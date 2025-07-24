@@ -1,7 +1,10 @@
 {
   "extends": "astro/tsconfigs/base",
   "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"],
+  "exclude": [
+    "dist",
+    "node_modules/.pnpm/@spotlightjs+astro@*"
+  ],
   "compilerOptions": {
     "allowJs": true,
     "noImplicitAny": false,

@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+.nav-icon-link {
+  position: relative;
+  z-index: 50;
+  margin-left: 0.5rem;
+  display: flex;
+  align-items: center;
+}

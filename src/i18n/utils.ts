@@ -10,14 +10,14 @@ export const languages: Record<string, string> = {
   fr: 'Français'
 };
 
-export const defaultLang: string = 'en';
+export const defaultLang: string = 'sq';
 
 // Browser language detection
 export function detectBrowserLanguage(): string {
   if (typeof window === 'undefined') return defaultLang;
 
   // Get browser languages in order of preference
-  const browserLanguages = navigator.languages || [navigator.language || navigator.userLanguage || defaultLang];
+  const browserLanguages = navigator.languages || [navigator.language || defaultLang];
 
   // Check each browser language against our supported languages
   for (const browserLang of browserLanguages) {
@@ -63,7 +63,7 @@ export function getLangFromUrl(url: URL): string {
 }
 
 // Load translation for a specific language
-export async function getTranslations(lang: string): Promise<any> {
+export async function getTranslations(lang: string): Promise<TranslationStructure> {
   try {
     const translations = await import(`./translations/${lang}.json`);
     return translations.default;
@@ -75,8 +75,21 @@ export async function getTranslations(lang: string): Promise<any> {
 }
 
 // Translation function factory
-export function useTranslations(translations: any) {
-  return function t(key: string): string {
+export type TranslationStructure = {
+  wifi: {
+    title: string;
+    connectTitle: string;
+    networkName: string;
+    password: string;
+    copiedMessage: string;
+    buttonLabel: string;
+  };
+};
+
+export function useTranslations<T extends TranslationStructure>(translations: T): (key: keyof T) => string {
+  return function t(key: keyof T): string {
+    if (typeof key !== 'string') return '';
+    const keyParts = key.split('.');
     const keys = key.split('.');
     let value = translations;
     
@@ -89,7 +102,7 @@ export function useTranslations(translations: any) {
       }
     }
     
-    return value;
+    return typeof value === 'string' ? value : JSON.stringify(value);
   };
 }
 

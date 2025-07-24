@@ -9,12 +9,17 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/react": "^4.3.0",
+    "@headlessui/react": "^2.2.6",
+    "@heroicons/react": "^2.2.0",
     "@sentry/astro": "^9.24.0",
     "@spotlightjs/astro": "^3.2.3",
     "@tailwindcss/vite": "^4.1.8",
     "astro": "^5.8.1",
     "astro-compressor": "^1.0.0",
     "lucide-astro": "^0.511.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "sharp": "^0.34.2"
   },
   "devDependencies": {

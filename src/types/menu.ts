@@ -1,8 +1,8 @@
 // Menu item interface
 export interface MenuItem {
   key: string;
-  name: string;
   price: string;
+  name: string;
   description?: string;
   image?: string;
   featured?: boolean;

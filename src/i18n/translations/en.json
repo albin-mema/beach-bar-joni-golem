@@ -293,5 +293,13 @@
       "title": "Questions?",
       "text": "Contact our staff for umbrella rentals and any questions about beach rules."
     }
+  },
+  "wifi": {
+    "title": "WiFi Beach Bar Joni",
+    "connectTitle": "Connect to WiFi",
+    "networkName": "Network Name",
+    "password": "WiFi Password:  ",
+    "buttonLabel": "WiFi Information",
+    "copiedMessage": "Password copied to clipboard!"
   }
 }

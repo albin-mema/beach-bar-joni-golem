@@ -1,6 +1,7 @@
 ---
 import { getLocalizedUrl, getLanguageUrls } from '../i18n/utils.js';
-import { Martini, Umbrella, Menu } from 'lucide-astro';
+import { Martini, Umbrella } from 'lucide-astro';
+import WifiButton from './WifiButton.tsx';
 
 interface Props {
   currentPage?: string;
@@ -8,7 +9,7 @@ interface Props {
   translations?: any;
 }
 
-const { currentPage = 'home', lang = 'en', translations } = Astro.props;
+const { currentPage = 'home', lang = 'sq', translations } = Astro.props;
 
 // Get translation function
 function t(key) {
@@ -106,15 +107,15 @@ const languageConfig = {
           </div>
         </div>
 
-        <!-- Desktop Navigation Icons -->
-        <div class="hidden md:flex items-center space-x-3">
+        <!-- Navigation Icons (Desktop and Mobile) -->
+        <div class="flex items-center space-x-2 sm:space-x-3">
           <!-- Home Icon -->
           <a
             href={getLocalizedUrl('/', lang)}
             aria-label={t('navigation.home')}
-            class="group flex justify-center items-center bg-white/10 hover:bg-white/20 p-3 rounded-lg transition-colors nav-icon-link"
+            class="group flex justify-center items-center bg-white/10 hover:bg-white/20 p-2 sm:p-3 rounded-lg transition-colors nav-icon-link"
           >
-            <svg class="w-5 h-5 text-white group-hover:scale-110 transition-transform nav-icon" fill="currentColor" viewBox="0 0 20 20">
+            <svg class="w-4 sm:w-5 h-4 sm:h-5 text-white group-hover:scale-110 transition-transform nav-icon" fill="currentColor" viewBox="0 0 20 20">
               <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
             </svg>
           </a>
@@ -123,66 +124,29 @@ const languageConfig = {
           <a
             href={getLocalizedUrl('/beach-rules', lang)}
             aria-label={t('navigation.beachRules')}
-            class="group flex justify-center items-center bg-white/10 hover:bg-white/20 p-3 rounded-lg transition-colors nav-icon-link"
+            class="group flex justify-center items-center bg-white/10 hover:bg-white/20 p-2 sm:p-3 rounded-lg transition-colors nav-icon-link"
           >
-            <Umbrella class="w-5 h-5 text-white group-hover:scale-110 transition-transform nav-icon" />
+            <Umbrella class="w-4 sm:w-5 h-4 sm:h-5 text-white group-hover:scale-110 transition-transform nav-icon" />
           </a>
 
           <!-- Menu Icon -->
           <a
             href={getLocalizedUrl('/menu', lang)}
             aria-label={t('navigation.menu')}
-            class="group flex justify-center items-center bg-white/10 hover:bg-white/20 p-3 rounded-lg transition-colors nav-icon-link"
+            class="group flex justify-center items-center bg-white/10 hover:bg-white/20 p-2 sm:p-3 rounded-lg transition-colors nav-icon-link"
           >
-            <Martini class="w-5 h-5 text-white group-hover:scale-110 transition-transform nav-icon" />
+            <Martini class="w-4 sm:w-5 h-4 sm:h-5 text-white group-hover:scale-110 transition-transform nav-icon" />
           </a>
-        </div>
 
-        <!-- Mobile Menu Button -->
-        <div class="group md:hidden relative mobile-menu-container">
-          <button
-            class="flex items-center space-x-2 bg-white/10 hover:bg-white/20 px-3 py-2 rounded-lg transition-colors mobile-menu-toggle"
-            aria-label="Toggle mobile menu"
-          >
-            <Menu class="w-5 h-5 text-white" />
-          </button>
+          <!-- WiFi Icon (React Component) -->
+          <WifiButton client:load t={translations} />
         </div>
       </div>
     </div>
   </div>
-
-          <!-- Mobile Menu Dropdown -->
-          <div class="invisible group-hover:visible top-full right-0 absolute opacity-0 group-hover:opacity-100 mt-2 w-48 transition-all translate-y-2 group-hover:translate-y-0 duration-300 transform mobile-menu">
-            <div class="space-y-2 bg-white/95 shadow-lg backdrop-blur-md px-2 pt-2 pb-3 rounded-lg">
-              <a
-                href={getLocalizedUrl('/', lang)}
-                class="flex items-center space-x-3 hover:bg-gray-50 px-4 py-4 rounded-md min-h-[44px] text-gray-700 hover:text-blue-600 text-sm transition-colors mobile-nav-link"
-              >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
-                </svg>
-                <span>{t('navigation.home')}</span>
-              </a>
-
-              <a
-                href={getLocalizedUrl('/beach-rules', lang)}
-                class="flex items-center space-x-3 hover:bg-gray-50 px-4 py-4 rounded-md min-h-[44px] text-gray-700 hover:text-blue-600 text-sm transition-colors mobile-nav-link"
-              >
-                <Umbrella class="w-5 h-5" />
-                <span>{t('navigation.beachRules')}</span>
-              </a>
-
-              <a
-                href={getLocalizedUrl('/menu', lang)}
-                class="flex items-center space-x-3 hover:bg-gray-50 px-4 py-4 rounded-md min-h-[44px] text-gray-700 hover:text-blue-600 text-sm transition-colors mobile-nav-link"
-              >
-                <Martini class="w-5 h-5" />
-                <span>{t('navigation.menu')}</span>
-              </a>
-            </div>
-          </div>
-        </div>
 </nav>
+
+
 
 <style>
   .nav-bar {
@@ -277,14 +241,7 @@ const languageConfig = {
     background: rgba(229 231 235 / 1); /* bg-gray-200 */
   }
 
-  /* Mobile menu toggle color changes when scrolled */
-  .nav-scrolled .mobile-menu-toggle {
-    background: rgba(243 244 246 / 1); /* bg-gray-100 */
-  }
 
-  .nav-scrolled .mobile-menu-toggle:hover {
-    background: rgba(229 231 235 / 1); /* bg-gray-200 */
-  }
 
   /* Language menu styles */
   .language-menu {
@@ -320,48 +277,16 @@ const languageConfig = {
     padding: 12px 16px !important;
   }
 
-  /* Mobile menu styles */
-  .mobile-menu {
-    z-index: 1000;
-  }
 
-  .mobile-menu-toggle {
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  .mobile-nav-link {
-    min-height: 44px !important;
-    height: auto !important;
-    display: flex !important;
-    align-items: center !important;
-    padding: 12px 16px !important;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  /* Ensure mobile menu works on touch devices */
-  @media (hover: none) and (pointer: coarse) {
-    .mobile-menu-container:hover .mobile-menu {
-      visibility: hidden;
-      opacity: 0;
-      transform: translateY(8px);
-    }
-
-    .mobile-menu.visible {
-      visibility: visible !important;
-      opacity: 1 !important;
-      transform: translateY(0) !important;
-    }
-  }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM Content Loaded - Starting navigation setup');
+
     const nav = document.querySelector('.nav-bar');
     const languageToggle = document.querySelector('.language-menu-toggle');
     const languageMenu = document.querySelector('.language-menu');
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const mobileMenu = document.querySelector('.mobile-menu');
     let lastScrollY = window.scrollY;
     let ticking = false;
 
@@ -416,21 +341,9 @@ const languageConfig = {
       }
     }
 
-    // Mobile menu toggle functionality
-    let isMobileMenuOpen = false;
 
-    function toggleMobileMenu() {
-      isMobileMenuOpen = !isMobileMenuOpen;
-      if (mobileMenu) {
-        if (isMobileMenuOpen) {
-          mobileMenu.classList.remove('invisible', 'opacity-0', 'translate-y-2');
-          mobileMenu.classList.add('visible', 'opacity-100', 'translate-y-0');
-        } else {
-          mobileMenu.classList.add('invisible', 'opacity-0', 'translate-y-2');
-          mobileMenu.classList.remove('visible', 'opacity-100', 'translate-y-0');
-        }
-      }
-    }
+
+
 
     // Handle language menu toggle click
     if (languageToggle) {
@@ -441,14 +354,9 @@ const languageConfig = {
       });
     }
 
-    // Handle mobile menu toggle click
-    if (mobileMenuToggle) {
-      mobileMenuToggle.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        toggleMobileMenu();
-      });
-    }
+
+
+
 
     // Close menus when clicking outside
     document.addEventListener('click', function(e) {
@@ -458,10 +366,15 @@ const languageConfig = {
       if (isLanguageMenuOpen && languageMenu && !languageMenu.contains(target) && !languageToggle?.contains(target)) {
         toggleLanguageMenu();
       }
+    });
 
-      // Close mobile menu when clicking outside
-      if (isMobileMenuOpen && mobileMenu && !mobileMenu.contains(target) && !mobileMenuToggle?.contains(target)) {
-        toggleMobileMenu();
+    // Close modals on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        if (isLanguageMenuOpen) {
+          toggleLanguageMenu();
+        }
+
       }
     });
 
@@ -476,8 +389,8 @@ const languageConfig = {
           if (langMatch) {
             localStorage.setItem('preferred-language', langMatch[1]);
           } else if (href === '/' || href.endsWith('/')) {
-            // Root URL means English
-            localStorage.setItem('preferred-language', 'en');
+            // Root URL means Albanian
+            localStorage.setItem('preferred-language', 'sq');
           }
         }
 
@@ -487,15 +400,7 @@ const languageConfig = {
       });
     });
 
-    // Close mobile menu when clicking on mobile nav links
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-    mobileNavLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        if (isMobileMenuOpen) {
-          toggleMobileMenu();
-        }
-      });
-    });
+
 
     // Smooth scrolling for navigation links
     const links = document.querySelectorAll('a[href^="#"]');
@@ -505,6 +410,10 @@ const languageConfig = {
         const targetId = this.getAttribute('href');
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
+          // Debug: Log element types to validate TypeScript issue
+          console.log('nav element type:', nav?.constructor.name, nav instanceof HTMLElement);
+          console.log('targetElement type:', targetElement.constructor.name, targetElement instanceof HTMLElement);
+          
           const navHeight = nav?.offsetHeight || 0;
           const targetPosition = targetElement.offsetTop - navHeight;
 

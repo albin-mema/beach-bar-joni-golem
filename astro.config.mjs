@@ -5,6 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 import sentry from '@sentry/astro';
 import spotlightjs from '@spotlightjs/astro';
+import react from '@astrojs/react';
 
 import compressor from 'astro-compressor';
 
@@ -12,11 +13,11 @@ import compressor from 'astro-compressor';
 export default defineConfig({
   site: 'https://beachbarjoni.al',
   base: '/',
-  integrations: [sentry(), spotlightjs(), compressor()],
+  integrations: [sentry(), spotlightjs(), react(), compressor()],
 
   i18n: {
     locales: ['en', 'sq', 'it', 'pl', 'de', 'fr'],
-    defaultLocale: 'en',
+    defaultLocale: 'sq',
     routing: {
       prefixDefaultLocale: false
     }

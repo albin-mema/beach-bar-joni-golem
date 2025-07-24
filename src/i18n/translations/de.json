@@ -293,5 +293,13 @@
       "title": "Fragen?",
       "text": "Kontaktieren Sie unser Personal für Sonnenschirm-Vermietung und Fragen zu den Strandregeln."
     }
+  },
+  "wifi": {
+    "title": "WiFi Beach Bar Joni",
+    "connectTitle": "Mit WiFi verbinden",
+    "networkName": "Netzwerkname",
+    "password": "WiFi-Passwort:",
+    "buttonLabel": "WiFi-Informationen",
+    "copiedMessage": "Passwort wurde in die Zwischenablage kopiert!"
   }
 }

@@ -11,8 +11,8 @@ import RuleSection from '../components/RuleSection.astro'
 import { getTranslations, useTranslations } from '../i18n/utils.js'
 import pricingData from '../data/umbrella-pricing.json'
 
-// Default to English for root beach-rules page
-const lang = 'en'
+// Default to Albanian for root beach-rules page
+const lang = 'sq'
 const translations = await getTranslations(lang)
 const t = useTranslations(translations)
 
@@ -101,7 +101,7 @@ const pricing = pricingData
                 </table>
               </div>
               {t('beachRules.pricing.note') && (
-                <div class="mt-6 p-4 bg-blue-50 border-l-4 border-blue-400 rounded-r-lg">
+                <div class="bg-blue-50 mt-6 p-4 border-blue-400 border-l-4 rounded-r-lg">
                   <p class="text-blue-800 text-sm leading-relaxed">{t('beachRules.pricing.note')}</p>
                 </div>
               )}
