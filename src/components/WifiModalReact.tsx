@@ -209,7 +209,7 @@ export default function WifiModalReact({ isOpen, onClose, t }: WifiModalProps) {
             {/* WiFi Network Info */}
             <div className="space-y-6">
               <div className="text-center">
-                <h4 className="mb-3 font-bold text-gray-900 text-2xl tracking-tight">Connect to WiFi</h4>
+                <h4 className="mb-3 font-bold text-gray-900 text-2xl tracking-tight">{t.connectTitle}</h4>
                 <p className="text-gray-600 text-sm">Use the credentials below to connect to our free WiFi</p>
               </div>
 
