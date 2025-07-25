@@ -106,26 +106,20 @@ export function useTranslations<T extends TranslationStructure>(translations: T)
   };
 }
 
-// Get currency symbol based on language
+// Get currency symbol - now always returns Lek
 export function getCurrency(lang: string): string {
-  return lang === 'sq' ? 'L' : '€';
+  return 'L';
 }
 
-// Convert price based on language and currency
+// Format price - now always uses Lek currency for all languages
 export function formatPrice(price: string, lang: string): string {
   const currency = getCurrency(lang);
-  
+
   // Extract numeric value from price string (e.g., "600 L" -> 600)
   const numericPrice = parseInt(price.replace(/[^\d]/g, ''));
-  
-  if (lang === 'sq') {
-    // Albanian uses Lek
-    return `${numericPrice} ${currency}`;
-  } else {
-    // Convert Lek to Euro (approximate rate: 100 Lek = 1 Euro)
-    const euroPrice = Math.round(numericPrice / 100);
-    return `${euroPrice}${currency}`;
-  }
+
+  // Always use Lek pricing for all languages
+  return `${numericPrice} ${currency}`;
 }
 
 // Generate localized URL using Astro's built-in i18n
