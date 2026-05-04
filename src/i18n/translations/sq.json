@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Beach Bar Joni - Golem, Shqipëri",
-    "description": "Beach Bar Joni në Golem. Shijoni kokteje të shijshme, birra të ftohta dhe pamje të mrekullueshme të plazhit. Vizitoni për një përvojë të paharrueshme pranë detit.",
+    "description": "Beach Bar Joni në Golem. Shijoni kokteje të shijshme, birra të ftohta dhe pamje të mrekullueshme të plazhit. Na vizitoni për një përvojë të paharrueshme pranë detit.",
     "menuTitle": "Menuja - Beach Bar Joni",
     "menuDescription": "Zbuloni menunë tonë të pasur në Beach Bar Joni - kokteje, birra, pije të ngrohta dhe freskuese."
   },
@@ -22,8 +22,8 @@
     "findUs": "Na Gjeni"
   },
   "gallery": {
-    "image1": "Pamja e jashtme e Beach Bar Joni",
-    "image2": "Beach Bar Joni - Ulëse të jashtme",
+    "image1": "Pamja e jashtme e Beach Bar Jonit",
+    "image2": "Beach Bar Joni - Ambienti i jashtëm",
     "image3": "Beach Bar Joni - Brendësia e barit",
     "image4": "Beach Bar Joni - Kokteje dhe pije"
   },
@@ -31,10 +31,10 @@
     "title": "Na Vizitoni",
     "subtitle": "Na gjeni në brigjet e bukura të Golemit",
     "address": "Adresa",
-    "addressText": "Shetitorja plazhit Golem\nGolem, Tiranë, Shqipëri",
+    "addressText": "Shëtitorja e plazhit Golem\nGolem, Tiranë, Shqipëri",
     "hours": "Orari",
     "hoursText": "Çdo ditë: 7:00 - 24:00\nOrari mund të ndryshojë sipas sezonit",
-    "mapTitle": "Vendndodhja e Beach Bar Joni"
+    "mapTitle": "Vendndodhja e Beach Bar Jonit"
   },
   "contact": {
     "followInstagram": "Na ndiqni në Instagram",
@@ -42,14 +42,14 @@
   },
   "footer": {
     "description": "Shijoni kombinimin e përsosur të pijeve freskuese dhe pamjeve të mrekullueshme të plazhit.",
-    "copyright": "© 2025 Beach Bar Joni. Të gjitha të drejtat e rezervuara."
+    "copyright": "© 2026 Beach Bar Joni. Të gjitha të drejtat e rezervuara."
   },
   "menu": {
     "featuredCocktails": "Kokteje të Veçanta",
     "featuredSubtitle": "Zbuloni koktejet tona speciale të përgatitura me përbërës të cilësisë së lartë",
     "categories": {
-      "kokteil": "Kokteil",
-      "teNgrohta": "Te Ngrohta",
+      "kokteil": "Kokteje",
+      "teNgrohta": "Të Ngrohta",
       "birra": "Birra",
       "freskuese": "Freskuese",
       "alkoolike": "Alkoolike"
@@ -61,19 +61,19 @@
       },
       "mojito": {
         "name": "Mojito",
-        "description": "Rum i bardhë me mente të freskët, limon dhe ujë me gaz"
+        "description": "Rum i bardhë me mente të freskët, lime, sheqer dhe ujë me gaz"
       },
       "caipiroska": {
         "name": "Caipiroska",
-        "description": "Vodka me limon të freskët, sheqer dhe akull të thërrmuar"
+        "description": "Vodka me lime të freskët, sheqer dhe akull të thërrmuar"
       },
       "sexOnTheBeach": {
         "name": "Sex On The Beach",
-        "description": "Vodka, likör pjeshke, lëng kumbulla dhe ananas"
+        "description": "Vodka, liker pjeshke, lëng portokalli dhe lëng boronicë e kuqe"
       },
       "margarita": {
         "name": "Margarita",
-        "description": "Tequila me limon të freskët, triple sec dhe buzë me kripë"
+        "description": "Tequila me lime të freskët, triple sec dhe buzë me kripë"
       },
       "kafe": {
         "name": "Kafe"
@@ -145,10 +145,10 @@
         "name": "Fanta"
       },
       "lemonSoda": {
-        "name": "Soda Limoni"
+        "name": "Lemon Soda"
       },
       "orangeSoda": {
-        "name": "Soda Portokalli"
+        "name": "Orange Soda"
       },
       "lipton": {
         "name": "Lipton Ice Tea"
@@ -175,10 +175,10 @@
         "name": "Grodino"
       },
       "rosseLimonade": {
-        "name": "Limonadë e Kuqe"
+        "name": "Rose Lemonade"
       },
       "ujeVitamine": {
-        "name": "Ujë Vitaminash"
+        "name": "Vitamin Water"
       },
       "ivi": {
         "name": "Ivi"
@@ -227,7 +227,7 @@
       }
     }
   },
-  "currency": "L",
+  "currency": "Lekë",
   "language": {
     "current": "Shqip",
     "switch": "Gjuha"
@@ -238,7 +238,7 @@
     "pricing": {
       "title": "Çadra",
       "fullDay": "Dita e Plotë (7:00 - 21:00)",
-      "note": "Çadra kushton 1000 leke për të gjithë orarin e lejuar. Përdorimi i plazhit lejohet vetëm gjatë orarit 07:00 - 21:00."
+      "note": "Çadra kushton 1000 lekë për të gjithë orarin e lejuar. Përdorimi i plazhit lejohet vetëm gjatë orarit 07:00 - 21:00."
     },
     "rules": {
       "title": "RREGULLORE PËR PËRDORIMIN E PLAZHIT",
@@ -247,33 +247,33 @@
         "rule1": "Rezervimi i shezlongëve dhe çadrave mund të bëhet nëpërmjet stafit të Beach Bar-it.",
         "rule2": "Vendi i rezervuar ruhet deri në orën 10:00. Pas kësaj ore, nëse nuk paraqiteni, vendi mund t'u jepet të tjerëve.",
         "rule3": "Nuk lejohet bllokimi i vendit me peshqirë apo sende personale pa bërë rezervim të vlefshëm.",
-        "rule4": "Perdorimi nga persona te dyte nuk eshte i lejueshem.",
+        "rule4": "Përdorimi nga persona të tjerë nuk është i lejueshëm.",
         "rule5": "Pagesa kryhet paraprakisht për ditën ose paketën e zgjedhur (ditore/javore/mujore).",
-        "rule6": "Nuk pranohet asnje rezervim pa u kryer pagesa."
+        "rule6": "Nuk pranohet asnjë rezervim pa u kryer pagesa."
       },
       "section2": {
         "title": "2. Sjellja ndaj Personelit dhe Pushuesve të Tjerë",
         "rule1": "Të gjithë pushuesit duhet të tregojnë respekt dhe sjellje të denjë ndaj stafit dhe pushuesve të tjerë.",
-        "rule2": "Muzika me volum të lartë lejohet vetëm me pajisje personale dhe kufje.",
+        "rule2": "Dëgjimi i muzikës lejohet vetëm me kufje.",
         "rule3": "Nuk lejohet përdorimi i gjuhës fyese, ofendimeve apo sjelljeve të papërshtatshme kundrejt kujtdo.",
         "rule4": "Prindërit janë përgjegjës për sjelljen dhe sigurinë e fëmijëve të tyre.",
-        "rule5": "Ndalohet pengimi i pamjes vizive për plazhistët e tjerë nëpërmjet peshqirëve, mbulesave, lodrave ose sendeve të tjera.",
+        "rule5": "Ndalohet pengimi i pamjes për plazhistët e tjerë nëpërmjet peshqirëve, mbulesave, lodrave ose sendeve të tjera.",
         "rule6": "Ndalohet përdorimi i lodrave apo luajtja me to duke cenuar komoditetin dhe sigurinë e plazhistëve të tjerë."
       },
       "section3": {
-        "title": "3. Rregulla të Përgjithshme për Pastertine, Mirëmbajtjen DHE Ruajtjen e Infrastruktures",
+        "title": "3. Rregulla të Përgjithshme për Pastërtinë, Mirëmbajtjen dhe Ruajtjen e Infrastrukturës",
         "rule1": "Ndalohet rreptësisht hedhja e mbeturinave në rërë apo det.",
-        "rule2": "Kerkoni per qese ose shkundes per cigaret.",
-        "rule3": "Duhet të përdoren koshat për hedhjen e mbeturinave.(Ndodhen ne afersi te dusheve).",
+        "rule2": "Kërkoni qese ose tavëll për cigaret.",
+        "rule3": "Duhet të përdoren koshat për hedhjen e mbeturinave (Ndodhen në afërsi të dusheve).",
         "subsection1": {
           "title": "1. Përdorimi i Kujdesshëm",
-          "rule1": "Çadra duhet hapur dhe mbyllur VETEM stafi me kujdes për të shmangur dëmtimet mekanike.",
+          "rule1": "Çadra duhet të hapet dhe mbyllet VETËM nga stafi, për të shmangur dëmtimet.",
           "rule2": "Në rast të erërave të forta ose kushteve të këqija atmosferike, çadra duhet mbyllur menjëherë.",
-          "rule3": "Mos varni objekte të rënda në çadër (çantat, rrobat e lagura të shumta, pajisje plazhi), pasi mund të shkaktojnë konsum ose dëmtime.",
-          "rule4": "Nëse vëreni ndonjë dëmtim apo parregullsi te pajisjes, lajmëroni menjëherë stafin për riparim ose zëvendësim.",
-          "rule5": "Mos u hidhni ,ushtroni presion ,perplasni ,uluni me force ose mbi shezlong.",
-          "rule6": "Nuk lejohet përdorimi i shezlongëve pa qenë i pajisur me peshqir ose copa mbrojtëse nga vajrat, kremrat, uji me kripë, djersa ose substanca të tjera.",
-          "rule7": "Nuk lejohet perdorimi i cadres nga me shume se tre te rritur."
+          "rule3": "Mos varni objekte të rënda në çadër (çantat, rrobat e lagura të shumta, pajisje plazhi), pasi mund të shkaktojnë dëmtime.",
+          "rule4": "Nëse vëreni ndonjë dëmtim apo parregullsi te pajisjet, lajmëroni menjëherë stafin për riparim ose zëvendësim.",
+          "rule5": "Mos u hidhni apo mos u ulni me forcë në shezlong.",
+          "rule6": "Ndalohet shtrirja në shezlong pa vendosur peshqir, për t'i mbrojtur ato nga vajrat apo djersa.",
+          "rule7": "Nuk lejohet përdorimi i çadrës nga më shumë se tre të rritur."
         }
       },
       "section4": {
@@ -286,7 +286,7 @@
       "section5": {
         "title": "5. Masa Disiplinore",
         "rule1": "Çdo shkelje e rregullores mund të rezultojë në paralajmërim ose në largim të menjëhershëm nga plazhi.",
-        "rule2": "Dëmtimi i pajisjeve të plazhit do të ndëshkohet me dëmshpërblim financiar sipas vlerës së shkaktuar."
+        "rule2": "Dëmtimi i pajisjeve të plazhit do të ndëshkohet me dëmshpërblim financiar sipas vlerës së dëmit të shkaktuar."
       }
     },
     "contact": {
@@ -300,6 +300,6 @@
     "networkName": "Emri i Rrjetit",
     "password": "Fjalëkalimi WiFi:  ",
     "buttonLabel": "Informacione WiFi",
-    "copiedMessage": "Fjalëkalimi u kopjua në memorje!"
+    "copiedMessage": "Fjalëkalimi u kopjua në memorie!"
   }
 }
